@@ -1,0 +1,29 @@
+<h1 mat-dialog-title>{{title}}</h1>
+<div mat-dialog-content>
+  <form [formGroup]="bouncyHouseForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input matInput type="text" formControlName="name">
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline">
+      <mat-label>Preis (pro Tag)</mat-label>
+      <input matInput type="number" formControlName="price_per_day">
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline">
+      <mat-label>Size</mat-label>
+      <mat-select formControlName="size">
+        <mat-option *ngFor="let s of sizes" [value]="s">{{s}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button mat-dialog-close="" cdkFocusInitial>Save</button>
+</div>
+
+
+
+

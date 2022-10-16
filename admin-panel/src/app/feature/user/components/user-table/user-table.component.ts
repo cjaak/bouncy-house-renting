@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {User} from "../../../../shared/models/user.model";
 import {BouncyHouseFormComponent} from "../../../bouncy-house/components/bouncy-house-form/bouncy-house-form.component";
 import {MatDialog} from "@angular/material/dialog";
-import {UserService} from "../../../../dataaccess/services/user.service";
+import {UserService} from "../../../../data-access/services/user.service";
 
 @Component({
   selector: 'app-user-table',
