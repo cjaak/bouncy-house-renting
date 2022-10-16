@@ -27,6 +27,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User create(User user) {
+        log.info("Creating user: {}", user.getEmail());
+        return userRepo.save(user);
+    }
+
+    @Override
     public Collection<User> getAll() {
         log.info("Fetching all Users");
         return userRepo.findAll();

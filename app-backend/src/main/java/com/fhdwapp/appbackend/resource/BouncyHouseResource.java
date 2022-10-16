@@ -45,6 +45,18 @@ public class BouncyHouseResource {
         );
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Response> updateBouncyHouse(@PathVariable("id") Long id, @RequestBody @Valid BouncyHouse house) {
+        return ResponseEntity.ok(Response.builder()
+                .timeStamp(now())
+                .data(of("bouncy_house", bouncyHouseService.update(house)))
+                .message("bouncy house updated")
+                .status(OK)
+                .statusCode(OK.value())
+                .build()
+        );
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Response> getBouncyHouse(@PathVariable("id") Long id) {
         return ResponseEntity.ok(Response.builder()

@@ -3,6 +3,7 @@ package com.fhdwapp.appbackend.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -21,9 +22,9 @@ public class User {
     @Column(unique = true)
     private String email;
     private String password;
-    private Date dateOfBirth;
+    private LocalDate dateOfBirth;
     private String street;
-    private Integer houseNumber;
+    private String houseNumber;
     public Integer zipCode;
     public String city;
 }

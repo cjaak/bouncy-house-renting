@@ -33,7 +33,7 @@ public class RentedResource {
         );
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Response> getRentedEntry(@PathVariable("id") Long id) {
         return ResponseEntity.ok(Response.builder()
                 .timeStamp(now())
