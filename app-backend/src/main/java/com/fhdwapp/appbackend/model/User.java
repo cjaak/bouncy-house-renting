@@ -3,6 +3,7 @@ package com.fhdwapp.appbackend.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Getter
@@ -19,8 +20,8 @@ public class User {
     private String lastName;
     @Column(unique = true)
     private String email;
-    private int phone;
     private String password;
+    private Date dateOfBirth;
     private String street;
     private Integer houseNumber;
     public Integer zipCode;
