@@ -1,0 +1,66 @@
+\documentclass[12pt,titlepage]{article}
+
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{color}
+\usepackage[a4paper,lmargin={4cm},rmargin={2.5cm},tmargin={2.5cm},bmargin = {2.5cm}]{geometry}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[section]{placeins}
+\newcommand{\namesigdate}[2][5cm]{%
+	\begin{tabular}{@{}p{#1}@{}}
+		#2 \\[2\normalbaselineskip] \hrule \\[0pt]
+		{\small \textit{Unterschrift}} \\[2\normalbaselineskip] \hrule \\[0pt]
+		{\small \textit{Datum}}
+	\end{tabular}
+}
+
+% Remove "Abbildungsverzeichnis" title when using \listoffigures
+\renewcommand{\listfigurename}{}
+
+\author{Jan EckersBerg, Antoine Massimo, Noel Carsten Mielemeier, Eitel Rüdiger, Charlie Wiegand}
+
+\begin{document}
+	\begin{titlepage}
+		\centering
+		
+		{\Huge\bfseries Hüpfburgenvermietung - Dokumentation}\par
+		\vspace{0.5cm}
+		{\Large\bfseries Implementierung einer Vermietungsapp im Scrum Workflow}
+		\vspace{0.5cm}
+		
+		{\scshape\Large FHDW\par}
+		\vspace{2cm}
+	
+		
+		Jan EckersBerg,  \\
+		Antoine Massimo,  \\
+		Noel Carsten Mielemeier, \\ 
+		Eitel Rüdiger \\ 
+		Charlie Wiegand
+		\vfill
+		
+		\begin{tabular}{rl}
+			Projektbetreuender Dozent:      &      Markus Becker    \\
+		\end{tabular}
+		\vfill
+		{\large \today\par}
+	\end{titlepage}
+	\tableofcontents
+	\newpage
+
+	\section{Technisches Vorgehen}
+	\section{Datenhaltung}
+	\section{Funktionsweise}
+	\section{Test}
+	\section{Projektdurchführung}
+	\section{Projektmanagement}
+	\section{Fazit}
+
+	
+	
+\end{document}
+
+
