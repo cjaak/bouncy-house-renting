@@ -28,7 +28,7 @@ public class BouncyHouse implements Serializable {
     private double weightLimit;
     private Integer constructionTimeInMinutes;
     private double pricePerDay;
-    private boolean WithPowerConnection;
+    private boolean withPowerConnection;
     private String imageUrl;
 
 }
