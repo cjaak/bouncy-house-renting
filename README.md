@@ -28,4 +28,4 @@ See [here](admin-panel/README.md)
 
 
 ## Documentation
-The full documentation can be found [here](docs/README.md)
+The full documentation can be found [here](docs/)
