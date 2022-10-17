@@ -22,7 +22,7 @@ appState$!: Observable<AppState<CustomResponse>>
   constructor(private bouncyHouseService: BouncyHouseService, private dialog: MatDialog) { }
 
 
-  displayedColumns: string[] = ['id',"image", 'name', 'price_per_day', 'size', 'delete'];
+  displayedColumns: string[] = ['id',"image", 'name', 'price_per_day', 'size', 'theme', 'weight', 'delete'];
 
   ngOnInit(): void {
     this.appState$ = this.bouncyHouseService.bouncyHouses$

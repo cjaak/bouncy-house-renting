@@ -44,6 +44,18 @@
         <td mat-cell *matCellDef="let element" (click)="editItemDialog(element)"> {{element.size}} </td>
       </ng-container>
 
+       <!-- theme Column -->
+      <ng-container matColumnDef="theme">
+        <th mat-header-cell *matHeaderCellDef> Thema </th>
+        <td mat-cell *matCellDef="let element" (click)="editItemDialog(element)"> {{element.theme}} </td>
+      </ng-container>
+
+       <!-- weight limit Column -->
+      <ng-container matColumnDef="weight">
+        <th mat-header-cell *matHeaderCellDef> max. Gewicht </th>
+        <td mat-cell *matCellDef="let element" (click)="editItemDialog(element)"> {{element.weightLimit}} </td>
+      </ng-container>
+
       <!-- Delete Button Column -->
       <ng-container matColumnDef="delete">
         <th mat-header-cell *matHeaderCellDef> </th>

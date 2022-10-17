@@ -17,6 +17,23 @@
         <mat-option *ngFor="let s of sizes" [value]="s">{{s}}</mat-option>
       </mat-select>
     </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline">
+      <mat-label>Theme</mat-label>
+      <mat-select formControlName="theme">
+        <mat-option *ngFor="let t of themes" [value]="t">{{t}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline">
+      <mat-label>max Gewicht (in kg)</mat-label>
+      <input matInput type="number" formControlName="weightLimit">
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline">
+      <mat-label>Photo</mat-label>
+      <input matInput type="text" formControlName="imageUrl">
+    </mat-form-field>
   </form>
 </div>
 <div mat-dialog-actions>
