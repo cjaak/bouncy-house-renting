@@ -52,8 +52,9 @@ export class BouncyHouseFormComponent implements OnInit {
   }
 
   save(){
-    if(!this.bouncyHouseForm.valid){
-      return
+    console.log(this.bouncyHouseForm.valid)
+    if(this.bouncyHouseForm.valid){
+      this.dialogRef.close({id: undefined, ...this.bouncyHouseForm.value})
     }
     if(this.isEdit){
     }else{

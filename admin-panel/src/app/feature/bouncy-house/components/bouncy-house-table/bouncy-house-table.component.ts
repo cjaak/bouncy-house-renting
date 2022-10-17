@@ -3,7 +3,7 @@ import {BouncyHouseService} from "../../../../data-access/services/bouncy-house.
 import {BouncyHouseFormComponent} from "../bouncy-house-form/bouncy-house-form.component";
 import {MatDialog} from "@angular/material/dialog";
 import {BouncyHouse} from "../../../../shared/models/bouncy-house.model";
-import {catchError, Observable, of, startWith} from "rxjs";
+import {BehaviorSubject, catchError, Observable, of, startWith} from "rxjs";
 import {AppState} from "../../../../shared/interfaces/app-state";
 import {CustomResponse} from "../../../../shared/interfaces/custom-response";
 import {map} from "rxjs/operators";
@@ -18,6 +18,9 @@ export class BouncyHouseTableComponent implements OnInit {
 appState$!: Observable<AppState<CustomResponse>>
 
   readonly DataState = DataStateEnum
+
+  // @ts-ignore
+  private dataSubject = new BehaviorSubject<CustomResponse>(null)
 
   constructor(private bouncyHouseService: BouncyHouseService, private dialog: MatDialog) { }
 
@@ -41,6 +44,12 @@ appState$!: Observable<AppState<CustomResponse>>
     const dialogRef = this.dialog.open(BouncyHouseFormComponent, {
       data: {isEdit: false}
     })
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result){
+        this.saveBouncyHouse(result as BouncyHouse)
+      }
+    })
   }
 
   editItemDialog(house: BouncyHouse){
@@ -60,6 +69,22 @@ appState$!: Observable<AppState<CustomResponse>>
           return of({dataState: DataStateEnum.ERROR_STATE, error: error})
         })
       )
-}
+  }
+
+  saveBouncyHouse(house: BouncyHouse): void {
+    this.appState$ = this.bouncyHouseService.save$(house)
+      .pipe(
+        map(response => {
+          this.dataSubject.next(
+            {...response, data: { bouncy_houses: [response.data.bouncy_houses, this.dataSubject.value.data.bouncy_houses] }}
+          );
+          return { dataState: DataStateEnum.LOADED_STATE, appData: this.dataSubject.value}
+        }),
+        startWith({dataState: DataStateEnum.LOADED_STATE, appData: this.dataSubject.value}),
+        catchError((error: string) => {
+          return of({dataState: DataStateEnum.ERROR_STATE, error: error})
+        })
+      )
+  }
 
 }
