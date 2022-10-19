@@ -31,7 +31,8 @@ appState$!: Observable<AppState<CustomResponse>>
     this.appState$ = this.bouncyHouseService.bouncyHouses$
       .pipe(
         map(response => {
-          return { dataState: DataStateEnum.LOADED_STATE, appData: response}
+          this.dataSubject.next(response);
+          return { dataState: DataStateEnum.LOADED_STATE, appData: {...response, data: {bouncy_houses: response.data.bouncy_houses.reverse()} }}
         }),
         startWith({dataState: DataStateEnum.LOADING_STATE}),
         catchError((error: string) => {
@@ -62,9 +63,13 @@ appState$!: Observable<AppState<CustomResponse>>
     this.appState$ = this.bouncyHouseService.delete$(element.id!)
       .pipe(
         map(response => {
-          return { dataState: DataStateEnum.LOADED_STATE, appData: response}
+          this.dataSubject.next(
+            {...response, data:
+                { bouncy_houses: this.dataSubject.value.data.bouncy_houses.filter((b: BouncyHouse) => b.id !== element.id)}}
+          )
+          return { dataState: DataStateEnum.LOADED_STATE, appData: this.dataSubject.value}
         }),
-        startWith({dataState: DataStateEnum.LOADING_STATE}),
+        startWith({dataState: DataStateEnum.LOADING_STATE, appData: this.dataSubject.value}),
         catchError((error: string) => {
           return of({dataState: DataStateEnum.ERROR_STATE, error: error})
         })
@@ -76,7 +81,7 @@ appState$!: Observable<AppState<CustomResponse>>
       .pipe(
         map(response => {
           this.dataSubject.next(
-            {...response, data: { bouncy_houses: [response.data.bouncy_houses, this.dataSubject.value.data.bouncy_houses] }}
+            {...response, data: { bouncy_houses: [response.data.bouncy_house, ...this.dataSubject.value.data.bouncy_houses] }}
           );
           return { dataState: DataStateEnum.LOADED_STATE, appData: this.dataSubject.value}
         }),

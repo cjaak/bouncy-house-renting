@@ -39,7 +39,7 @@ export class BouncyHouseFormComponent implements OnInit {
 
       this.bouncyHouseForm = new FormGroup({
       name: new FormControl(this.isEdit? this.editHouse!.name: '', [Validators.required]),
-      price_per_day: new FormControl(this.isEdit? this.editHouse!.pricePerDay: '', [Validators.required]),
+      pricePerDay: new FormControl(this.isEdit? this.editHouse!.pricePerDay: '', [Validators.required]),
       size: new FormControl(this.isEdit? this.editHouse!.size: '', [Validators.required]),
       theme: new FormControl(this.isEdit? this.editHouse!.theme: '', [Validators.required]),
       weightLimit: new FormControl(this.isEdit? this.editHouse!.weightLimit: '', [Validators.required]),
@@ -52,12 +52,12 @@ export class BouncyHouseFormComponent implements OnInit {
   }
 
   save(){
-    console.log(this.bouncyHouseForm.valid)
-    if(this.bouncyHouseForm.valid){
-      this.dialogRef.close({id: undefined, ...this.bouncyHouseForm.value})
+    if(!this.bouncyHouseForm.valid){
+      return
     }
     if(this.isEdit){
     }else{
+      this.dialogRef.close({id: undefined, ...this.bouncyHouseForm.value})
     }
   }
 
