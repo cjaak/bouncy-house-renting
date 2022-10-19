@@ -52,8 +52,20 @@
 
        <!-- weight limit Column -->
       <ng-container matColumnDef="weight">
-        <th mat-header-cell *matHeaderCellDef> max. Gewicht </th>
+        <th mat-header-cell *matHeaderCellDef> max. Gewicht (in kg) </th>
         <td mat-cell *matCellDef="let element" (click)="editItemDialog(element)"> {{element.weightLimit}} </td>
+      </ng-container>
+
+      <!-- construction time Column -->
+      <ng-container matColumnDef="constructionTimeInMinutes">
+        <th mat-header-cell *matHeaderCellDef> Aufbauzeit (in min) </th>
+        <td mat-cell *matCellDef="let element" (click)="editItemDialog(element)"> {{element.constructionTimeInMinutes}} </td>
+      </ng-container>
+
+      <!-- with power Column -->
+      <ng-container matColumnDef="withPowerConnection">
+        <th mat-header-cell *matHeaderCellDef> mit Stromanschluss </th>
+        <td mat-cell *matCellDef="let element" (click)="editItemDialog(element)"> {{element.withPowerConnection ? "Ja" : "Nein"}} </td>
       </ng-container>
 
       <!-- Delete Button Column -->

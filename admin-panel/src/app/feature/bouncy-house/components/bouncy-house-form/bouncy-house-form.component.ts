@@ -1,7 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
-import {BouncyHouseService} from "../../../../data-access/services/bouncy-house.service";
 import {BouncyHouse} from "../../../../shared/models/bouncy-house.model";
 import {BouncyHouseSizeEnum} from "../../../../shared/enums/size.enum";
 import {BouncyHouseThemeEnum} from "../../../../shared/enums/theme.enum";
@@ -28,8 +27,7 @@ export class BouncyHouseFormComponent implements OnInit {
 
 
   constructor(public dialogRef: MatDialogRef<BouncyHouseFormComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: DialogData,
-              private bouncyHouseService: BouncyHouseService
+              @Inject(MAT_DIALOG_DATA) public data: DialogData
   ) {
     if(data.isEdit){
       this.isEdit = true
@@ -43,6 +41,8 @@ export class BouncyHouseFormComponent implements OnInit {
       size: new FormControl(this.isEdit? this.editHouse!.size: '', [Validators.required]),
       theme: new FormControl(this.isEdit? this.editHouse!.theme: '', [Validators.required]),
       weightLimit: new FormControl(this.isEdit? this.editHouse!.weightLimit: '', [Validators.required]),
+      constructionTimeInMinutes: new FormControl(this.isEdit? this.editHouse!.constructionTimeInMinutes : '', [Validators.required]),
+      withPowerConnection: new FormControl(this.isEdit? this.editHouse!.withPowerConnection : ''),
       imageUrl: new FormControl(this.isEdit? this.editHouse!.imageUrl: '', [Validators.required])
   });
   }

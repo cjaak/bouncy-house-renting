@@ -3,7 +3,7 @@ package com.fhdwapp.appbackend.model;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Getter
@@ -18,6 +18,6 @@ public class Rented {
     private Long id;
     private Long userId;
     private Long bouncyHouseId;
-    private Date startDate;
-    private Date endDate;
+    private LocalDate startDate;
+    private LocalDate endDate;
 }

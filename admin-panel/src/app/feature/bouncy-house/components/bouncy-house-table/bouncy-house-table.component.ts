@@ -25,7 +25,7 @@ export class BouncyHouseTableComponent implements OnInit {
   constructor(private bouncyHouseService: BouncyHouseService, private dialog: MatDialog) { }
 
 
-  displayedColumns: string[] = ['id',"image", 'name', 'price_per_day', 'size', 'theme', 'weight', 'delete'];
+  displayedColumns: string[] = ['id',"image", 'name', 'price_per_day', 'size', 'theme', 'weight', "constructionTimeInMinutes", "withPowerConnection", 'delete'];
 
   ngOnInit(): void {
     this.appState$ = this.bouncyHouseService.bouncyHouses$
@@ -63,10 +63,14 @@ export class BouncyHouseTableComponent implements OnInit {
     this.appState$ = this.bouncyHouseService.delete$(element.id!)
       .pipe(
         map(response => {
-          this.dataSubject.next(
+          if(response.data.deleted) {
+            this.dataSubject.next(
             {...response, data:
                 { bouncy_houses: this.dataSubject.value.data.bouncy_houses.filter((b: BouncyHouse) => b.id !== element.id)}}
-          )
+            )
+          }else{
+            alert("not deletable");
+          }
           return { dataState: DataStateEnum.LOADED_STATE, appData: this.dataSubject.value}
         }),
         startWith({dataState: DataStateEnum.LOADING_STATE, appData: this.dataSubject.value}),

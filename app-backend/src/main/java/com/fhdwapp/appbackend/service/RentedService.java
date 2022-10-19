@@ -13,4 +13,6 @@ public interface RentedService {
     Rented update(Rented rented);
     Boolean delete(Long id);
 
+    boolean okToDeleteHouse(Long bouncyHouseId);
+
 }

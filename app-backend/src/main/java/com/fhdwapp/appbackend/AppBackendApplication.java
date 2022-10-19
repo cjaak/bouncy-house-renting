@@ -3,8 +3,10 @@ package com.fhdwapp.appbackend;
 import com.fhdwapp.appbackend.enumeration.BouncyHouseSize;
 import com.fhdwapp.appbackend.enumeration.BouncyHouseTheme;
 import com.fhdwapp.appbackend.model.BouncyHouse;
+import com.fhdwapp.appbackend.model.Rented;
 import com.fhdwapp.appbackend.model.User;
 import com.fhdwapp.appbackend.repo.BouncyHouseRepo;
+import com.fhdwapp.appbackend.repo.RentedRepo;
 import com.fhdwapp.appbackend.repo.UserRepo;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -14,10 +16,8 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
-import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.util.Arrays;
-import java.util.Date;
 
 @SpringBootApplication
 public class AppBackendApplication {
@@ -27,7 +27,7 @@ public class AppBackendApplication {
     }
 
     @Bean
-    CommandLineRunner run(BouncyHouseRepo bouncyHouseRepo, UserRepo userRepo) {
+    CommandLineRunner run(BouncyHouseRepo bouncyHouseRepo, UserRepo userRepo, RentedRepo rentedRepo) {
         return args -> {
             bouncyHouseRepo.save(new BouncyHouse(
                     null,
@@ -73,6 +73,13 @@ public class AppBackendApplication {
                     "23b",
                     33100,
                     "Paderborn"
+            ));
+            rentedRepo.save(new Rented(
+                    null,
+                    1L,
+                    1L,
+                    LocalDate.of(2022, 12, 24),
+                    LocalDate.of(2022, 12, 27)
             ));
         };
     }
