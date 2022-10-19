@@ -1,60 +1,82 @@
 <mat-toolbar color="primary">
   <span>Users</span>
-  <button mat-button (click)="addItemDialog()">ADD ITEM</button>
 </mat-toolbar>
 
-<table mat-table [dataSource]="users!" class="mat-elevation-z8">
+<ng-container *ngIf="(appState$ | async) as appState" [ngSwitch]="appState.dataState">
 
-  <!-- ID Column -->
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef> ID </th>
-    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+
+  <ng-container *ngSwitchCase="DataState.LOADING_STATE">
+    <div>
+      Loading...
+    </div>
   </ng-container>
 
-  <!-- First Name Column -->
-  <ng-container matColumnDef="first_name">
-    <th mat-header-cell *matHeaderCellDef> Vorname </th>
-    <td mat-cell *matCellDef="let element"> {{element.first_name}}</td>
+  <ng-container *ngSwitchCase="DataState.LOADED_STATE">
+    <table mat-table [dataSource]="appState.appData!.data!.users" class="mat-elevation-z8">
+
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+
+      <!-- First Name Column -->
+      <ng-container matColumnDef="first_name">
+        <th mat-header-cell *matHeaderCellDef> Vorname </th>
+        <td mat-cell *matCellDef="let element"> {{element.firstName}}</td>
+      </ng-container>
+
+      <!-- Last Name Column -->
+      <ng-container matColumnDef="last_name">
+        <th mat-header-cell *matHeaderCellDef> Nachname </th>
+        <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+      </ng-container>
+
+      <!-- Email Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> E-Mail </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+
+      <!-- Street Column -->
+      <ng-container matColumnDef="street">
+        <th mat-header-cell *matHeaderCellDef> Straße </th>
+        <td mat-cell *matCellDef="let element"> {{element.street}} </td>
+      </ng-container>
+
+      <!-- house number Column -->
+      <ng-container matColumnDef="houseNumber">
+        <th mat-header-cell *matHeaderCellDef> Hausnummer </th>
+        <td mat-cell *matCellDef="let element"> {{element.houseNumber}} </td>
+      </ng-container>
+
+      <!-- zip code Column -->
+      <ng-container matColumnDef="zipCode">
+        <th mat-header-cell *matHeaderCellDef> PLZ </th>
+        <td mat-cell *matCellDef="let element"> {{element.zipCode}} </td>
+      </ng-container>
+
+      <!-- city Column -->
+      <ng-container matColumnDef="city">
+        <th mat-header-cell *matHeaderCellDef> Stadt </th>
+        <td mat-cell *matCellDef="let element"> {{element.city}} </td>
+      </ng-container>
+
+
+      <!-- Delete Button Column -->
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef> </th>
+        <td mat-cell *matCellDef="let element"> <app-delete-button (delete)="handleDelete(element)"></app-delete-button> </td>
+      </ng-container>
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
   </ng-container>
 
-  <!-- Last Name Column -->
-  <ng-container matColumnDef="last_name">
-    <th mat-header-cell *matHeaderCellDef> Nachname </th>
-    <td mat-cell *matCellDef="let element"> {{element.last_name}} </td>
+  <ng-container *ngSwitchCase="DataState.ERROR_STATE">
+    <div>{{appState.error}}</div>
   </ng-container>
 
-  <!-- Email Column -->
-  <ng-container matColumnDef="email">
-    <th mat-header-cell *matHeaderCellDef> E-Mail </th>
-    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
-  </ng-container>
-
-  <!-- Email Column -->
-  <ng-container matColumnDef="address">
-    <th mat-header-cell *matHeaderCellDef> E-Mail </th>
-    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
-  </ng-container>
-
-  <!-- Email Column -->
-  <ng-container matColumnDef="houseNumber">
-    <th mat-header-cell *matHeaderCellDef> E-Mail </th>
-    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
-  </ng-container>
-
-  <!-- Email Column -->
-  <ng-container matColumnDef="lead">
-    <th mat-header-cell *matHeaderCellDef> E-Mail </th>
-    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
-  </ng-container>
-
-
-  <!-- Delete Button Column -->
-  <ng-container matColumnDef="delete">
-    <th mat-header-cell *matHeaderCellDef> </th>
-    <td mat-cell *matCellDef="let element"> <app-delete-button (delete)="handleDelete(element)"></app-delete-button> </td>
-  </ng-container>
-
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+</ng-container>

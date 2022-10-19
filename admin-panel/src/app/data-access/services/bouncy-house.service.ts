@@ -25,6 +25,12 @@ export class BouncyHouseService {
     catchError(this.handleError)
   )
 
+  update$ = (house: BouncyHouse) => <Observable<CustomResponse>>
+  this.http.put<CustomResponse>(`${this.apiUrl}/bouncy-house/${house.id}`, house).pipe(
+    tap(console.log),
+    catchError(this.handleError)
+  )
+
   delete$ = (id: number) => <Observable<CustomResponse>>
   this.http.delete<CustomResponse>(`${this.apiUrl}/bouncy-house/${id}`).pipe(
     tap(console.log),

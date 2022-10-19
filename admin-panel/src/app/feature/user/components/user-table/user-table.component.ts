@@ -19,11 +19,9 @@ export class UserTableComponent implements OnInit {
 
   readonly DataState = DataStateEnum
 
-  displayedColumns: string[] = ['id', 'first_name', 'last_name', 'email', 'delete'];
+  displayedColumns: string[] = ['id', 'first_name', 'last_name', 'email', 'street', "houseNumber", "zipCode", "city"];
 
-  constructor(private dialog: MatDialog, private userService: UserService) {
-    //this.users = this.userService.getAllUsers()
-  }
+  constructor(private dialog: MatDialog, private userService: UserService) {}
 
   ngOnInit(): void {
     this.appState$ = this.userService.users$
