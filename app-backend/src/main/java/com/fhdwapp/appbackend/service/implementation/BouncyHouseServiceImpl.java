@@ -1,7 +1,9 @@
 package com.fhdwapp.appbackend.service.implementation;
 
 import com.fhdwapp.appbackend.model.BouncyHouse;
+import com.fhdwapp.appbackend.model.Rented;
 import com.fhdwapp.appbackend.repo.BouncyHouseRepo;
+import com.fhdwapp.appbackend.repo.RentedRepo;
 import com.fhdwapp.appbackend.service.BouncyHouseService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -9,7 +11,10 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.time.LocalDate;
 import java.util.Collection;
+import java.util.Date;
+import java.util.Optional;
 
 import static java.lang.Boolean.*;
 
@@ -20,6 +25,7 @@ import static java.lang.Boolean.*;
 public class BouncyHouseServiceImpl implements BouncyHouseService {
 
     private final BouncyHouseRepo bouncyHouseRepo;
+    private final RentedRepo rentedRepo;
 
     @Override
     public BouncyHouse create(BouncyHouse house) {
@@ -48,6 +54,10 @@ public class BouncyHouseServiceImpl implements BouncyHouseService {
     @Override
     public Boolean delete(Long id) {
         log.info("Deleting bouncy house: {}", id);
+        if (rentedRepo.findTopByBouncyHouseIdAndEndDateAfter(id, LocalDate.now()).isPresent()) {
+            log.info("Not deleting because bouncy house is in use");
+            return FALSE;
+        }
         bouncyHouseRepo.deleteById(id);
         return TRUE;
     }

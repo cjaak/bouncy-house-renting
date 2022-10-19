@@ -8,6 +8,7 @@ import {AppState} from "../../../../shared/interfaces/app-state";
 import {CustomResponse} from "../../../../shared/interfaces/custom-response";
 import {map} from "rxjs/operators";
 import {DataStateEnum} from "../../../../shared/enums/data-state.enum";
+import {SnackService} from "../../../../shared/services/snack.service";
 
 @Component({
   selector: 'app-bouncy-house-table',
@@ -22,10 +23,10 @@ export class BouncyHouseTableComponent implements OnInit {
   // @ts-ignore
   private dataSubject = new BehaviorSubject<CustomResponse>(null)
 
-  constructor(private bouncyHouseService: BouncyHouseService, private dialog: MatDialog) { }
+  constructor(private bouncyHouseService: BouncyHouseService, private dialog: MatDialog, private snackService: SnackService) { }
 
 
-  displayedColumns: string[] = ['id',"image", 'name', 'price_per_day', 'size', 'theme', 'weight', 'delete'];
+  displayedColumns: string[] = ['id',"image", 'name', 'price_per_day', 'size', 'theme', 'weight', "constructionTimeInMinutes", "withPowerConnection", 'delete'];
 
   ngOnInit(): void {
     this.appState$ = this.bouncyHouseService.bouncyHouses$
@@ -63,10 +64,14 @@ export class BouncyHouseTableComponent implements OnInit {
     this.appState$ = this.bouncyHouseService.delete$(element.id!)
       .pipe(
         map(response => {
-          this.dataSubject.next(
+          if(response.data.deleted) {
+            this.dataSubject.next(
             {...response, data:
                 { bouncy_houses: this.dataSubject.value.data.bouncy_houses.filter((b: BouncyHouse) => b.id !== element.id)}}
-          )
+            )
+          }else{
+            this.snackService.inUseError();
+          }
           return { dataState: DataStateEnum.LOADED_STATE, appData: this.dataSubject.value}
         }),
         startWith({dataState: DataStateEnum.LOADING_STATE, appData: this.dataSubject.value}),

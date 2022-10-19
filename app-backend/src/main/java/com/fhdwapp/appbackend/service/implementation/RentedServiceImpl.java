@@ -62,4 +62,9 @@ public class RentedServiceImpl implements RentedService {
         rentedRepo.deleteById(id);
         return TRUE;
     }
+
+    @Override
+    public boolean okToDeleteHouse(Long bouncyHouseId) {
+        return false;
+    }
 }

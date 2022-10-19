@@ -12,6 +12,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {SharedModule} from "../../shared/shared.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import {MatToolbarModule} from "@angular/material/toolbar";
     MatInputModule,
     MatSelectModule,
     MatDialogModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatCheckboxModule
   ]
 })
 export class BouncyHouseModule { }
