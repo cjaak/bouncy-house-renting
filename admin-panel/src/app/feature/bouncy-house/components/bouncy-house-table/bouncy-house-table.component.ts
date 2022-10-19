@@ -15,7 +15,7 @@ import {DataStateEnum} from "../../../../shared/enums/data-state.enum";
   styleUrls: ['./bouncy-house-table.component.scss']
 })
 export class BouncyHouseTableComponent implements OnInit {
-appState$!: Observable<AppState<CustomResponse>>
+  appState$!: Observable<AppState<CustomResponse>>
 
   readonly DataState = DataStateEnum
 

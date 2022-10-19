@@ -22,7 +22,7 @@ export class BouncyHouseFormComponent implements OnInit {
   isEdit = false
   editHouse?: BouncyHouse
   sizes = Object.values(BouncyHouseSizeEnum)
-  themes= Object.values(BouncyHouseThemeEnum);
+  themes= Object.values(BouncyHouseThemeEnum)
 
   public bouncyHouseForm: FormGroup
 
