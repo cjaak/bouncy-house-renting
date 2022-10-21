@@ -46,7 +46,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Boolean login(String email, String password) {
-        return null;
+        log.info("{} tries to log in", email);
+        return userRepo.findFirstByEmailAndPassword(email, password).isPresent();
     }
 
     @Override
