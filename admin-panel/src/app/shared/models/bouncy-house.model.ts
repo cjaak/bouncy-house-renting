@@ -14,7 +14,8 @@ export class BouncyHouse{
     public weightLimit?: number,
     public constructionTimeInMinutes?: number,
     public withPowerConnection?: boolean,
-    public imageUrl?: string
+    public imageUrl?: string,
+    public isVisible?: boolean
   ) {
   }
 }
