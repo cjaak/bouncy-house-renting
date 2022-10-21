@@ -69,11 +69,12 @@ public class UserResource {
         );
     }
 
+
     @GetMapping("/login")
     public ResponseEntity<Response> login(@RequestBody String email, @RequestBody String password) {
         return ResponseEntity.ok(Response.builder()
                 .timeStamp(now())
-                .data(of("userId", userService.login(email, password)))
+                .data(of("isLoggedIn", userService.login(email, password)))
                 .message("returned auth status")
                 .status(OK)
                 .statusCode(OK.value())
