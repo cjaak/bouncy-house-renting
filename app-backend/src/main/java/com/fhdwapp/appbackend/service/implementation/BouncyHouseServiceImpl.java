@@ -54,7 +54,7 @@ public class BouncyHouseServiceImpl implements BouncyHouseService {
     @Override
     public Boolean delete(Long id) {
         log.info("Deleting bouncy house: {}", id);
-        if (rentedRepo.findTopByBouncyHouseIdAndEndDateAfter(id, LocalDate.now()).isPresent()) {
+        if (rentedRepo.findTopByBouncyHouseIdAndEndDateAfter(id, LocalDate.now()).isPresent() || !get(id).isVisible()) {
             log.info("Not deleting because bouncy house is in use");
             return FALSE;
         }
