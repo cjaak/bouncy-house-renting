@@ -4,6 +4,10 @@
 - [ ] This code is tested, or tests are not useful
 - [ ] New functions with more than 5 lines have docstrings
 - [ ] Changes introduce no commented out code or print statements used for debugging
+- [ ] The changes were reviewed by another person
+
+## Acceptance criteria
+- [ ] Implements all required features
 
 ## Related issues
 <!-- list of issue closing directives
