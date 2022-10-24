@@ -38,7 +38,8 @@ public class AppBackendApplication {
                     90,
                     78.0,
                     true,
-                    "https://i5.walmartimages.com/asr/8f12875d-4395-4910-ba92-09cd2807a708.d00dd91beaf247d986c50f78fa1c1da8.jpeg"
+                    "https://i5.walmartimages.com/asr/8f12875d-4395-4910-ba92-09cd2807a708.d00dd91beaf247d986c50f78fa1c1da8.jpeg",
+                    true
             ));
             bouncyHouseRepo.save(new BouncyHouse(
                     null,
@@ -49,7 +50,8 @@ public class AppBackendApplication {
                     35,
                     60.0,
                     false,
-                    "https://i5.walmartimages.com/asr/8f12875d-4395-4910-ba92-09cd2807a708.d00dd91beaf247d986c50f78fa1c1da8.jpeg"
+                    "https://i5.walmartimages.com/asr/8f12875d-4395-4910-ba92-09cd2807a708.d00dd91beaf247d986c50f78fa1c1da8.jpeg",
+                    true
             ));
             bouncyHouseRepo.save(new BouncyHouse(
                     null,
@@ -60,7 +62,8 @@ public class AppBackendApplication {
                     120,
                     100.0,
                     true,
-                    "https://i5.walmartimages.com/asr/8f12875d-4395-4910-ba92-09cd2807a708.d00dd91beaf247d986c50f78fa1c1da8.jpeg"
+                    "https://i5.walmartimages.com/asr/8f12875d-4395-4910-ba92-09cd2807a708.d00dd91beaf247d986c50f78fa1c1da8.jpeg",
+                    true
             ));
             userRepo.save(new User(
                     null,
