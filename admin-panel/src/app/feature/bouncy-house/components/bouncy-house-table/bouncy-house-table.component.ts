@@ -128,4 +128,9 @@ export class BouncyHouseTableComponent implements OnInit {
     )
     console.log(this.appState$);
    }
+
+  applySearchFilter(event: KeyboardEvent) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 }
