@@ -43,23 +43,26 @@ export class BouncyHouseService {
       subscriber => {
         console.log(response);
         let sortedData: BouncyHouse[];
+        const isAsc = sort.direction === 'asc';
         if(!sort.active || sort.direction === '') {
           sortedData = response.data.bouncy_houses;
         }else{
           sortedData = response.data.bouncy_houses.sort((a: BouncyHouse, b: BouncyHouse) => {
-          const isAsc = sort.direction === 'asc';
           switch (sort.active){
             case 'name':
-              return this.compare(a.name!, b.name!, isAsc);
-            case 'price':
-              return this.compare(a.pricePerDay!, b.pricePerDay!, isAsc);
+              return this.compareAlphaNum(a.name!, b.name!, isAsc);
+            case 'pricePerDay':
+              return this.compareAlphaNum(a.pricePerDay!, b.pricePerDay!, isAsc);
             case 'size':
-              return this.compare(a.size!, b.size!, isAsc);
+              return this.compareSize(a.size!, b.size!, isAsc);
             default:
               return 0;
             }
           });
         }
+
+        console.log("SORTED", sortedData);
+
         subscriber.next({...response, message: `bouncy houses sorted by ${sort.active}`, data: {bouncy_houses: sortedData}});
         subscriber.complete();
       }
@@ -68,8 +71,14 @@ export class BouncyHouseService {
       catchError(this.handleError)
     );
 
-  private  compare(a: number | string, b: number | string, isAsc: boolean) {
+  private  compareAlphaNum(a: number | string, b: number | string, isAsc: boolean) {
     return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
+  }
+  
+
+  private compareSize(a: BouncyHouseSizeEnum, b: BouncyHouseSizeEnum, isAsc: boolean) {
+    const order = ["S", "M", "L", "XL"];
+    return (order.indexOf(a) - order.indexOf(b)) * (isAsc ? 1 : -1);
   }
 
   private handleError(error: HttpErrorResponse): Observable<never> {

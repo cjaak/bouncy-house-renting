@@ -14,6 +14,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSortModule} from '@angular/material/sort';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import {MatSortModule} from '@angular/material/sort';
   imports: [
     CommonModule,
     SharedModule,
+    BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
     MatTableModule,
