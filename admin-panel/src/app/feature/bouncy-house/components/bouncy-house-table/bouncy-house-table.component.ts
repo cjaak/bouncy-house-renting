@@ -9,6 +9,8 @@ import {CustomResponse} from "../../../../shared/interfaces/custom-response";
 import {map} from "rxjs/operators";
 import {DataStateEnum} from "../../../../shared/enums/data-state.enum";
 import {SnackService} from "../../../../shared/services/snack.service";
+import {Sort} from "@angular/material/sort";
+import {error} from "@angular/compiler-cli/src/transformers/util";
 
 @Component({
   selector: 'app-bouncy-house-table',
@@ -97,4 +99,17 @@ export class BouncyHouseTableComponent implements OnInit {
       )
   }
 
+  sortData(sort: Sort) {
+    this.appState$ = this.bouncyHouseService.sorted$(sort, this.dataSubject.value).pipe(
+      map(response => {
+        this.dataSubject.next(response);
+        return {dataState: DataStateEnum.LOADED_STATE, appData: response}
+      }),
+      startWith({dataState: DataStateEnum.LOADED_STATE, appData: this.dataSubject.value}),
+      catchError((error: string) => {
+        return of({dataState: DataStateEnum.ERROR_STATE, error: error})
+      })
+    )
+    console.log(this.appState$);
+   }
 }
