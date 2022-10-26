@@ -38,16 +38,19 @@ export class BouncyHouseService {
     catchError(this.handleError)
   )
 
+  /**
+   * Sorts bouncy houses according to specified sort parameters
+   *
+   * @param sort: provides property and direction for sorting
+   * @param response: contains the data that is to be sorted
+   *
+   * @returns new response observable containing the sorted data
+   */
   sorted$ = (sort: Sort, response: CustomResponse) => <Observable<CustomResponse>>
     new Observable<CustomResponse>(
       subscriber => {
-        console.log(response);
-        let sortedData: BouncyHouse[];
         const isAsc = sort.direction === 'asc';
-        if(!sort.active || sort.direction === '') {
-          sortedData = response.data.bouncy_houses;
-        }else{
-          sortedData = response.data.bouncy_houses.sort((a: BouncyHouse, b: BouncyHouse) => {
+        const sortedData: BouncyHouse[] = response.data.bouncy_houses.sort((a: BouncyHouse, b: BouncyHouse) => {
           switch (sort.active){
             case 'name':
               return this.compareAlphaNum(a.name!, b.name!, isAsc);
@@ -59,10 +62,6 @@ export class BouncyHouseService {
               return 0;
             }
           });
-        }
-
-        console.log("SORTED", sortedData);
-
         subscriber.next({...response, message: `bouncy houses sorted by ${sort.active}`, data: {bouncy_houses: sortedData}});
         subscriber.complete();
       }
@@ -71,14 +70,15 @@ export class BouncyHouseService {
       catchError(this.handleError)
     );
 
+
   private  compareAlphaNum(a: number | string, b: number | string, isAsc: boolean) {
-    return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
+    return (a < b ? -1 : 1) * (isAsc ? -1 : 1);
   }
-  
+
 
   private compareSize(a: BouncyHouseSizeEnum, b: BouncyHouseSizeEnum, isAsc: boolean) {
     const order = ["S", "M", "L", "XL"];
-    return (order.indexOf(a) - order.indexOf(b)) * (isAsc ? 1 : -1);
+    return (order.indexOf(a) - order.indexOf(b)) * (isAsc ? -1 : 1);
   }
 
   private handleError(error: HttpErrorResponse): Observable<never> {
