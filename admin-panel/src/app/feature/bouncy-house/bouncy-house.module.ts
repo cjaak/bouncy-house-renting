@@ -13,6 +13,8 @@ import {SharedModule} from "../../shared/shared.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatSortModule} from '@angular/material/sort';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 
 @NgModule({
@@ -24,6 +26,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
   imports: [
     CommonModule,
     SharedModule,
+    BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
     MatTableModule,
@@ -33,7 +36,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatSelectModule,
     MatDialogModule,
     MatToolbarModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatSortModule
   ]
 })
 export class BouncyHouseModule { }

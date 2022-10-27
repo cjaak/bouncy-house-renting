@@ -10,7 +10,7 @@
     </div>
   </ng-container>
   <ng-container *ngSwitchCase="DataState.LOADED_STATE">
-    <table mat-table [dataSource]="appState.appData!.data!.bouncy_houses" class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort (matSortChange)="sortData($event)">
 
       <!-- ID Column -->
       <ng-container matColumnDef="id">
@@ -19,7 +19,7 @@
       </ng-container>
 
       <!-- image Column -->
-      <ng-container matColumnDef="image">
+      <ng-container matColumnDef="imageUrl">
         <th mat-header-cell *matHeaderCellDef> Foto </th>
         <td mat-cell *matCellDef="let element" (click)="editItemDialog(element)">
           <img [src]="element.imageUrl" [alt]="element.name" width="50px" height="50px">
@@ -28,19 +28,19 @@
 
       <!-- Name Column -->
       <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Name </th>
         <td mat-cell *matCellDef="let element" (click)="editItemDialog(element)"> {{element.name}}</td>
       </ng-container>
 
       <!-- Price Column -->
-      <ng-container matColumnDef="price_per_day">
-        <th mat-header-cell *matHeaderCellDef> Preis pro Tag </th>
-        <td mat-cell *matCellDef="let element" (click)="editItemDialog(element)"> {{element.pricePerDay}} </td>
+      <ng-container matColumnDef="pricePerDay">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Preis pro Tag </th>
+        <td mat-cell *matCellDef="let element" (click)="editItemDialog(element)"> {{element.pricePerDay | currency:'EUR'}} </td>
       </ng-container>
 
       <!-- Size Column -->
       <ng-container matColumnDef="size">
-        <th mat-header-cell *matHeaderCellDef> Größe </th>
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Größe </th>
         <td mat-cell *matCellDef="let element" (click)="editItemDialog(element)"> {{element.size}} </td>
       </ng-container>
 
@@ -51,7 +51,7 @@
       </ng-container>
 
        <!-- weight limit Column -->
-      <ng-container matColumnDef="weight">
+      <ng-container matColumnDef="weightLimit">
         <th mat-header-cell *matHeaderCellDef> max. Gewicht (in kg) </th>
         <td mat-cell *matCellDef="let element" (click)="editItemDialog(element)"> {{element.weightLimit}} </td>
       </ng-container>
