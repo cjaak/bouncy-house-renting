@@ -2,6 +2,7 @@ package com.fhdwapp.app_frontend.repository;
 
 import android.util.Log;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
@@ -14,8 +15,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class BouncyHouseRepo {
-    private static final String TAG = ArticleRepository.class.getSimpleName();
-    private ApiRequest apiRequest;
+    private static final String TAG = BouncyHouseRepo.class.getSimpleName();
+    private final ApiRequest apiRequest;
 
     public BouncyHouseRepo() {
         apiRequest = RetrofitRequest.getRetrofitInstance().create(ApiRequest.class);
@@ -26,7 +27,7 @@ public class BouncyHouseRepo {
         apiRequest.getBouncyHouses()
                 .enqueue(new Callback<CustomResponse>() {
                     @Override
-                    public void onResponse(Call<CustomResponse> call, Response<CustomResponse> response) {
+                    public void onResponse(@NonNull Call<CustomResponse> call, @NonNull Response<CustomResponse> response) {
                         Log.d(TAG, "onResponse response:: " + response);
 
                         if(response.body() != null) {
@@ -38,7 +39,7 @@ public class BouncyHouseRepo {
                     }
 
                     @Override
-                    public void onFailure(Call<CustomResponse> call, Throwable t) {
+                    public void onFailure(@NonNull Call<CustomResponse> call, @NonNull Throwable t) {
                         data.setValue(null);
                     }
                 });
