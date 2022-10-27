@@ -32,6 +32,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        initialization();
+
+        getBouncyHouses();
+
     }
 
     private void initialization() {
@@ -58,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         bouncyHouseViewModel.getBouncyHouseResponseLiveData().observe(this, bouncyHouseResponse -> {
             if(bouncyHouseResponse != null) {
                 progress_circular.setVisibility(View.GONE);
-                List<BouncyHouse> bouncyHouses = (List<BouncyHouse>)bouncyHouseResponse.getData().values();
+                List<BouncyHouse> bouncyHouses = (List<BouncyHouse>)bouncyHouseResponse.getData().get("bouncy_houses");
                 bouncyHouseArrayList.addAll(bouncyHouses);
                 adapter.notifyDataSetChanged();
             }
