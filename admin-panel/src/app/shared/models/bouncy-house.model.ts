@@ -8,6 +8,7 @@ export class BouncyHouse{
   constructor(
     public id?: number,
     public name?: string,
+    public description?: string,
     public pricePerDay?: number,
     public size?: BouncyHouseSizeEnum,
     public theme?: BouncyHouseThemeEnum,
