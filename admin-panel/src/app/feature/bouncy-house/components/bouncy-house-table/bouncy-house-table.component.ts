@@ -134,6 +134,7 @@ export class BouncyHouseTableComponent implements OnInit {
 
   applySearchFilter(event: KeyboardEvent) {
     this.filterValue = (event.target as HTMLInputElement).value;
+    this.applyAllFilters();
   }
 
   private applyAllFilters(){
