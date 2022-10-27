@@ -25,6 +25,8 @@ export class BouncyHouseTableComponent implements OnInit {
 
   readonly DataState = DataStateEnum
 
+  filterValue = "";
+
   // @ts-ignore
   private dataSubject = new BehaviorSubject<CustomResponse>(null)
 
@@ -119,6 +121,7 @@ export class BouncyHouseTableComponent implements OnInit {
       map(response => {
         this.dataSubject.next(response);
         this.dataSource = new MatTableDataSource(response.data.bouncy_houses)
+        this.applyAllFilters();
         return {dataState: DataStateEnum.LOADED_STATE, appData: response}
       }),
       startWith({dataState: DataStateEnum.LOADED_STATE, appData: this.dataSubject.value}),
@@ -128,4 +131,13 @@ export class BouncyHouseTableComponent implements OnInit {
     )
     console.log(this.appState$);
    }
+
+  applySearchFilter(event: KeyboardEvent) {
+    this.filterValue = (event.target as HTMLInputElement).value;
+    this.applyAllFilters();
+  }
+
+  private applyAllFilters(){
+    this.dataSource.filter = this.filterValue.trim().toLowerCase();
+  }
 }
