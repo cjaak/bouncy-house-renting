@@ -32,6 +32,7 @@ public class AppBackendApplication {
             bouncyHouseRepo.save(new BouncyHouse(
                     null,
                     "tolle Tier M Burg",
+                    "tier beschreibung",
                     BouncyHouseTheme.Animal,
                     BouncyHouseSize.M,
                     500.0,
@@ -44,6 +45,7 @@ public class AppBackendApplication {
             bouncyHouseRepo.save(new BouncyHouse(
                     null,
                     "tolle Cowboy S Burg",
+                    "cowboy beschreibung",
                     BouncyHouseTheme.Cowboy,
                     BouncyHouseSize.S,
                     300.0,
@@ -56,6 +58,7 @@ public class AppBackendApplication {
             bouncyHouseRepo.save(new BouncyHouse(
                     null,
                     "tolle Prinzessin XL Burg",
+                    "princess description",
                     BouncyHouseTheme.Princess,
                     BouncyHouseSize.XL,
                     1000.0,
