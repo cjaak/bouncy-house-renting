@@ -23,7 +23,6 @@ public class BouncyHouseRepo {
     }
 
     public LiveData<CustomResponse> getBouncyHouses() {
-        Log.d(TAG, "Called fetch");
         final MutableLiveData<CustomResponse> data = new MutableLiveData<>();
         apiRequest.getBouncyHouses()
                 .enqueue(new Callback<CustomResponse>() {

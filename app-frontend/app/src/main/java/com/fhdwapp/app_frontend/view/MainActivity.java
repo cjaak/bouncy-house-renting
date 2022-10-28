@@ -63,12 +63,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void getBouncyHouses() {
         bouncyHouseViewModel.getBouncyHouseResponseLiveData().observe(this, bouncyHouseResponse -> {
-            Log.d(TAG, "Called Observable response :: " + bouncyHouseResponse);
             if(bouncyHouseResponse != null) {
                 progress_circular.setVisibility(View.GONE);
                 List<BouncyHouse> bouncyHouses = (List<BouncyHouse>)bouncyHouseResponse.getData().get("bouncy_houses");
                 bouncyHouseArrayList.addAll(bouncyHouses);
-                Log.d(TAG, "DATA :: " + bouncyHouses);
                 adapter.notifyDataSetChanged();
             }
         });

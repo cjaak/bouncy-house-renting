@@ -41,10 +41,8 @@ public class BouncyHouseAdapter extends RecyclerView.Adapter<BouncyHouseAdapter.
     //TODO: this should be refactored and use the BouncyHouse model instead of LinkedTreeMap
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Log.d(TAG, "adapeter list :: " +bouncyHouseArrayList.getClass());
         Object getrow = bouncyHouseArrayList.get(position);
         LinkedTreeMap<Object,Object> t = (LinkedTreeMap) getrow;
-        Log.d(TAG, "bouncy house :: " + t);
         holder.bhName.setText(t.get("name").toString());
         holder.bhTheme.setText(t.get("theme").toString());
         holder.bhPrice.setText(t.get("pricePerDay").toString());
