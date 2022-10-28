@@ -1,7 +1,7 @@
 package com.fhdwapp.app_frontend.view;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -72,16 +72,14 @@ public class MainActivity extends AppCompatActivity {
         my_recycler_view.setAdapter(adapter);
 
         // View Model
-        bouncyHouseViewModel = ViewModelProviders.of(this).get(BouncyHouseViewModel.class);
+        bouncyHouseViewModel = new ViewModelProvider(this).get(BouncyHouseViewModel.class);
     }
 
     private void getBouncyHouses(boolean reload) {
         bouncyHouseViewModel.getBouncyHouseResponseLiveData(reload).observe(this, bouncyHouseResponse -> {
-            Log.d(TAG, bouncyHouseResponse.getTimeStamp());
             progress_circular.setVisibility(View.GONE);
             List<BouncyHouse> bouncyHouses = (List<BouncyHouse>)bouncyHouseResponse.getData().get("bouncy_houses");
             bouncyHouseArrayList.addAll(bouncyHouses);
-            Log.d(TAG, "number :: " + bouncyHouses.size());
             adapter.notifyDataSetChanged();
         });
     }

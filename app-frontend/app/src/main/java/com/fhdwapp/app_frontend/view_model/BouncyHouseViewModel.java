@@ -29,7 +29,6 @@ public class BouncyHouseViewModel extends AndroidViewModel {
 
     public LiveData<CustomResponse> getBouncyHouseResponseLiveData(boolean reload) {
         if(reload) reload();
-        Log.d(TAG, "Live Data :: " + bouncyHouseResponseLiveData.getValue());
         return bouncyHouseResponseLiveData;
     }
 }
