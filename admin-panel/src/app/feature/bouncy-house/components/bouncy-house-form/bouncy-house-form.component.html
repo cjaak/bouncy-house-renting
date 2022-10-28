@@ -44,6 +44,16 @@
       <mat-label>Photo</mat-label>
       <input matInput type="text" formControlName="imageUrl">
     </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline">
+      <mat-label>Beschreibung</mat-label>
+      <textarea matInput type="text" formControlName="description"></textarea>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline">
+       <input hidden=true matInput>
+       <mat-checkbox formControlName="isVisible">wird in der App angezeigt</mat-checkbox>
+    </mat-form-field>
   </form>
 </div>
 <div mat-dialog-actions>
