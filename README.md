@@ -3,6 +3,8 @@
 Simple bouncy house renting fullstack app.
 
 Repository consitsts of a backend (springboot, mysql), a native android app (java) and an admin panel (angular).
+## Commit messages
+https://gist.github.com/brianclements/841ea7bffdb01346392c
 
 ## App Backend
 ### Installation And Usage
