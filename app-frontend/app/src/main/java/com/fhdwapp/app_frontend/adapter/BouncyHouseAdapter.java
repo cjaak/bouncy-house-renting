@@ -45,7 +45,8 @@ public class BouncyHouseAdapter extends RecyclerView.Adapter<BouncyHouseAdapter.
         LinkedTreeMap<Object,Object> t = (LinkedTreeMap) getrow;
         holder.bhName.setText(t.get("name").toString());
         holder.bhTheme.setText(t.get("theme").toString());
-        holder.bhPrice.setText(t.get("pricePerDay").toString());
+        double price = (double)t.get("pricePerDay");
+        holder.bhPrice.setText(String.format("%.2f €", price));
         Glide.with(context)
                 .load(t.get("imageUrl"))
                 .into(holder.imgViewCover);
