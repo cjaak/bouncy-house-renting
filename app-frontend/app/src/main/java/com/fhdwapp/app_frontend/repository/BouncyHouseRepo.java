@@ -23,11 +23,12 @@ public class BouncyHouseRepo {
     }
 
     public LiveData<CustomResponse> getBouncyHouses() {
+        Log.d(TAG, "Called fetch");
         final MutableLiveData<CustomResponse> data = new MutableLiveData<>();
         apiRequest.getBouncyHouses()
                 .enqueue(new Callback<CustomResponse>() {
                     @Override
-                    public void onResponse(@NonNull Call<CustomResponse> call, @NonNull Response<CustomResponse> response) {
+                    public void onResponse(Call<CustomResponse> call, Response<CustomResponse> response) {
                         Log.d(TAG, "onResponse response:: " + response);
 
                         if(response.body() != null) {
@@ -39,7 +40,8 @@ public class BouncyHouseRepo {
                     }
 
                     @Override
-                    public void onFailure(@NonNull Call<CustomResponse> call, @NonNull Throwable t) {
+                    public void onFailure(Call<CustomResponse> call, Throwable t) {
+                        Log.d(TAG, "response failed :: " + t);
                         data.setValue(null);
                     }
                 });

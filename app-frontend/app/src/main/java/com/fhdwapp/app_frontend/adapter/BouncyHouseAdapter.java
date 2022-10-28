@@ -1,6 +1,8 @@
 package com.fhdwapp.app_frontend.adapter;
 
 import android.content.Context;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -12,10 +14,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.fhdwapp.app_frontend.R;
 import com.fhdwapp.app_frontend.model.BouncyHouse;
+import com.fhdwapp.app_frontend.view.MainActivity;
+import com.google.gson.internal.LinkedTreeMap;
 
 import java.util.ArrayList;
 
 public class BouncyHouseAdapter extends RecyclerView.Adapter<BouncyHouseAdapter.ViewHolder> {
+
+    private static final String TAG = MainActivity.class.getName();
 
     private Context context;
     ArrayList<BouncyHouse> bouncyHouseArrayList;
@@ -28,17 +34,22 @@ public class BouncyHouseAdapter extends RecyclerView.Adapter<BouncyHouseAdapter.
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.list_each_row_bouncy_house, parent, false);
+        return new ViewHolder(view);
     }
 
+    //TODO: this should be refactored and use the BouncyHouse model instead of LinkedTreeMap
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        BouncyHouse bouncyHouse = bouncyHouseArrayList.get(position);
-        holder.bhName.setText(bouncyHouse.getName());
-        holder.bhTheme.setText(bouncyHouse.getTheme().toString());
-        holder.bhPrice.setText(String.valueOf(bouncyHouse.getPricePerDay()));
+        Log.d(TAG, "adapeter list :: " +bouncyHouseArrayList.getClass());
+        Object getrow = bouncyHouseArrayList.get(position);
+        LinkedTreeMap<Object,Object> t = (LinkedTreeMap) getrow;
+        Log.d(TAG, "bouncy house :: " + t);
+        holder.bhName.setText(t.get("name").toString());
+        holder.bhTheme.setText(t.get("theme").toString());
+        holder.bhPrice.setText(t.get("pricePerDay").toString());
         Glide.with(context)
-                .load(bouncyHouse.getImageUrl())
+                .load(t.get("imageUrl"))
                 .into(holder.imgViewCover);
 
 

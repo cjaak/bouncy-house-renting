@@ -9,10 +9,13 @@ import java.util.Map;
 public class CustomResponse {
     @SerializedName("timeStamp")
     @Expose
-    protected LocalDateTime timeStamp;
+    protected String timeStamp;
+    @SerializedName("statusCode")
+    @Expose
+    protected int statusCode;
     @SerializedName("status")
     @Expose
-    protected int status;
+    protected String status;
     @SerializedName("reason")
     @Expose
     protected String reason;
@@ -26,19 +29,19 @@ public class CustomResponse {
     @Expose
     protected Map<?, ?> data;
 
-    public LocalDateTime getTimeStamp() {
+    public String getTimeStamp() {
         return timeStamp;
     }
 
-    public void setTimeStamp(LocalDateTime timeStamp) {
+    public void setTimeStamp(String timeStamp) {
         this.timeStamp = timeStamp;
     }
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -64,6 +67,14 @@ public class CustomResponse {
 
     public void setDeveloperMessage(String developerMessage) {
         this.developerMessage = developerMessage;
+    }
+
+    public int getStatusCode() {
+        return statusCode;
+    }
+
+    public void setStatusCode(int statusCode) {
+        this.statusCode = statusCode;
     }
 
     public Map<?, ?> getData() {
