@@ -74,4 +74,10 @@ public class BouncyHouseAdapter extends RecyclerView.Adapter<BouncyHouseAdapter.
 
         }
     }
+
+    public void clear() {
+        bouncyHouseArrayList.clear();
+        notifyDataSetChanged();
+    }
+
 }

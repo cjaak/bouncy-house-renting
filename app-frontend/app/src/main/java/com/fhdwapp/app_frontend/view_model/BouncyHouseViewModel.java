@@ -20,10 +20,15 @@ public class BouncyHouseViewModel extends AndroidViewModel {
         super(application);
 
         bouncyHouseRepo = new BouncyHouseRepo();
+        reload();
+    }
+
+    public void reload() {
         this.bouncyHouseResponseLiveData = bouncyHouseRepo.getBouncyHouses();
     }
 
-    public LiveData<CustomResponse> getBouncyHouseResponseLiveData() {
+    public LiveData<CustomResponse> getBouncyHouseResponseLiveData(boolean reload) {
+        if(reload) reload();
         Log.d(TAG, "Live Data :: " + bouncyHouseResponseLiveData.getValue());
         return bouncyHouseResponseLiveData;
     }

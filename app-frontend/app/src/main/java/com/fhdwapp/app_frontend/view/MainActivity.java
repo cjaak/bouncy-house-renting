@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView my_recycler_view;
     private ProgressBar progress_circular;
     private LinearLayoutManager layoutManager;
+    private SwipeRefreshLayout swipeContainer;
     private BouncyHouseAdapter adapter;
     private ArrayList<BouncyHouse> bouncyHouseArrayList = new ArrayList<>();
     BouncyHouseViewModel bouncyHouseViewModel;
@@ -36,7 +38,19 @@ public class MainActivity extends AppCompatActivity {
 
         initialization();
 
-        getBouncyHouses();
+        getBouncyHouses(false);
+
+        swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
+        // Setup refresh listener which triggers new data loading
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                adapter.clear();
+                getBouncyHouses(true);
+                swipeContainer.setRefreshing(false);
+            }
+
+        });
 
     }
 
@@ -61,14 +75,14 @@ public class MainActivity extends AppCompatActivity {
         bouncyHouseViewModel = ViewModelProviders.of(this).get(BouncyHouseViewModel.class);
     }
 
-    private void getBouncyHouses() {
-        bouncyHouseViewModel.getBouncyHouseResponseLiveData().observe(this, bouncyHouseResponse -> {
-            if(bouncyHouseResponse != null) {
-                progress_circular.setVisibility(View.GONE);
-                List<BouncyHouse> bouncyHouses = (List<BouncyHouse>)bouncyHouseResponse.getData().get("bouncy_houses");
-                bouncyHouseArrayList.addAll(bouncyHouses);
-                adapter.notifyDataSetChanged();
-            }
+    private void getBouncyHouses(boolean reload) {
+        bouncyHouseViewModel.getBouncyHouseResponseLiveData(reload).observe(this, bouncyHouseResponse -> {
+            Log.d(TAG, bouncyHouseResponse.getTimeStamp());
+            progress_circular.setVisibility(View.GONE);
+            List<BouncyHouse> bouncyHouses = (List<BouncyHouse>)bouncyHouseResponse.getData().get("bouncy_houses");
+            bouncyHouseArrayList.addAll(bouncyHouses);
+            Log.d(TAG, "number :: " + bouncyHouses.size());
+            adapter.notifyDataSetChanged();
         });
     }
 }
