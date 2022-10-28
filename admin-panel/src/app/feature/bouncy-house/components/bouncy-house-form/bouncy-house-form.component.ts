@@ -35,15 +35,17 @@ export class BouncyHouseFormComponent implements OnInit {
       this.title = "Edit " + this.editHouse!.name
     }
 
-      this.bouncyHouseForm = new FormGroup({
-      name: new FormControl(this.isEdit? this.editHouse!.name: '', [Validators.required]),
-      pricePerDay: new FormControl(this.isEdit? this.editHouse!.pricePerDay: '', [Validators.required]),
-      size: new FormControl(this.isEdit? this.editHouse!.size: '', [Validators.required]),
-      theme: new FormControl(this.isEdit? this.editHouse!.theme: '', [Validators.required]),
-      weightLimit: new FormControl(this.isEdit? this.editHouse!.weightLimit: '', [Validators.required]),
-      constructionTimeInMinutes: new FormControl(this.isEdit? this.editHouse!.constructionTimeInMinutes : '', [Validators.required]),
-      withPowerConnection: new FormControl(this.isEdit? this.editHouse!.withPowerConnection : ''),
-      imageUrl: new FormControl(this.isEdit? this.editHouse!.imageUrl: '', [Validators.required])
+    this.bouncyHouseForm = new FormGroup({
+    name: new FormControl(this.isEdit? this.editHouse!.name: '', [Validators.required]),
+    pricePerDay: new FormControl(this.isEdit? this.editHouse!.pricePerDay: '', [Validators.required]),
+    size: new FormControl(this.isEdit? this.editHouse!.size: '', [Validators.required]),
+    theme: new FormControl(this.isEdit? this.editHouse!.theme: '', [Validators.required]),
+    weightLimit: new FormControl(this.isEdit? this.editHouse!.weightLimit: '', [Validators.required]),
+    constructionTimeInMinutes: new FormControl(this.isEdit? this.editHouse!.constructionTimeInMinutes : '', [Validators.required]),
+    withPowerConnection: new FormControl(this.isEdit? this.editHouse!.withPowerConnection : ''),
+    imageUrl: new FormControl(this.isEdit? this.editHouse!.imageUrl: '', [Validators.required]),
+    description: new FormControl(this.isEdit? this.editHouse!.description: '', [Validators.required]),
+    isVisible: new FormControl(this.isEdit? this.editHouse!.isVisible: '')
   });
   }
 
