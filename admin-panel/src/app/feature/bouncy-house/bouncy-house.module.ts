@@ -15,13 +15,15 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSortModule} from '@angular/material/sort';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { BouncyHouseFilterComponent } from './components/bouncy-house-filter/bouncy-house-filter.component';
 
 
 @NgModule({
   declarations: [
     BouncyHousePage,
     BouncyHouseFormComponent,
-    BouncyHouseTableComponent
+    BouncyHouseTableComponent,
+    BouncyHouseFilterComponent
   ],
   imports: [
     CommonModule,
