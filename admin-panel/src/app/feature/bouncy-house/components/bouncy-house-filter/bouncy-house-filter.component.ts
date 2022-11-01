@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {BouncyHouseSizeEnum} from "../../../../shared/enums/size.enum";
+import {BouncyHouseThemeEnum} from "../../../../shared/enums/theme.enum";
+import {FormControl, FormGroup} from "@angular/forms";
+import {MatOptionSelectionChange} from "@angular/material/core";
+import {MatSelectChange} from "@angular/material/select";
 
 @Component({
   selector: 'app-bouncy-house-filter',
@@ -7,9 +12,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BouncyHouseFilterComponent implements OnInit {
 
-  constructor() { }
+  sizes = Object.values(BouncyHouseSizeEnum)
+  themes= Object.values(BouncyHouseThemeEnum)
+
+
+  @Output() filterUpdate = new EventEmitter<any>()
+
+  public filterForm: FormGroup;
+
+  constructor() {
+
+    this.filterForm = new FormGroup({
+      themes: new FormControl(''),
+      size: new FormControl(''),
+      pricePerDay: new FormControl(''),
+      withPowerConnection: new FormControl('')
+    })
+
+
+  }
+
 
   ngOnInit(): void {
   }
 
+  selectChangeTheme(event: MatSelectChange) {
+    console.log(event.value);
+  }
+
+  selectChangeSize(event: MatSelectChange) {
+    console.log(event.value);
+  }
 }

@@ -1,1 +1,24 @@
-<p>bouncy-house-filter works!</p>
+<form [formGroup]="filterForm">
+  <mat-form-field appearance="fill">
+    <mat-label>Thema</mat-label>
+    <mat-select formControlName="themes" multiple (selectionChange)="selectChangeTheme($event)">
+      <mat-option *ngFor="let theme of themes" [value]="theme">{{theme}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Größe</mat-label>
+    <mat-select formControlName="size" multiple (selectionChange)="selectChangeSize($event)">
+      <mat-option *ngFor="let size of sizes" [value]="size">{{size}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <input hidden=true matInput>
+    <mat-slider id="to-slider"></mat-slider>
+    <mat-slider id="from-slider"></mat-slider>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <input hidden=true matInput>
+    <mat-checkbox formControlName="withPowerConnection">mit Stromanschluss</mat-checkbox>
+  </mat-form-field>
+
+</form>
