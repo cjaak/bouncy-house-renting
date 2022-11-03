@@ -72,13 +72,15 @@ export class BouncyHouseService {
       catchError(this.handleError)
     );
 
-  filter(filter: Map<string,string[] | boolean[]>, response: CustomResponse): BouncyHouse[]{
+  filter(filter: Map<string,any>, response: CustomResponse): BouncyHouse[]{
     let unfiltered = response.data.bouncy_houses;
 
     return unfiltered.filter((house: BouncyHouse) => {
       return  (filter.get("sizes") as BouncyHouseSizeEnum[]).includes(house.size!)
       && (filter.get("themes") as BouncyHouseThemeEnum[]).includes(house.theme!)
       && (filter.get("withPowerConnection") as boolean[]).includes(house.withPowerConnection!)
+      && (filter.get("minPrice")) <= house.pricePerDay!
+      && (filter.get("maxPrice")) >= house.pricePerDay!
     })
 
   }

@@ -141,11 +141,16 @@ export class BouncyHouseTableComponent implements OnInit {
     this.dataSource.filter = this.filterValue.trim().toLowerCase();
   }
 
-  handleFilterUpdate(filter: Map<string, string[]>) {
+  handleFilterUpdate(filter: Map<string, any>) {
     console.log(filter);
     let filtered = this.bouncyHouseService.filter(filter, this.dataSubject.value);
     console.log(filtered);
     this.dataSource = new MatTableDataSource(filtered);
+  }
+
+  getMaxPricePerDay(): number{
+    let houses: BouncyHouse[] = this.dataSubject.value.data.bouncy_houses
+    return Math.max(...houses.map(h => h.pricePerDay!))
   }
 
 

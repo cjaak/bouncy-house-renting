@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {BouncyHouseSizeEnum} from "../../../../shared/enums/size.enum";
 import {BouncyHouseThemeEnum} from "../../../../shared/enums/theme.enum";
 import {FormControl, FormGroup} from "@angular/forms";
@@ -16,9 +16,11 @@ export class BouncyHouseFilterComponent implements OnInit {
   sizes = Object.values(BouncyHouseSizeEnum)
   themes= Object.values(BouncyHouseThemeEnum)
 
-  activeFilter = new Map<string, string[]>();
+  activeFilter = new Map<string, any>();
 
-  @Output() filterUpdate = new EventEmitter<Map<string, string[]>>()
+  @Input() maxPrice!: number
+
+  @Output() filterUpdate = new EventEmitter<Map<string, any>>()
 
 
 
@@ -29,21 +31,20 @@ export class BouncyHouseFilterComponent implements OnInit {
     this.filterForm = new FormGroup({
       themes: new FormControl(this.themes),
       sizes: new FormControl(this.sizes),
-      pricePerDay: new FormControl(''),
+      minPrice: new FormControl(0),
+      maxPrice: new FormControl(0),
       withPowerConnection: new FormControl([true, false])
     })
-
-    for(const field in this.filterForm.controls) {
-      this.activeFilter.set(field, this.filterForm.value[field]);
-    }
-
-
 
   }
 
 
   ngOnInit(): void {
+    this.filterForm.controls["maxPrice"].setValue(this.maxPrice)
 
+     for(const field in this.filterForm.controls) {
+      this.activeFilter.set(field, this.filterForm.value[field]);
+    }
   }
 
   selectChangeTheme(event: MatSelectChange) {
@@ -59,6 +60,17 @@ export class BouncyHouseFilterComponent implements OnInit {
   selectChangePower(event: MatSelectChange) {
     this.activeFilter.set("withPowerConnection", event.value);
     this.filterUpdate.emit(this.activeFilter);
+  }
 
+  inputChangeMin(event: KeyboardEvent) {
+    let filterValue = (event.target as HTMLInputElement).value;
+    this.activeFilter.set("minPrice", filterValue);
+    this.filterUpdate.emit(this.activeFilter);
+  }
+
+  inputChangeMax(event: KeyboardEvent) {
+    let filterValue = (event.target as HTMLInputElement).value;
+    this.activeFilter.set("maxPrice", filterValue);
+    this.filterUpdate.emit(this.activeFilter);
   }
 }

@@ -7,15 +7,16 @@
   <button mat-raised-button (click)="addItemDialog()">ADD ITEM</button>
 </mat-toolbar>
 
-<app-bouncy-house-filter (filterUpdate)="handleFilterUpdate($event)"></app-bouncy-house-filter>
 
 <ng-container *ngIf="(appState$ | async) as appState" [ngSwitch]="appState.dataState">
+
   <ng-container *ngSwitchCase="DataState.LOADING_STATE">
     <div>
       Loading...
     </div>
   </ng-container>
   <ng-container *ngSwitchCase="DataState.LOADED_STATE">
+    <app-bouncy-house-filter (filterUpdate)="handleFilterUpdate($event)" [maxPrice]="getMaxPricePerDay()"></app-bouncy-house-filter>
     <table mat-table [dataSource]="dataSource" matSort (matSortChange)="sortData($event)">
 
       <!-- ID Column -->
