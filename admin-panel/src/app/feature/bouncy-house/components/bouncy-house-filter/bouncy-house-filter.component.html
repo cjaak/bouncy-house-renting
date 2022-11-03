@@ -7,7 +7,7 @@
   </mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label>Größe</mat-label>
-    <mat-select formControlName="size" multiple (selectionChange)="selectChangeSize($event)">
+    <mat-select formControlName="sizes" multiple (selectionChange)="selectChangeSize($event)">
       <mat-option *ngFor="let size of sizes" [value]="size">{{size}}</mat-option>
     </mat-select>
   </mat-form-field>
@@ -17,8 +17,11 @@
     <mat-slider id="from-slider"></mat-slider>
   </mat-form-field>
   <mat-form-field appearance="fill">
-    <input hidden=true matInput>
-    <mat-checkbox formControlName="withPowerConnection">mit Stromanschluss</mat-checkbox>
+    <mat-label>Strom</mat-label>
+    <mat-select formControlName="withPowerConnection" multiple (selectionChange)="selectChangePower($event)">
+      <mat-option [value]="true">mit Stromanschluss</mat-option>
+      <mat-option [value]="false">ohne Stromanschluss</mat-option>
+    </mat-select>
   </mat-form-field>
 
 </form>

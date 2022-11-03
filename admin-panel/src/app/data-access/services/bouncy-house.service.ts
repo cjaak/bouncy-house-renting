@@ -5,6 +5,8 @@ import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {CustomResponse} from "../../shared/interfaces/custom-response";
 import {catchError, Observable, pipe, tap, throwError} from "rxjs";
 import {Sort} from "@angular/material/sort";
+import {MatTableDataSource} from "@angular/material/table";
+import {BouncyHouseThemeEnum} from "../../shared/enums/theme.enum";
 
 @Injectable({
   providedIn: 'root'
@@ -69,6 +71,17 @@ export class BouncyHouseService {
       tap(console.log),
       catchError(this.handleError)
     );
+
+  filter(filter: Map<string,string[] | boolean[]>, response: CustomResponse): BouncyHouse[]{
+    let unfiltered = response.data.bouncy_houses;
+
+    return unfiltered.filter((house: BouncyHouse) => {
+      return  (filter.get("sizes") as BouncyHouseSizeEnum[]).includes(house.size!)
+      && (filter.get("themes") as BouncyHouseThemeEnum[]).includes(house.theme!)
+      && (filter.get("withPowerConnection") as boolean[]).includes(house.withPowerConnection!)
+    })
+
+  }
 
 
   private  compareAlphaNum(a: number | string, b: number | string, isAsc: boolean) {

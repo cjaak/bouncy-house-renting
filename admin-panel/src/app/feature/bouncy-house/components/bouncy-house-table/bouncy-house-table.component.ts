@@ -140,4 +140,13 @@ export class BouncyHouseTableComponent implements OnInit {
   private applyAllFilters(){
     this.dataSource.filter = this.filterValue.trim().toLowerCase();
   }
+
+  handleFilterUpdate(filter: Map<string, string[]>) {
+    console.log(filter);
+    let filtered = this.bouncyHouseService.filter(filter, this.dataSubject.value);
+    console.log(filtered);
+    this.dataSource = new MatTableDataSource(filtered);
+  }
+
+
 }
