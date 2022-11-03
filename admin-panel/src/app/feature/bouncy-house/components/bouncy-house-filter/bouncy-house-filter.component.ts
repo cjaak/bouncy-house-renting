@@ -45,6 +45,8 @@ export class BouncyHouseFilterComponent implements OnInit {
      for(const field in this.filterForm.controls) {
       this.activeFilter.set(field, this.filterForm.value[field]);
     }
+
+     this.filterUpdate.emit(this.activeFilter)
   }
 
   selectChangeTheme(event: MatSelectChange) {

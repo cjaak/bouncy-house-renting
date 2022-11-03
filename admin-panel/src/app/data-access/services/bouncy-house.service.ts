@@ -72,8 +72,7 @@ export class BouncyHouseService {
       catchError(this.handleError)
     );
 
-  filter(filter: Map<string,any>, response: CustomResponse): BouncyHouse[]{
-    let unfiltered = response.data.bouncy_houses;
+  filter(filter: Map<string,any>, unfiltered: BouncyHouse[]): BouncyHouse[]{
 
     return unfiltered.filter((house: BouncyHouse) => {
       return  (filter.get("sizes") as BouncyHouseSizeEnum[]).includes(house.size!)

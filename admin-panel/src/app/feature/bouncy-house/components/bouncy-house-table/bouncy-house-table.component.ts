@@ -26,6 +26,7 @@ export class BouncyHouseTableComponent implements OnInit {
   readonly DataState = DataStateEnum
 
   filterValue = "";
+  filterMap!: Map<string, any>
 
   // @ts-ignore
   private dataSubject = new BehaviorSubject<CustomResponse>(null)
@@ -121,7 +122,7 @@ export class BouncyHouseTableComponent implements OnInit {
       map(response => {
         this.dataSubject.next(response);
         this.dataSource = new MatTableDataSource(response.data.bouncy_houses)
-        this.applyAllFilters();
+        this.applyFilters();
         return {dataState: DataStateEnum.LOADED_STATE, appData: response}
       }),
       startWith({dataState: DataStateEnum.LOADED_STATE, appData: this.dataSubject.value}),
@@ -129,24 +130,29 @@ export class BouncyHouseTableComponent implements OnInit {
         return of({dataState: DataStateEnum.ERROR_STATE, error: error})
       })
     )
-    console.log(this.appState$);
    }
 
-  applySearchFilter(event: KeyboardEvent) {
+  handleSearchFilter(event: KeyboardEvent) {
     this.filterValue = (event.target as HTMLInputElement).value;
-    this.applyAllFilters();
+    this.applySearchFilter();
   }
 
-  private applyAllFilters(){
+  private applySearchFilter(){
     this.dataSource.filter = this.filterValue.trim().toLowerCase();
   }
 
-  handleFilterUpdate(filter: Map<string, any>) {
-    console.log(filter);
-    let filtered = this.bouncyHouseService.filter(filter, this.dataSubject.value);
-    console.log(filtered);
+  applyFilters(){
+    let data = this.dataSource.data as BouncyHouse[]
+    let filtered =  this.bouncyHouseService.filter(this.filterMap, data);
     this.dataSource = new MatTableDataSource(filtered);
+    this.applySearchFilter()
   }
+
+  handleFilterUpdate(filter: Map<string, any>) {
+    this.filterMap = filter
+    this.applyFilters()
+  }
+
 
   getMaxPricePerDay(): number{
     let houses: BouncyHouse[] = this.dataSubject.value.data.bouncy_houses

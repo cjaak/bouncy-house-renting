@@ -2,7 +2,7 @@
   <span>Bouncy Houses</span>
   <mat-form-field appearance="standard" id="search">
     <mat-label>Suche</mat-label>
-    <input matInput (keyup)="applySearchFilter($event)" #input>
+    <input matInput (keyup)="handleSearchFilter($event)" #input>
 </mat-form-field>
   <button mat-raised-button (click)="addItemDialog()">ADD ITEM</button>
 </mat-toolbar>
