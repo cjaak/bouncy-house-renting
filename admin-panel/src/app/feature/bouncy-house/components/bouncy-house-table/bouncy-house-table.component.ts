@@ -49,6 +49,7 @@ export class BouncyHouseTableComponent implements OnInit {
         map(response => {
           this.dataSubject.next(response);
           this.dataSource = new MatTableDataSource(response.data.bouncy_houses)
+
           return { dataState: DataStateEnum.LOADED_STATE, appData: {...response, data: {bouncy_houses: response.data.bouncy_houses} }}
         }),
         startWith({dataState: DataStateEnum.LOADING_STATE}),
@@ -108,6 +109,7 @@ export class BouncyHouseTableComponent implements OnInit {
           let newItems = {...response, data: { bouncy_houses: [response.data.bouncy_house, ...this.dataSubject.value.data.bouncy_houses] }}
           this.dataSubject.next(newItems);
           this.dataSource = new MatTableDataSource(newItems.data.bouncy_houses);
+          this.applyFilters()
           return { dataState: DataStateEnum.LOADED_STATE, appData: this.dataSubject.value}
         }),
         startWith({dataState: DataStateEnum.LOADED_STATE, appData: this.dataSubject.value}),
@@ -141,16 +143,22 @@ export class BouncyHouseTableComponent implements OnInit {
     this.dataSource.filter = this.filterValue.trim().toLowerCase();
   }
 
-  applyFilters(){
+  applyFilters(list?: BouncyHouse[]){
     let data = this.dataSource.data as BouncyHouse[]
-    let filtered =  this.bouncyHouseService.filter(this.filterMap, data);
+    let filtered
+    if(list){
+      filtered =  this.bouncyHouseService.filter(this.filterMap, list);
+    }else{
+      filtered =  this.bouncyHouseService.filter(this.filterMap, data);
+    }
     this.dataSource = new MatTableDataSource(filtered);
     this.applySearchFilter()
   }
 
   handleFilterUpdate(filter: Map<string, any>) {
+    console.log(filter);
     this.filterMap = filter
-    this.applyFilters()
+    this.applyFilters(this.dataSubject.value.data.bouncy_houses)
   }
 
 
