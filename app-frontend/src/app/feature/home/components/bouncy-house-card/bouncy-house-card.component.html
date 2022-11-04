@@ -1,0 +1,15 @@
+<mat-card>
+  <figure>
+    <img [src]="current.imageUrl" [alt]="current.name">
+  </figure>
+  <a [routerLink]="['/bouncy-house/'+ current.id]">
+    <div class="content">
+      <strong class="title">{{current.name}}</strong>
+      <div class="features">
+        {{current.theme}} | {{current.size}} | {{current.constructionTimeInMinutes}}min
+      </div>
+      <br>
+      <em class="price">{{current.pricePerDay | currency: 'EUR'}}</em>
+    </div>
+  </a>
+</mat-card>

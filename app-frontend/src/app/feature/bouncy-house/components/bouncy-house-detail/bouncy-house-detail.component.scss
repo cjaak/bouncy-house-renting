@@ -1,0 +1,49 @@
+mat-card{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding-bottom: 85px;
+}
+
+
+#cart{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+#back{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.features{
+  display: flex;
+  flex-flow: wrap;
+}
+
+.item{
+  min-width: 33%;
+}
+
+.call-to-action{
+  position: absolute;
+  bottom: 0;
+  z-index: 1000;
+  background-color: white;
+  display: flex;
+
+  button{
+    margin-right: 10px;
+    margin-left: auto;
+  }
+
+}
+
+mat-card-content{
+  width: 100%;
+  height: 200px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}

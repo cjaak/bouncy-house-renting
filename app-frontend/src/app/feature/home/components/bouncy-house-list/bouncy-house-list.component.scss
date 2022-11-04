@@ -1,0 +1,10 @@
+.flex-container{
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: wrap;
+}
+
+.item{
+  box-sizing: border-box;
+  max-width: 50%;
+}
