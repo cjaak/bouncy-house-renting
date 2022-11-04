@@ -1,0 +1,30 @@
+<form [formGroup]="filterForm">
+  <mat-form-field appearance="fill">
+    <mat-label>Thema</mat-label>
+    <mat-select formControlName="themes" multiple (selectionChange)="selectChangeTheme($event)">
+      <mat-option *ngFor="let theme of themes" [value]="theme">{{theme}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Größe</mat-label>
+    <mat-select formControlName="sizes" multiple (selectionChange)="selectChangeSize($event)">
+      <mat-option *ngFor="let size of sizes" [value]="size">{{size}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>min. Preis</mat-label>
+    <input type="number" matInput formControlName="minPrice" (keyup)="inputChangeMin($event)">
+  </mat-form-field>
+    <mat-form-field appearance="fill">
+    <mat-label>max. Preis</mat-label>
+    <input type="number" matInput formControlName="maxPrice" (keyup)="inputChangeMax($event)" >
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Strom</mat-label>
+    <mat-select formControlName="withPowerConnection" multiple (selectionChange)="selectChangePower($event)">
+      <mat-option [value]="true">mit Stromanschluss</mat-option>
+      <mat-option [value]="false">ohne Stromanschluss</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</form>
