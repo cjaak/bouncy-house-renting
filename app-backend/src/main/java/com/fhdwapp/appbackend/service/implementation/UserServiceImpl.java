@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.Collection;
+import java.util.Optional;
 
 import static java.lang.Boolean.*;
 
@@ -36,6 +37,12 @@ public class UserServiceImpl implements UserService {
     public Collection<User> getAll() {
         log.info("Fetching all Users");
         return userRepo.findAll();
+    }
+
+    @Override
+    public Optional<Long> loginUser(String email, String password) {
+        Optional<User> user = userRepo.findFirstByEmailAndPassword(email, password);
+        return user.map(User::getId);
     }
 
     @Override

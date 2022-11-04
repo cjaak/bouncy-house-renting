@@ -22,6 +22,8 @@ public class BouncyHouse implements Serializable {
     @Column(nullable = false, updatable = false)
     private Long id;
     private String name;
+    @Column(columnDefinition="TEXT")
+    @Lob
     private String description;
     private BouncyHouseTheme theme;
     private BouncyHouseSize size;

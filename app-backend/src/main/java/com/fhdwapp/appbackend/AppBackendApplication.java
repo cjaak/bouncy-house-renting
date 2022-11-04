@@ -31,35 +31,74 @@ public class AppBackendApplication {
         return args -> {
             bouncyHouseRepo.save(new BouncyHouse(
                     null,
-                    "tolle Tier M Burg",
-                    "tier beschreibung",
-                    BouncyHouseTheme.Animal,
+                    "Schloss",
+                    "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+                    BouncyHouseTheme.Princess,
                     BouncyHouseSize.M,
                     500.0,
                     90,
                     78.0,
                     true,
-                    "https://i5.walmartimages.com/asr/8f12875d-4395-4910-ba92-09cd2807a708.d00dd91beaf247d986c50f78fa1c1da8.jpeg",
+                    "https://m.media-amazon.com/images/I/71p3+odK-cL.jpg",
                     true
             ));
             bouncyHouseRepo.save(new BouncyHouse(
                     null,
-                    "tolle Cowboy S Burg",
-                    "cowboy beschreibung",
+                    "Wilder Westen",
+                    "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
                     BouncyHouseTheme.Cowboy,
                     BouncyHouseSize.S,
                     300.0,
                     35,
                     60.0,
                     false,
+                    "https://eveprocom.de/wp-content/uploads/2018/01/huepfburg-cowboy.jpg",
+                    true
+            ));
+            bouncyHouseRepo.save(new BouncyHouse(
+                    null,
+                    "Bahnhof",
+                    "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+                    BouncyHouseTheme.Train,
+                    BouncyHouseSize.XL,
+                    1000.0,
+                    120,
+                    100.0,
+                    true,
                     "https://i5.walmartimages.com/asr/8f12875d-4395-4910-ba92-09cd2807a708.d00dd91beaf247d986c50f78fa1c1da8.jpeg",
                     true
             ));
             bouncyHouseRepo.save(new BouncyHouse(
                     null,
-                    "tolle Prinzessin XL Burg",
-                    "princess description",
+                    "Schloss",
+                    "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
                     BouncyHouseTheme.Princess,
+                    BouncyHouseSize.M,
+                    500.0,
+                    90,
+                    78.0,
+                    true,
+                    "https://m.media-amazon.com/images/I/71p3+odK-cL.jpg",
+                    true
+            ));
+            bouncyHouseRepo.save(new BouncyHouse(
+                    null,
+                    "Wilder Westen",
+                    "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+                    BouncyHouseTheme.Cowboy,
+                    BouncyHouseSize.S,
+                    300.0,
+                    35,
+                    60.0,
+                    false,
+                    "https://eveprocom.de/wp-content/uploads/2018/01/huepfburg-cowboy.jpg",
+                    true
+            ));
+            bouncyHouseRepo.save(new BouncyHouse(
+                    null,
+                    "Bahnhof",
+                    "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+                    BouncyHouseTheme.Train,
                     BouncyHouseSize.XL,
                     1000.0,
                     120,

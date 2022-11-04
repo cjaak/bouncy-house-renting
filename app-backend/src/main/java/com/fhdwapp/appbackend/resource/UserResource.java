@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+import java.util.Map;
+
 import static java.time.LocalDateTime.now;
 import static java.util.Map.of;
 import static org.springframework.http.HttpStatus.CREATED;
@@ -71,10 +73,26 @@ public class UserResource {
 
 
     @GetMapping("/login")
-    public ResponseEntity<Response> login(@RequestBody String email, @RequestBody String password) {
+    public ResponseEntity<Response> login(@RequestBody Map<String, String> json) {
+        String email = json.get("email");
+        String password = json.get("password");
         return ResponseEntity.ok(Response.builder()
                 .timeStamp(now())
                 .data(of("isLoggedIn", userService.login(email, password)))
+                .message("returned auth status")
+                .status(OK)
+                .statusCode(OK.value())
+                .build()
+        );
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<Response> loginUser(@RequestBody Map<String, String> json) {
+        String email = json.get("email");
+        String password = json.get("password");
+        return ResponseEntity.ok(com.fhdwapp.appbackend.model.Response.builder()
+                .timeStamp(now())
+                .data(of("userId", userService.loginUser(email, password)))
                 .message("returned auth status")
                 .status(OK)
                 .statusCode(OK.value())
