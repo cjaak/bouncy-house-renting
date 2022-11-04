@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.time.LocalDate;
 import java.util.Collection;
 
 import static java.lang.Boolean.TRUE;
@@ -64,7 +65,10 @@ public class RentedServiceImpl implements RentedService {
     }
 
     @Override
-    public boolean okToDeleteHouse(Long bouncyHouseId) {
-        return false;
+    public Collection<Rented> getAllInUse() {
+        log.info("Fetching rented objects in use");
+        LocalDate now = LocalDate.now();
+        return rentedRepo.findAllByStartDateAfterAndEndDateBefore(now, now);
     }
+
 }

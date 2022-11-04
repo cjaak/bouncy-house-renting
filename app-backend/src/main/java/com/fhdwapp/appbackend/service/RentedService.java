@@ -2,6 +2,7 @@ package com.fhdwapp.appbackend.service;
 
 import com.fhdwapp.appbackend.model.Rented;
 
+import java.time.LocalDate;
 import java.util.Collection;
 
 public interface RentedService {
@@ -13,6 +14,7 @@ public interface RentedService {
     Rented update(Rented rented);
     Boolean delete(Long id);
 
-    boolean okToDeleteHouse(Long bouncyHouseId);
+    Collection<Rented> getAllInUse();
+
 
 }

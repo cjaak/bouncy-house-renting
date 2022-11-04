@@ -13,4 +13,5 @@ public interface RentedRepo extends JpaRepository<Rented, Long> {
     Collection<Rented> findAllByUserId(Long userId);
 
     Optional<Rented> findTopByBouncyHouseIdAndEndDateAfter(Long bouncyHouseId, LocalDate endDate);
+    Collection<Rented> findAllByStartDateAfterAndEndDateBefore(LocalDate startDate, LocalDate endDate);
 }
