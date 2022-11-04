@@ -14,6 +14,7 @@ import {AuthModule} from "./feature/auth/auth.module";
 import {HttpClientModule} from "@angular/common/http";
 import {BouncyHouseModule} from "./feature/bouncy-house/bouncy-house.module";
 import {MatNativeDateModule} from "@angular/material/core";
+import {RentingModule} from "./feature/renting/renting.module";
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import {MatNativeDateModule} from "@angular/material/core";
     ProfileModule,
     CartModule,
     AuthModule,
+    RentingModule,
     BouncyHouseModule,
     HttpClientModule,
     MatNativeDateModule
