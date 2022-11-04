@@ -5,9 +5,11 @@ import com.fhdwapp.appbackend.repo.UserRepo;
 import com.fhdwapp.appbackend.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.Collection;
 import java.util.Optional;
 
@@ -28,9 +30,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User create(User user) {
+    public Optional<User> create(User user) {
         log.info("Creating user: {}", user.getEmail());
-        return userRepo.save(user);
+        if(userRepo.findByEmail(user.getEmail()).isPresent()) return Optional.empty();
+        return Optional.of(userRepo.save(user));
     }
 
     @Override
