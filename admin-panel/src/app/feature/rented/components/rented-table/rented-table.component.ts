@@ -5,6 +5,8 @@ import {Observable} from "rxjs";
 import {AppState} from "../../../../shared/interfaces/app-state";
 import {CustomResponse} from "../../../../shared/interfaces/custom-response";
 import {MatSort} from "@angular/material/sort";
+import {MatDialog} from "@angular/material/dialog";
+import {BouncyHouseDetailComponent} from "../bouncy-house-detail/bouncy-house-detail.component";
 
 
 @Component({
@@ -24,9 +26,14 @@ export class RentedTableComponent implements OnInit {
     this.dataSource.sort = this._sort;
   }
 
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
+  showBouncyHouseDetail(id: number) {
+    const dialogRef = this.dialog.open(BouncyHouseDetailComponent, {
+      data: id
+    })
+  }
 }

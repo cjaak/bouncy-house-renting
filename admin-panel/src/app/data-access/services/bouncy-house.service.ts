@@ -22,6 +22,11 @@ export class BouncyHouseService {
     catchError(this.handleError)
   )
 
+  get$ = (id: number) => <Observable<CustomResponse>>this.http.get<CustomResponse>(`${this.apiUrl}/bouncy-house/${id}`).pipe(
+    tap(console.log),
+    catchError(this.handleError)
+  )
+
   save$ = (house: BouncyHouse) => <Observable<CustomResponse>>
   this.http.post<CustomResponse>(`${this.apiUrl}/bouncy-house/save`, house).pipe(
     tap(console.log),

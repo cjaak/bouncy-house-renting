@@ -1,0 +1,14 @@
+  <ng-container *ngIf="(appState$ | async) as appState" [ngSwitch]="appState.dataState">
+    <ng-container *ngSwitchCase="DataState.LOADING_STATE">
+      LOADING...
+    </ng-container>
+    <ng-container *ngSwitchCase="DataState.LOADED_STATE">
+      <mat-card>
+        <mat-card-title>{{bouncyHouse.name}}</mat-card-title>
+        <img [src]="bouncyHouse.imageUrl" alt="burg" mat-card-image />
+      </mat-card>
+    </ng-container>
+    <ng-container *ngSwitchCase="DataState.ERROR_STATE">
+      ERROR
+    </ng-container>
+  </ng-container>

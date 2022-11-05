@@ -20,7 +20,9 @@
       <!-- bouncyHouseId Column -->
       <ng-container matColumnDef="bouncyHouseId">
         <th mat-header-cell mat-sort-header *matHeaderCellDef> Hüpfburg ID </th>
-        <td mat-cell *matCellDef="let element"> {{element.bouncyHouseId}}</td>
+        <td mat-cell (click)="showBouncyHouseDetail(element.bouncyHouseId)" *matCellDef="let element">
+          <button mat-raised-button (click)="showBouncyHouseDetail(element.bouncyHouseId)"> {{element.bouncyHouseId}}</button>
+        </td>
       </ng-container>
 
       <!-- startDate Column -->

@@ -6,20 +6,28 @@ import { RentedTableComponent } from './components/rented-table/rented-table.com
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatTableModule} from "@angular/material/table";
 import {MatSortModule} from "@angular/material/sort";
+import { BouncyHouseDetailComponent } from './components/bouncy-house-detail/bouncy-house-detail.component';
+import {MatCardModule} from "@angular/material/card";
+import {MatButtonModule} from "@angular/material/button";
+import {MatDialogModule} from "@angular/material/dialog";
 
 
 
 @NgModule({
   declarations: [
     RentedActivePage,
-    RentedTableComponent
+    RentedTableComponent,
+    BouncyHouseDetailComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
     MatToolbarModule,
     MatTableModule,
-    MatSortModule
+    MatSortModule,
+    MatCardModule,
+    MatButtonModule,
+    MatDialogModule
   ]
 })
 export class RentedModule { }
