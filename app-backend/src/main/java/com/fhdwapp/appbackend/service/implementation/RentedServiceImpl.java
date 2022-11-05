@@ -68,7 +68,7 @@ public class RentedServiceImpl implements RentedService {
     public Collection<Rented> getAllInUse() {
         log.info("Fetching rented objects in use");
         LocalDate now = LocalDate.now();
-        return rentedRepo.findAllByStartDateAfterAndEndDateBefore(now, now);
+        return rentedRepo.findAllByStartDateLessThanEqualAndEndDateGreaterThanEqual(now, now);
     }
 
 }
