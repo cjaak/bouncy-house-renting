@@ -1,3 +1,13 @@
 <app-shell>
-  <app-rented-table></app-rented-table>
+  <ng-container *ngIf="(appState$ | async) as appState" [ngSwitch]="appState.dataState">
+    <ng-container *ngSwitchCase="DataState.LOADING_STATE">
+      LOADING...
+    </ng-container>
+    <ng-container *ngSwitchCase="DataState.LOADED_STATE">
+      <app-rented-table [dataSource]="activeDataSource"></app-rented-table>
+    </ng-container>
+    <ng-container *ngSwitchCase="DataState.ERROR_STATE">
+      ERROR
+    </ng-container>
+  </ng-container>
 </app-shell>
