@@ -126,6 +126,20 @@ public class AppBackendApplication {
                     LocalDate.of(2022, 12, 24),
                     LocalDate.of(2022, 12, 27)
             ));
+            rentedRepo.save(new Rented(
+                    null,
+                    1L,
+                    2L,
+                    LocalDate.of(2022, 10, 24),
+                    LocalDate.of(2022, 12, 27)
+            ));
+            rentedRepo.save(new Rented(
+                    null,
+                    1L,
+                    3L,
+                    LocalDate.of(2022, 11, 1),
+                    LocalDate.of(2022, 12, 1)
+            ));
         };
     }
 

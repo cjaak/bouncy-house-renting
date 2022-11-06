@@ -82,6 +82,18 @@ public class RentedResource {
         );
     }
 
+    @GetMapping("/in-use")
+    public ResponseEntity<Response> getRentedEntriesInUse() {
+        return ResponseEntity.ok(Response.builder()
+                .timeStamp(now())
+                .data(of("rented", rentedService.getAllInUse()))
+                .message("rented entries in use retrieved")
+                .status(OK)
+                .statusCode(OK.value())
+                .build()
+        );
+    }
+
 
 
 }

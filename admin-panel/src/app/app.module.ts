@@ -8,6 +8,7 @@ import {UserModule} from "./feature/user/user.module";
 import {BouncyHouseModule} from "./feature/bouncy-house/bouncy-house.module";
 import {SharedModule} from "./shared/shared.module";
 import {HttpClientModule} from "@angular/common/http";
+import {RentedModule} from "./feature/rented/rented.module";
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {HttpClientModule} from "@angular/common/http";
     UserModule,
     BouncyHouseModule,
     SharedModule,
+    RentedModule,
     HttpClientModule
   ],
   providers: [],

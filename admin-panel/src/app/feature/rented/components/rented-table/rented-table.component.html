@@ -1,0 +1,43 @@
+<mat-toolbar color="primary">
+  <span>Aktiv Vermietet</span>
+</mat-toolbar>
+
+
+ <table mat-table [dataSource]="dataSource" matSort>
+
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+
+      <!-- userId Column -->
+      <ng-container matColumnDef="userId">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> User ID </th>
+        <td mat-cell *matCellDef="let element">{{element.userId}}</td>
+      </ng-container>
+
+      <!-- bouncyHouseId Column -->
+      <ng-container matColumnDef="bouncyHouseId">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Hüpfburg ID </th>
+        <td mat-cell (click)="showBouncyHouseDetail(element.bouncyHouseId)" *matCellDef="let element">
+          <button mat-raised-button (click)="showBouncyHouseDetail(element.bouncyHouseId)"> {{element.bouncyHouseId}}</button>
+        </td>
+      </ng-container>
+
+      <!-- startDate Column -->
+      <ng-container matColumnDef="startDate">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Von </th>
+        <td mat-cell *matCellDef="let element"> {{element.startDate | date:'mediumDate'}} </td>
+      </ng-container>
+
+      <!-- endDate Column -->
+      <ng-container matColumnDef="endDate">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef> Bis </th>
+        <td mat-cell *matCellDef="let element" > {{element.endDate | date:'mediumDate'}} </td>
+      </ng-container>
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
