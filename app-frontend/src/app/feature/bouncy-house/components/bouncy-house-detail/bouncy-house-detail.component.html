@@ -1,0 +1,33 @@
+<mat-card>
+  <figure>
+    <button mat-button id="back" (click)="back()"><mat-icon>arrow_back_ios_new</mat-icon></button>
+    <button mat-button id="cart" [routerLink]="['/cart']"><mat-icon>shopping_cart</mat-icon></button>
+    <img mat-card-image [src]="bouncyHouse.imageUrl" alt="bouncy house">
+  </figure>
+  <mat-card-title>{{bouncyHouse.name}}</mat-card-title>
+  <div class="features">
+    <div class="item">
+      <app-icon-with-text icon="category" [spanText]="bouncyHouse.theme + ''"></app-icon-with-text>
+    </div>
+    <div class="item">
+      <app-icon-with-text icon="aspect_ratio" [spanText]="bouncyHouse.size + ''"></app-icon-with-text>
+    </div>
+    <div class="item">
+      <app-icon-with-text icon="alarm_on" [spanText]="bouncyHouse.constructionTimeInMinutes + 'min'"></app-icon-with-text>
+    </div>
+    <div class="item">
+      <app-icon-with-text icon="scale" [spanText]="bouncyHouse.weightLimit + 'kg'"></app-icon-with-text>
+    </div>
+    <div class="item">
+      <app-icon-with-text icon="electrical_servicest" [spanText]="bouncyHouse.withPowerConnection? 'mit Stromanschluss': 'ohne Stromanschluss'"></app-icon-with-text>
+    </div>
+  </div>
+  <mat-card-content>
+    <h3>Beschreibung</h3>
+    {{bouncyHouse.description}}
+  </mat-card-content>
+  <mat-toolbar class="call-to-action">
+    <strong>{{bouncyHouse.pricePerDay | currency:  'EUR'}}</strong>
+    <button mat-raised-button color="primary" [routerLink]="['/renting/', bouncyHouse.id]">Mieten</button>
+  </mat-toolbar>
+</mat-card>

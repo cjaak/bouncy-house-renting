@@ -1,0 +1,11 @@
+<ng-container *ngIf="(appState$ | async) as appState" [ngSwitch]="appState.dataState">
+  <ng-container *ngSwitchCase="DataState.LOADING_STATE">
+    LOADING...
+  </ng-container>
+  <ng-container *ngSwitchCase="DataState.LOADED_STATE">
+    <app-bouncy-house-detail [bouncyHouse]="productItem!"></app-bouncy-house-detail>
+  </ng-container>
+  <ng-container *ngSwitchCase="DataState.ERROR_STATE">
+    ERROR
+  </ng-container>
+</ng-container>

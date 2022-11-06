@@ -1,0 +1,26 @@
+host{
+  --item-height: 250px
+}
+
+mat-card{
+  margin: 5px;
+  height: var(--item-height);
+  width: 50%;
+  overflow: hidden;
+  border-radius: 10px;
+		-webkit-box-shadow: 0px 0px 23px -7px rgba(0, 0, 0, 0.28);
+		-moz-box-shadow: 0px 0px 23px -7px rgba(0, 0, 0, 0.28);
+		box-shadow: 0px 0px 23px -7px rgba(0, 0, 0, 0.28);
+}
+
+figure{
+  width: 100%;
+  height: calc(var(--item-height) - 100px);
+  padding: 5px;
+  margin: 0;
+}
+
+img{
+  width: 100%;
+  object-fit: cover;
+}
