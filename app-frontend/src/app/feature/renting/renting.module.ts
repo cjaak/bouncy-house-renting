@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RentingPage } from './pages/renting/renting.page';
-import { RentingFormDialogComponent } from './components/renting-form-dialog/renting-form-dialog.component';
+import { RentingFormComponent } from './components/renting-form/renting-form.component';
 
 
 
 @NgModule({
   declarations: [
     RentingPage,
-    RentingFormDialogComponent
+    RentingFormComponent
   ],
   imports: [
     CommonModule
