@@ -17,6 +17,11 @@ export class RentedService {
     catchError(this.handleError)
   )
 
+  RentedByBouncyHouse$ = (bouncyHouseId: number) =><Observable<CustomResponse>>this.http.get<CustomResponse>(`${this.apiUrl}/rented/bouncy-house/${bouncyHouseId}`).pipe(
+    tap(console.log),
+    catchError(this.handleError)
+  )
+
   private handleError(error: HttpErrorResponse): Observable<never> {
     console.log(error);
     return throwError(() => new Error(`An error occurred - Error code ${error.status}`));

@@ -1,4 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Rented} from "../../../../shared/models/rented.model";
+import {BouncyHouseService} from "../../../../data-access/services/bouncy-house.service";
+import {catchError, map, Observable, of, startWith} from "rxjs";
+import {DataStateEnum} from "../../../../shared/enums/data-state.enum";
+import {BouncyHouse} from "../../../../shared/models/bouncy-house.model";
+import {AppState} from "../../../../shared/interfaces/app-state";
+import {CustomResponse} from "../../../../shared/interfaces/custom-response";
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-renting-form',
@@ -7,9 +15,84 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RentingFormComponent implements OnInit {
 
-  constructor() { }
+  @Input() rentedList!: Rented[]
+  @Input() bouncyHouseId!: number
 
-  ngOnInit(): void {
+  bouncyHouse!: BouncyHouse
+
+  listOfDates: Date[][] = []
+
+  minDate: Date
+
+  days: number = 1
+
+
+
+  appState$!: Observable<AppState<CustomResponse>>
+  readonly DataState = DataStateEnum
+
+  constructor(private bouncyHouseService: BouncyHouseService) {
+    this.minDate = new Date()
   }
 
+  range = new FormGroup({
+    start: new FormControl<Date | null>(null),
+    end: new FormControl<Date | null>(null),
+  });
+
+  // rangeFilter(date: Date): boolean {
+  //   if (date! < this.minDate) return false;
+  //     for (let i = 0; i < this.listOfDates.length; i++) {
+  //       if (date! >= this.listOfDates[i][0] && date! <= this.listOfDates[i][1])
+  //         return false;
+  //     }
+  //     return true;
+  // }
+
+  rangeFilterRecursive(date: Date, index: number): boolean {
+    let check = !(date >= this.rentedList[index].startDate && date <= this.rentedList[index].startDate)
+    return false
+    // if(index === this.rentedList.length -1){
+    //   return check
+    // }
+    // return check && this.rangeFilterRecursive(date, index+1)
+  }
+
+  ngOnInit(): void {
+
+     this.appState$ = this.bouncyHouseService.get$(this.bouncyHouseId)
+      .pipe(
+        map(response => {
+          this.bouncyHouse = response.data.bouncy_house
+          return { dataState: DataStateEnum.LOADED_STATE, appData: response}
+        }),
+        startWith({dataState: DataStateEnum.LOADING_STATE}),
+        catchError((error: string) => {
+          return of({dataState: DataStateEnum.ERROR_STATE, error: error})
+        })
+      )
+
+    this.rentedList.forEach((element: any) => {
+      const el=[
+          new Date(element.startDate),
+          new Date(element.endDate),
+        ]
+        el[0].setHours(0,0,0,0)
+        el[1].setHours(0, 0, 0, 0)
+        this.listOfDates.push(el);
+      });
+
+     this.range.valueChanges.subscribe((value) =>{
+       if(value.start && value.end){
+        let diff = (value.end!.valueOf() - value.start!.valueOf())
+        this.days = Math.ceil(diff / (1000 * 3600 * 24)) + 1;
+       }
+     })
+
+  }
+
+
+
 }
+
+
