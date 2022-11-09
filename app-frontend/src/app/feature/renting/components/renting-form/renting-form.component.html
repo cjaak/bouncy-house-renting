@@ -20,6 +20,9 @@
       <p>Preis pro Tag: {{bouncyHouse.pricePerDay! | currency: 'EUR'}}</p>
       <p>Insgesamt: {{bouncyHouse.pricePerDay! * days | currency: 'EUR'}}</p>
     </div>
+    <div class="checkout">
+      <button mat-raised-button (click)="checkout()" [disabled]="!dateRangeIsSet()"> Direkt Mieten</button>
+    </div>
   </ng-container>
   <ng-container *ngSwitchCase="DataState.ERROR_STATE">
     ERROR

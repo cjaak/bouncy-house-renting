@@ -70,12 +70,12 @@ public class RentedResource {
         );
     }
 
-    @GetMapping("/save")
+    @PostMapping("/save")
     public ResponseEntity<Response> saveRentedEntry(@RequestBody @Valid Rented rented) {
         return ResponseEntity.ok(Response.builder()
                 .timeStamp(now())
                 .data(of("rented", rentedService.create(rented)))
-                .message("rented entries retrieved")
+                .message("rented entry created")
                 .status(CREATED)
                 .statusCode(CREATED.value())
                 .build()

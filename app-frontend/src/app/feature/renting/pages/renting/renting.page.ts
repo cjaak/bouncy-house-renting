@@ -25,7 +25,7 @@ export class RentingPage implements OnInit {
 			this.bouncyHouseId = params?.['id']
 		})
 
-    this.appState$ = this.rentedService.RentedByBouncyHouse$(this.bouncyHouseId)
+    this.appState$ = this.rentedService.rentedByBouncyHouse$(this.bouncyHouseId)
       .pipe(
         map(response => {
           return { dataState: DataStateEnum.LOADED_STATE, appData: response}
@@ -35,6 +35,8 @@ export class RentingPage implements OnInit {
           return of({dataState: DataStateEnum.ERROR_STATE, error: error})
         })
       )
+
+
 
 
   }
