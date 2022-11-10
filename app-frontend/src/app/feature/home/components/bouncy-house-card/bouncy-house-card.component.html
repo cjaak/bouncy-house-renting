@@ -1,8 +1,8 @@
-<mat-card>
+<mat-card [routerLink]="['/bouncy-house/'+ current.id]">
   <figure>
     <img [src]="current.imageUrl" [alt]="current.name">
   </figure>
-  <a [routerLink]="['/bouncy-house/'+ current.id]">
+  <a>
     <div class="content">
       <strong class="title">{{current.name}}</strong>
       <div class="features">
