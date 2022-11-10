@@ -11,6 +11,8 @@ import {MatListModule} from "@angular/material/list";
 import {MatCardModule} from "@angular/material/card";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { SearchFilterPipe } from './pipes/search-filter.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
+import { SortPipe } from './pipes/sort.pipe';
 
 
 
@@ -20,14 +22,18 @@ import { SearchFilterPipe } from './pipes/search-filter.pipe';
         IconWithTextComponent,
         RentedCardComponent,
         SearchFilterPipe,
-        SearchFilterPipe
+        SearchFilterPipe,
+        FilterPipe,
+        SortPipe
     ],
-    exports: [
-        NavbarComponent,
-        IconWithTextComponent,
-        RentedCardComponent,
-        SearchFilterPipe
-    ],
+  exports: [
+    NavbarComponent,
+    IconWithTextComponent,
+    RentedCardComponent,
+    SearchFilterPipe,
+    SortPipe,
+    FilterPipe
+  ],
   imports: [
     CommonModule,
     MatToolbarModule,

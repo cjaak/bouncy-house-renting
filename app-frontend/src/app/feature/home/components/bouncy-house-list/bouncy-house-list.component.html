@@ -4,7 +4,7 @@
   </ng-container>
   <ng-container *ngSwitchCase="DataState.LOADED_STATE">
     <div class="flex-container">
-      <app-bouncy-house-card *ngFor="let house of (appState.appData!.data!.bouncy_houses | searchFilter:searchFilterValue)" [current]="house" class="item"></app-bouncy-house-card>
+      <app-bouncy-house-card *ngFor="let house of (appState.appData!.data!.bouncy_houses | searchFilter:searchFilterValue | sort:sortValue | filter:filterValue)" [current]="house" class="item"></app-bouncy-house-card>
     </div>
   </ng-container>
   <ng-container *ngSwitchCase="DataState.ERROR_STATE">

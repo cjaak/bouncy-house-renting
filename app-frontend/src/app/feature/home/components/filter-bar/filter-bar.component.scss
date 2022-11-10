@@ -29,7 +29,26 @@
   width: 250px;
 }
 
+
+
 main{
   padding-top: 85px;
   padding-bottom: 85px;
+
+
+  mat-form-field{
+    font-size: 11px;
+    box-sizing: border-box;
+    margin: 5px 0
+  }
+
+  button{
+    margin: 5px 50px 5px 10px;
+  }
+
+  .filter{
+    mat-form-field{
+      width: 100%;
+    }
+  }
 }
