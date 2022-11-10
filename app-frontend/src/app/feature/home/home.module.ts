@@ -11,6 +11,8 @@ import { BouncyHouseCardComponent } from './components/bouncy-house-card/bouncy-
 import {MatCardModule} from "@angular/material/card";
 import {RouterLink, RouterLinkWithHref} from "@angular/router";
 import {MatButtonModule} from "@angular/material/button";
+import {MatSelectModule} from "@angular/material/select";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 
@@ -21,16 +23,18 @@ import {MatButtonModule} from "@angular/material/button";
     BouncyHouseListComponent,
     BouncyHouseCardComponent
   ],
-    imports: [
-        CommonModule,
-        SharedModule,
-        MatToolbarModule,
-        MatInputModule,
-        MatIconModule,
-        MatCardModule,
-        RouterLinkWithHref,
-        MatButtonModule,
-        RouterLink
-    ]
+  imports: [
+    CommonModule,
+    SharedModule,
+    MatToolbarModule,
+    MatInputModule,
+    MatIconModule,
+    MatCardModule,
+    RouterLinkWithHref,
+    MatButtonModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    RouterLink
+  ]
 })
 export class HomeModule { }
