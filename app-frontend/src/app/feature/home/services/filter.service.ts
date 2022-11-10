@@ -8,5 +8,9 @@ export class FilterService {
 
   searchFilterSubject: Subject<string> = new Subject<string>()
 
+
+
+  filterSubject: Subject<Map<string, any>> = new Subject<Map<string, any   >>()
+
   constructor() { }
 }
