@@ -1,0 +1,17 @@
+<h2 mat-dialog-title>Meine Bewertungen</h2>
+<mat-dialog-content>
+  <ng-container *ngIf="(appState$ | async) as appState" [ngSwitch]="appState.dataState">
+    <ng-container *ngSwitchCase="DataState.LOADING_STATE">
+      LOADING...
+    </ng-container>
+    <ng-container *ngSwitchCase="DataState.LOADED_STATE">
+      <app-rating-card *ngFor="let rating of appState.appData!.data!.ratings" [rating]="rating"></app-rating-card>
+    </ng-container>
+    <ng-container *ngSwitchCase="DataState.ERROR_STATE">
+      ERROR
+    </ng-container>
+  </ng-container>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>X</button>
+</mat-dialog-actions>

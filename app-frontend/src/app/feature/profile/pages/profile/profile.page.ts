@@ -7,6 +7,8 @@ import {DataStateEnum} from "../../../../shared/enums/data-state.enum";
 import {UserService} from "../../../../data-access/services/user.service";
 import {User} from "../../../../shared/models/user.model";
 import {Router} from "@angular/router";
+import {MatDialog} from "@angular/material/dialog";
+import {RatingListComponent} from "../../components/rating-list/rating-list.component";
 
 @Component({
   selector: 'app-profile',
@@ -15,7 +17,7 @@ import {Router} from "@angular/router";
 })
 export class ProfilePage implements OnInit {
 
-  constructor(private auth: AuthService, private userService: UserService, private route: Router) { }
+  constructor(private auth: AuthService, private userService: UserService, private route: Router, private dialog: MatDialog) { }
 
   appState$!: Observable<AppState<CustomResponse>>
   readonly DataState = DataStateEnum
@@ -39,5 +41,9 @@ export class ProfilePage implements OnInit {
   logout() {
     this.route.navigate(['../auth/login']);
     this.auth.deleteSessionUserId()
+  }
+
+  openMyRatings() {
+    const dialogRef = this.dialog.open(RatingListComponent, {width: "100%", height: "100%"})
   }
 }

@@ -6,8 +6,8 @@ import { Injectable } from '@angular/core';
 export class AuthService {
   constructor() {}
 
-  setSessionUserId(userId: string) {
-    sessionStorage.setItem('userId', userId);
+  setSessionUserId(userId: number) {
+    sessionStorage.setItem('userId', String(userId));
   }
 
   deleteSessionUserId() {
@@ -15,7 +15,7 @@ export class AuthService {
   }
 
   getSessionUserId() {
-    return sessionStorage.getItem('userId');
+    return Number(sessionStorage.getItem('userId'));
   }
 
   isLoggedIn(): boolean {
@@ -30,8 +30,8 @@ export class MockAuthService extends AuthService {
     return true;
   }
 
-  override getSessionUserId(): string | null {
-    return 'userId';
+  override getSessionUserId(): number {
+    return 0;
   }
 }
 
