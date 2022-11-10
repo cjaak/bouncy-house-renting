@@ -53,6 +53,12 @@ export class RentingFormComponent implements OnInit {
       } else {
           const start = this.selectedRangeValue.start;
           const end = m;
+          for (let i = 0; i < this.listOfDates.length; i++) {
+            if (start < this.listOfDates[i][0] && end > this.listOfDates[i][1] || end < this.listOfDates[i][0] && start> this.listOfDates[i][1]){
+              this.selectedRangeValue = new DateRange<Date>(m, null);
+              return
+            }
+          }
           if (end < start) {
               this.selectedRangeValue = new DateRange<Date>(end, start);
           } else {
