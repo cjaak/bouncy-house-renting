@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Rented} from "../../../../shared/models/rented.model";
 import {BouncyHouseService} from "../../../../data-access/services/bouncy-house.service";
 import {catchError, map, Observable, of, startWith, tap} from "rxjs";
@@ -10,6 +10,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 import {RentedService} from "../../../../data-access/services/rented.service";
 import {AuthService} from "../../../../data-access/services/auth.service";
 import {Router} from "@angular/router";
+import {DateRange} from "@angular/material/datepicker";
 
 @Component({
   selector: 'app-renting-form',
@@ -27,9 +28,7 @@ export class RentingFormComponent implements OnInit {
 
   minDate: Date
 
-  days: number = 1
-
-
+  days: number = 0
 
   appState$!: Observable<AppState<CustomResponse>>
   readonly DataState = DataStateEnum
@@ -43,23 +42,39 @@ export class RentingFormComponent implements OnInit {
     end: new FormControl<Date | null>(null),
   });
 
-  // rangeFilter(date: Date): boolean {
-  //   if (date! < this.minDate) return false;
-  //     for (let i = 0; i < this.listOfDates.length; i++) {
-  //       if (date! >= this.listOfDates[i][0] && date! <= this.listOfDates[i][1])
-  //         return false;
-  //     }
-  //     return true;
-  // }
+  @Input() selectedRangeValue!: DateRange<Date> | null ;
+  @Output() selectedRangeValueChange = new EventEmitter<DateRange<Date>>();
 
-  rangeFilterRecursive(date: Date, index: number): boolean {
-    let check = !(date >= this.rentedList[index].startDate! && date <= this.rentedList[index].startDate!)
-    return false
-    // if(index === this.rentedList.length -1){
-    //   return check
-    // }
-    // return check && this.rangeFilterRecursive(date, index+1)
+  selectedChange(m: any) {
+      if (!this.selectedRangeValue?.start || this.selectedRangeValue?.end) {
+          this.selectedRangeValue = new DateRange<Date>(m, null);
+      } else {
+          const start = this.selectedRangeValue.start;
+          const end = m;
+          if (end < start) {
+              this.selectedRangeValue = new DateRange<Date>(end, start);
+          } else {
+              this.selectedRangeValue = new DateRange<Date>(start, end);
+          }
+      }
+
+      if(this.dateRangeIsSet()){
+        let diff = (this.selectedRangeValue.end!.valueOf() - this.selectedRangeValue.start!.valueOf())
+        this.days = Math.ceil(diff / (1000 * 3600 * 24)) + 1;
+       }
+      this.selectedRangeValueChange.emit(this.selectedRangeValue);
   }
+
+  myFilter = (d: Date): boolean => {
+
+    if(d < this.minDate) return false
+    for (let i = 0; i < this.listOfDates.length; i++) {
+      if (d >= this.listOfDates[i][0] && d <= this.listOfDates[i][1])
+        return false;
+    }
+      return true;
+  }
+
 
   ngOnInit(): void {
 
@@ -95,14 +110,14 @@ export class RentingFormComponent implements OnInit {
   }
 
   dateRangeIsSet(): boolean{
-    return !!(this.range.value.start && this.range.value.end);
+    return !!(this.selectedRangeValue?.start && this.selectedRangeValue.end);
   }
 
 
   checkout() {
     if(this.dateRangeIsSet()){
       let userId = this.auth.getSessionUserId()
-      let rented = new Rented(undefined, userId!, this.bouncyHouseId, this.range.value.start, this.range.value.end)
+      let rented = new Rented(undefined, userId!, this.bouncyHouseId, this.selectedRangeValue!.start, this.selectedRangeValue!.end)
       console.log(rented)
       this.appState$ = this.rentedService.save$(rented).pipe(
         tap(console.log),

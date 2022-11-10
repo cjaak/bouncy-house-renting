@@ -28,6 +28,6 @@
   </mat-card-content>
   <mat-toolbar class="call-to-action">
     <strong>{{bouncyHouse.pricePerDay | currency:  'EUR'}}</strong>
-    <button mat-raised-button color="primary" [routerLink]="['/renting/', bouncyHouse.id]">Mieten</button>
+    <button color="primary" mat-raised-button  [routerLink]="['/renting/', bouncyHouse.id]">Mieten</button>
   </mat-toolbar>
 </mat-card>

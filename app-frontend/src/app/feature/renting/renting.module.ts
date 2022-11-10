@@ -6,6 +6,8 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {BrowserModule} from "@angular/platform-browser";
 
 
 
@@ -14,12 +16,14 @@ import {MatButtonModule} from "@angular/material/button";
     RentingPage,
     RentingFormComponent
   ],
-  imports: [
-    CommonModule,
-    MatFormFieldModule,
-    MatDatepickerModule,
-    ReactiveFormsModule,
-    MatButtonModule
-  ]
+    imports: [
+        CommonModule,
+        BrowserModule,
+        MatFormFieldModule,
+        MatDatepickerModule,
+        ReactiveFormsModule,
+        MatButtonModule,
+        MatToolbarModule
+    ]
 })
 export class RentingModule { }

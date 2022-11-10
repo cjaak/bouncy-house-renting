@@ -1,0 +1,23 @@
+mat-toolbar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.price{
+  padding-left: 20px;
+}
+
+.call-to-action{
+  position: absolute;
+  bottom: 0;
+  z-index: 1000;
+  background-color: white;
+  display: flex;
+
+  button{
+    margin-right: 10px;
+    margin-left: auto;
+  }
+
+}
