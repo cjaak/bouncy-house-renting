@@ -12,6 +12,7 @@ import {AuthService} from "../../../../data-access/services/auth.service";
 import {Router} from "@angular/router";
 import {DateRange} from "@angular/material/datepicker";
 import {Location} from "@angular/common";
+import {SnackService} from "../../../../shared/services/snack.service";
 
 @Component({
   selector: 'app-renting-form',
@@ -34,7 +35,7 @@ export class RentingFormComponent implements OnInit {
   appState$!: Observable<AppState<CustomResponse>>
   readonly DataState = DataStateEnum
 
-  constructor(private bouncyHouseService: BouncyHouseService, private rentedService: RentedService, private auth: AuthService, private router: Router, private location: Location) {
+  constructor(private bouncyHouseService: BouncyHouseService, private rentedService: RentedService, private auth: AuthService, private router: Router, private location: Location, private snackService: SnackService) {
     this.minDate = new Date()
   }
 
@@ -124,6 +125,7 @@ export class RentingFormComponent implements OnInit {
         tap(console.log),
         map(response => {
           this.router.navigate(["/profile"])
+          this.snackService.rentedSuccessfully()
           return { dataState: DataStateEnum.LOADED_STATE, appData: response}
         }),
         startWith({dataState: DataStateEnum.LOADING_STATE}),
