@@ -3,7 +3,6 @@ package com.fhdwapp.appbackend.model;
 import lombok.*;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 
 @Entity
 @Getter
@@ -11,14 +10,16 @@ import java.time.LocalDate;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class Rented {
+public class Rating {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, updatable = false)
     private Long id;
     private Long userId;
     private Long bouncyHouseId;
-    private LocalDate startDate;
-    private LocalDate endDate;
-    private Boolean rated = false;
+    private Long rentedId;
+    private int stars;
+    @Column(columnDefinition="TEXT")
+    @Lob
+    private String comment;
 }
