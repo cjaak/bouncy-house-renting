@@ -26,13 +26,14 @@ import { SortPipe } from './pipes/sort.pipe';
         FilterPipe,
         SortPipe
     ],
-    exports: [
-        NavbarComponent,
-        IconWithTextComponent,
-        RentedCardComponent,
-        SearchFilterPipe,
-        SortPipe
-    ],
+  exports: [
+    NavbarComponent,
+    IconWithTextComponent,
+    RentedCardComponent,
+    SearchFilterPipe,
+    SortPipe,
+    FilterPipe
+  ],
   imports: [
     CommonModule,
     MatToolbarModule,

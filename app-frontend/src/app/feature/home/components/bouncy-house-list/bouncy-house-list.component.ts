@@ -19,6 +19,7 @@ export class BouncyHouseListComponent implements OnInit {
 
   searchFilterValue = ''
   sortValue: Sort = {active: "", direction: ""}
+  filterValue: Map<string, any> = new Map<string, any>()
 
   constructor(private bouncyHouseService: BouncyHouseService, private filterService: FilterService) { }
 
@@ -36,6 +37,9 @@ export class BouncyHouseListComponent implements OnInit {
 
     this.filterService.searchFilterSubject.subscribe(value => this.searchFilterValue = value);
     this.filterService.SortSubject.subscribe(value=> this.sortValue = value);
+    this.filterService.filterSubject.subscribe(value => {
+      this.filterValue = value
+    })
   }
 
 

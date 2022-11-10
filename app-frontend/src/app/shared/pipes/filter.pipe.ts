@@ -4,11 +4,13 @@ import {BouncyHouseSizeEnum} from "../enums/size.enum";
 import {BouncyHouseThemeEnum} from "../enums/theme.enum";
 
 @Pipe({
-  name: 'filter'
+  name: 'filter',
+  pure: false
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(value: any, filter: Map<string,any>): any {
+  transform(value: any, filter: Map<string, any>): any {
+    console.log(filter)
     return value.filter((house: BouncyHouse) => {
       return  (filter.get("sizes") as BouncyHouseSizeEnum[]).includes(house.size!)
       && (filter.get("themes") as BouncyHouseThemeEnum[]).includes(house.theme!)
