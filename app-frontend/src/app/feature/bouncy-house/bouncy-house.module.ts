@@ -8,6 +8,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {SharedModule} from "../../shared/shared.module";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {RouterLink} from "@angular/router";
+import {NgbRatingModule} from "@ng-bootstrap/ng-bootstrap";
 
 
 
@@ -16,14 +17,15 @@ import {RouterLink} from "@angular/router";
     BouncyHousePage,
     BouncyHouseDetailComponent
   ],
-  imports: [
-    CommonModule,
-    MatButtonModule,
-    MatCardModule,
-    MatIconModule,
-    SharedModule,
-    MatToolbarModule,
-    RouterLink
-  ]
+    imports: [
+        CommonModule,
+        MatButtonModule,
+        MatCardModule,
+        MatIconModule,
+        SharedModule,
+        MatToolbarModule,
+        RouterLink,
+        NgbRatingModule
+    ]
 })
 export class BouncyHouseModule { }

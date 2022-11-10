@@ -14,6 +14,7 @@ import { SearchFilterPipe } from './pipes/search-filter.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
 import { SortPipe } from './pipes/sort.pipe';
 import { RatingCardComponent } from './components/rating-card/rating-card.component';
+import {NgbRatingModule} from "@ng-bootstrap/ng-bootstrap";
 
 
 
@@ -46,7 +47,8 @@ import { RatingCardComponent } from './components/rating-card/rating-card.compon
     RouterLinkActive,
     MatListModule,
     MatCardModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    NgbRatingModule
   ]
 })
 export class SharedModule { }
