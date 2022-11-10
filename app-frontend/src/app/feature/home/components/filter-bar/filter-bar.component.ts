@@ -13,11 +13,11 @@ export class FilterBarComponent implements OnInit {
 
   isSortExtended = false
 
-  activeSort: Sort = {direction: "", active: ""}
+  activeSort: Sort = {direction: "asc", active: ""}
 
   activeArrow: number = 0;
 
-  sortArrows = ["filter_list_off", "arrow_upward", "arrow_downward"];
+  sortArrows = ["arrow_upward", "arrow_downward"];
 
   sortControl = new FormControl("");
 
@@ -43,17 +43,13 @@ export class FilterBarComponent implements OnInit {
 
   handleSortDirection() {
     switch (this.activeSort.direction){
-      case "":
-        this.activeArrow = 1
-        this.activeSort.direction = "asc"
-        break;
       case "asc":
-        this.activeArrow = 2
+        this.activeArrow = 1
         this.activeSort.direction = "desc"
         break;
       case "desc":
         this.activeArrow = 0
-        this.activeSort.direction = ""
+        this.activeSort.direction = "asc"
         break;
     }
 
