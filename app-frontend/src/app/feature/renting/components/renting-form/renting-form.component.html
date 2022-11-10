@@ -4,6 +4,8 @@
   </ng-container>
   <ng-container *ngSwitchCase="DataState.LOADED_STATE">
     <mat-toolbar color="primary">Miete {{bouncyHouse.name}}</mat-toolbar>
+    <button mat-button id="back" (click)="back()"><mat-icon>arrow_back_ios_new</mat-icon></button>
+    <button mat-button id="cart" [routerLink]="['/cart']"><mat-icon>shopping_cart</mat-icon></button>
     <mat-calendar [dateFilter]="myFilter" [selected]="selectedRangeValue" (selectedChange)="selectedChange($event)"></mat-calendar>
     <div class="price">
       <p>Preis pro Tag: {{bouncyHouse.pricePerDay! | currency: 'EUR'}}</p>

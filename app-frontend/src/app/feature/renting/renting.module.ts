@@ -8,6 +8,8 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {BrowserModule} from "@angular/platform-browser";
+import {MatIconModule} from "@angular/material/icon";
+import {RouterLink} from "@angular/router";
 
 
 
@@ -16,14 +18,16 @@ import {BrowserModule} from "@angular/platform-browser";
     RentingPage,
     RentingFormComponent
   ],
-    imports: [
-        CommonModule,
-        BrowserModule,
-        MatFormFieldModule,
-        MatDatepickerModule,
-        ReactiveFormsModule,
-        MatButtonModule,
-        MatToolbarModule
-    ]
+  imports: [
+    CommonModule,
+    BrowserModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatIconModule,
+    RouterLink
+  ]
 })
 export class RentingModule { }

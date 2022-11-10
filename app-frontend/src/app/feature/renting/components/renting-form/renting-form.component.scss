@@ -4,6 +4,20 @@ mat-toolbar{
   align-items: center;
 }
 
+#cart{
+  position: absolute;
+  top: 10px;
+  right: 0;
+  color: white;
+}
+
+#back{
+  position: absolute;
+  top: 10px;
+  left: 0;
+  color: white;
+}
+
 .price{
   padding-left: 20px;
 }
