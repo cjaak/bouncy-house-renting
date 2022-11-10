@@ -5,6 +5,7 @@ import {AppState} from "../../../../shared/interfaces/app-state";
 import {CustomResponse} from "../../../../shared/interfaces/custom-response";
 import {DataStateEnum} from "../../../../shared/enums/data-state.enum";
 import {FilterService} from "../../services/filter.service";
+import {Sort} from "@angular/material/sort";
 
 @Component({
   selector: 'app-bouncy-house-list',
@@ -17,6 +18,7 @@ export class BouncyHouseListComponent implements OnInit {
   readonly DataState = DataStateEnum
 
   searchFilterValue = ''
+  sortValue: Sort = {active: "", direction: ""}
 
   constructor(private bouncyHouseService: BouncyHouseService, private filterService: FilterService) { }
 
@@ -32,7 +34,8 @@ export class BouncyHouseListComponent implements OnInit {
         })
       )
 
-    this.filterService.searchFilterSubject.subscribe(value => this.searchFilterValue = value)
+    this.filterService.searchFilterSubject.subscribe(value => this.searchFilterValue = value);
+    this.filterService.SortSubject.subscribe(value=> this.sortValue = value);
   }
 
 

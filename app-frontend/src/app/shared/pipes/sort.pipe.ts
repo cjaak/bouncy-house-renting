@@ -4,11 +4,14 @@ import {Sort} from "@angular/material/sort";
 import {BouncyHouseSizeEnum} from "../enums/size.enum";
 
 @Pipe({
-  name: 'sort'
+  name: 'sort',
+  pure: false
 })
 export class SortPipe implements PipeTransform {
 
   transform(value: any, sort: Sort): any {
+    if(sort.direction === "" || sort.active === "") return value
+
     const isAsc = sort.direction === 'asc';
         return value.sort((a: BouncyHouse, b: BouncyHouse) => {
           switch (sort.active){

@@ -28,7 +28,8 @@ import { SortPipe } from './pipes/sort.pipe';
         NavbarComponent,
         IconWithTextComponent,
         RentedCardComponent,
-        SearchFilterPipe
+        SearchFilterPipe,
+        SortPipe
     ],
   imports: [
     CommonModule,
