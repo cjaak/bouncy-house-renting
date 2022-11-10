@@ -1,0 +1,11 @@
+.mat-form-field {
+  height: 90px;
+
+  mat-error {
+    display: none !important;
+  }
+
+  mat-error:first-child {
+    display: block !important;
+  }
+}
