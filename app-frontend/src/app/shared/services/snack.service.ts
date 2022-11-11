@@ -29,6 +29,15 @@ export class SnackService {
     return this.snackBar._openedSnackBarRef!.onAction().subscribe();
   }
 
+  rentedSuccessfully(){
+    this.snackBar.open("Der Vorgang war Erfolgreich", 'OK', {
+      duration: 5000,
+    });
+
+    return this.snackBar._openedSnackBarRef!.onAction().subscribe();
+  }
+
+
 
 
 }

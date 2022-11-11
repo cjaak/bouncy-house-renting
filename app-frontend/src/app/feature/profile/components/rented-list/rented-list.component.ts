@@ -20,10 +20,10 @@ export class RentedListComponent implements OnInit {
   constructor(private rentedService: RentedService) { }
 
   ngOnInit(): void {
-    this.appState$ = this.rentedService.RentedByUser$(this.userId)
+    this.appState$ = this.rentedService.rentedByUser$(this.userId)
       .pipe(
         map(response => {
-          return { dataState: DataStateEnum.LOADED_STATE, appData:  response}
+          return { dataState: DataStateEnum.LOADED_STATE, appData: {...response, data: {"rented": response.data.rented.reverse()}}}
         }),
         startWith({dataState: DataStateEnum.LOADING_STATE}),
         catchError((error: string) => {

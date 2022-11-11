@@ -5,7 +5,7 @@
   </ng-container>
   <ng-container *ngSwitchCase="DataState.LOADED_STATE">
     <div class="scrolling-wrapper">
-      <app-rented-card *ngFor="let rented of appState.appData!.data!.rented" [rented]="rented"></app-rented-card>
+      <app-rented-card class="card" *ngFor="let rented of appState.appData!.data!.rented" [rented]="rented"></app-rented-card>
     </div>
   </ng-container>
   <ng-container *ngSwitchCase="DataState.ERROR_STATE">
