@@ -125,7 +125,7 @@ export class RentingFormComponent implements OnInit {
   checkout() {
     if(this.dateRangeIsSet()){
       let userId = this.auth.getSessionUserId()
-      let rented = new Rented(undefined, userId!, this.bouncyHouseId, this.selectedRangeValue!.start, this.selectedRangeValue!.end)
+      let rented = new Rented(undefined, userId, this.bouncyHouseId, this.selectedRangeValue!.start, this.selectedRangeValue!.end, false)
       console.log(rented)
       this.appState$ = this.rentedService.save$(rented).pipe(
         tap(console.log),

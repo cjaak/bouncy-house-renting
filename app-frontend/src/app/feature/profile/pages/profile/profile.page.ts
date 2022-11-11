@@ -24,7 +24,7 @@ export class ProfilePage implements OnInit {
   user!: User
 
   ngOnInit(): void {
-      let userId = Number(this.auth.getSessionUserId())
+      let userId = this.auth.getSessionUserId()
       this.appState$ = this.userService.get$(userId)
       .pipe(
         map(response => {

@@ -57,6 +57,18 @@ public class RatingResource {
         );
     }
 
+    @GetMapping("/rented/{id}")
+    public ResponseEntity<Response> getRatingByRented(@PathVariable("id") Long id) {
+        return ResponseEntity.ok(Response.builder()
+                .timeStamp(now())
+                .data(of("rating", ratingService.getByRentedId(id)))
+                .message("rating retrieved")
+                .status(OK)
+                .statusCode(OK.value())
+                .build()
+        );
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Response> getRating(@PathVariable("id") Long id) {
         return ResponseEntity.ok(Response.builder()

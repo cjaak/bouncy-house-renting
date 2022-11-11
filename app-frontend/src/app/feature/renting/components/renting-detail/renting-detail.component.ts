@@ -1,9 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {BouncyHouse} from "../../../../shared/models/bouncy-house.model";
 import {Rented} from "../../../../shared/models/rented.model";
 import {DateRange} from "@angular/material/datepicker";
 import {AuthService} from "../../../../data-access/services/auth.service";
 import {Rating} from "../../../../shared/models/rating.model";
+import {CachingService} from "../../services/caching.service";
+import {catchError, map, Observable, of, startWith, subscribeOn} from "rxjs";
+import {AppState} from "../../../../shared/interfaces/app-state";
+import {CustomResponse} from "../../../../shared/interfaces/custom-response";
+import {DataStateEnum} from "../../../../shared/enums/data-state.enum";
+import {RatingService} from "../../../../data-access/services/rating.service";
+import {Location} from "@angular/common";
 
 @Component({
   selector: 'app-renting-detail',
@@ -12,24 +19,53 @@ import {Rating} from "../../../../shared/models/rating.model";
 })
 export class RentingDetailComponent implements OnInit {
 
+  appState$!: Observable<AppState<CustomResponse>>
+  readonly DataState = DataStateEnum
+
   bouncyHouse!: BouncyHouse
   rented!: Rented
 
-  dateRange!: DateRange<Date> | null
 
-  days!: number
+  @Input() selectedRangeValue: DateRange<Date> | undefined
+  @Output() selectedRangeValueChange = new EventEmitter<DateRange<Date>>();
+
+
+  days: number =0
 
   daysTillStart!: number
 
-  today = new Date()
+  today!: Date
+  start!: Date
+  end!: Date
 
   stars = 0
 
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService, private caching: CachingService, private ratingService: RatingService, private location: Location) { }
 
   ngOnInit(): void {
-    this.days = this.calcDays(this.rented.endDate, this.rented.startDate)
-    this.daysTillStart = this.calcDays(this.rented.startDate, this.today);
+    this.today = new Date()
+
+    this.caching.bouncyHouseSubject.subscribe((value)=> this.bouncyHouse = value)
+
+    this.caching.rentedSubject.subscribe((value)=> {
+      this.rented = value
+      this.start = new Date(String(value.startDate))
+      this.end = new Date(String(value.endDate))
+      this.selectedRangeValue = new DateRange(new Date(this.start), new Date(this.end))
+      this.days = this.calcDays(this.end, this.start)
+      this.daysTillStart = this.calcDays(this.start, this.today);
+    })
+
+    this.appState$ = this.ratingService.RatingByRented$(this.rented!.id!)
+      .pipe(
+        map(response => {
+          return {dataState: DataStateEnum.LOADED_STATE, appData: response}
+        }),
+        startWith({dataState: DataStateEnum.LOADING_STATE}),
+        catchError((error: string) => {
+          return of({dataState: DataStateEnum.ERROR_STATE, error: error})
+        })
+      )
   }
 
   private calcDays(a: Date, b: Date) :number{
@@ -54,5 +90,21 @@ export class RentingDetailComponent implements OnInit {
       stars: this.stars,
       comment: ""
     }
+    console.log(rating)
+    this.appState$ = this.ratingService.save$(rating)
+    .pipe(
+      map(response => {
+        this.rented.rated = true
+        return { dataState: DataStateEnum.LOADED_STATE, appData: response}
+      }),
+      startWith({dataState: DataStateEnum.LOADING_STATE}),
+      catchError((error: string) => {
+        return of({dataState: DataStateEnum.ERROR_STATE, error: error})
+      }),
+    )
+  }
+
+  back() {
+      this.location.back()
   }
 }

@@ -1,7 +1,9 @@
 package com.fhdwapp.appbackend.service.implementation;
 
 import com.fhdwapp.appbackend.model.Rating;
+import com.fhdwapp.appbackend.model.Rented;
 import com.fhdwapp.appbackend.repo.RatingRepo;
+import com.fhdwapp.appbackend.repo.RentedRepo;
 import com.fhdwapp.appbackend.service.RatingService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -9,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.Collection;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
@@ -17,6 +20,7 @@ import java.util.Collection;
 public class RatingServiceImpl implements RatingService {
 
     private final RatingRepo ratingRepo;
+    private final RentedRepo rentedRepo;
     @Override
     public Collection<Rating> getAll() {
         log.info("Fetching all ratings");
@@ -36,20 +40,29 @@ public class RatingServiceImpl implements RatingService {
     }
 
     @Override
-    public Rating getByRentedId(Long rentedId) {
+    public Optional<Rating> getByRentedId(Long rentedId) {
         log.info("Fetching  rating by rentedId");
-        return ratingRepo.findByRentedId(rentedId);
+        if(ratingRepo.findByRentedId(rentedId).isPresent()){
+            return Optional.of(ratingRepo.findByRentedId(rentedId).get());
+        }
+        return Optional.empty();
     }
 
     @Override
-    public Rating get(Long id) {
+    public Optional<Rating> get(Long id) {
         log.info("Fetching  rating");
-        return ratingRepo.findById(id).get();
+        if(rentedRepo.findById(id).isPresent()){
+            return Optional.of(ratingRepo.findById(id).get());
+        }
+        return Optional.empty();
     }
 
     @Override
     public Rating create(Rating rating) {
         log.info("Creating rating");
+        Rented entry = rentedRepo.findById(rating.getRentedId()).get();
+        entry.setRated(true);
+        rentedRepo.save(entry);
         return ratingRepo.save(rating);
     }
 

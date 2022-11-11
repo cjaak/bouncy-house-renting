@@ -7,19 +7,19 @@ export class AuthService {
   constructor() {}
 
   setSessionUserId(userId: number) {
-    sessionStorage.setItem('userId', String(userId));
+    sessionStorage.setItem('userId?', String(userId));
   }
 
   deleteSessionUserId() {
-    sessionStorage.removeItem('userId');
+    sessionStorage.removeItem('userId?');
   }
 
   getSessionUserId() {
-    return Number(sessionStorage.getItem('userId'));
+    return Number(sessionStorage.getItem('userId?'));
   }
 
   isLoggedIn(): boolean {
-    return !!sessionStorage.getItem('userId');
+    return !!sessionStorage.getItem('userId?');
 
   }
 }

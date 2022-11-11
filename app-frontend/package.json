@@ -10,7 +10,6 @@
   },
   "private": true,
   "dependencies": {
-<<<<<<< HEAD
     "@angular/animations": "^14.2.10",
     "@angular/cdk": "^14.2.7",
     "@angular/common": "^14.2.10",
@@ -25,20 +24,7 @@
     "@ng-bootstrap/ng-bootstrap": "^13.1.0",
     "@popperjs/core": "^2.10.2",
     "bootstrap": "^5.2.0",
-=======
-    "@angular/animations": "^14.1.0",
-    "@angular/cdk": "^14.2.6",
-    "@angular/common": "^14.1.0",
-    "@angular/compiler": "^14.1.0",
-    "@angular/core": "^14.1.0",
-    "@angular/forms": "^14.1.0",
-    "@angular/material": "^14.2.6",
-    "@angular/platform-browser": "^14.1.0",
-    "@angular/platform-browser-dynamic": "^14.1.0",
-    "@angular/router": "^14.1.0",
-    "@angular/service-worker": "^14.1.0",
     "prettier": "^2.7.1",
->>>>>>> MIET-34-mietvorgang
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
