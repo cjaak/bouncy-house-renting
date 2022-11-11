@@ -129,7 +129,6 @@ export class RentingFormComponent implements OnInit {
       let end = new Date(this.selectedRangeValue!.end!.getTime()+ (1000 * 60 * 60 * 24))
       let start = new Date(this.selectedRangeValue!.start!.getTime()+ (1000 * 60 * 60 * 24))
       let rented = new Rented(undefined, userId!, this.bouncyHouseId, start, end)
-      console.log(rented)
       this.appState$ = this.rentedService.save$(rented).pipe(
         tap(console.log),
         map(response => {

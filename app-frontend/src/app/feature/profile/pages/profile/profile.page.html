@@ -5,8 +5,8 @@
   <ng-container *ngSwitchCase="DataState.LOADED_STATE">
     <div class="flex-container">
       <app-profile-bar [name]="user.firstName">
-        <mat-card>
-          <h3>Persönliche Daten ändern</h3>
+        <mat-card (click)="openMyRatings()">
+          <h3>Meine Bewertungen</h3>
         </mat-card>
         <mat-card>
           <h3 (click)="logout()">Ausloggen</h3>

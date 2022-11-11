@@ -1,11 +1,11 @@
-<h2>Gemietete Hüpfburgen</h2>
 <ng-container *ngIf="(appState$ | async) as appState" [ngSwitch]="appState.dataState">
   <ng-container *ngSwitchCase="DataState.LOADING_STATE">
     LOADING...
   </ng-container>
   <ng-container *ngSwitchCase="DataState.LOADED_STATE">
-    <div class="scrolling-wrapper">
-      <app-rented-card *ngFor="let rented of appState.appData!.data!.rented" [rented]="rented"></app-rented-card>
+    <div class="rating" (click)="openRatingsDialog()">
+      <ngb-rating [max]=5 [rate]="calcAvgRating()" [readonly]=true></ngb-rating>
+      <span>{{ratings!.length}} {{ratings!.length === 1? "Rezension" : "Rezensionen"}}</span>
     </div>
   </ng-container>
   <ng-container *ngSwitchCase="DataState.ERROR_STATE">

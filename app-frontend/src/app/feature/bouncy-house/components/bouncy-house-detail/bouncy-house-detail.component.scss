@@ -27,19 +27,34 @@ mat-card{
   min-width: 33%;
 }
 
-.call-to-action{
+app-rating-preview {
+    margin-right: auto;
+}
+
+.footer{
   position: absolute;
   bottom: 0;
   z-index: 1000;
   background-color: white;
   display: flex;
+  flex-direction: column;
+  height: 90px;
 
-  button{
-    margin-right: 10px;
-    margin-left: auto;
-  }
 
 }
+
+.call-to-action{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: normal;
+
+    button{
+      margin-right: 15px;
+      height: 32px;
+    }
+  }
 
 mat-card-content{
   width: 100%;
