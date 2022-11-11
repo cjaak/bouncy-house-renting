@@ -1,0 +1,59 @@
+<mat-calendar [selected]="dateRange"></mat-calendar>
+<div class="price">
+  <strong>
+    {{bouncyHouse.pricePerDay! * days | currency: 'EUR'}}
+  </strong>
+</div>
+
+<mat-accordion>
+<!--  already rated-->
+  <mat-expansion-panel hideToggle *ngIf="rented.rated">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Bewertung
+      </mat-panel-title>
+      <mat-panel-description>
+        Du hast diese Bestellung bereits bewertet
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <app-rating-card></app-rating-card>
+  </mat-expansion-panel>
+<!--  not yet able to rate-->
+  <mat-expansion-panel hideToggle *ngIf="!rented.rated && rented.startDate > today">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Bewertung
+      </mat-panel-title>
+      <mat-panel-description>
+        Du kannst diese Bestellung noch nicht bewerten
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>Versuche es nochmal in {{daysTillStart}} Tagen</p>
+  </mat-expansion-panel>
+<!--  rating form-->
+  <mat-expansion-panel hideToggle *ngIf="!rented.rated! && rented.startDate! <= today">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Bewertung
+      </mat-panel-title>
+      <mat-panel-description>
+        Hilf anderen, indem du das Produkt bewertest
+        <mat-icon>account_circle</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <ngb-rating [max]="5" [(rate)]="stars" [readonly]="false"></ngb-rating>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Hinterlasse einen Kommentar</mat-label>
+    <textarea matInput ></textarea>
+    </mat-form-field>
+
+    <mat-action-row>
+      <button mat-button color="primary" [disabled]="isStarsSet()" (click)="save()">Speichern</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+
+
+

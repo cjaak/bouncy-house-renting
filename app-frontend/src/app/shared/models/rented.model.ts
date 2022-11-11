@@ -4,7 +4,8 @@ export class Rented {
     public userId: number,
     public bouncyHouseId: number,
     public startDate: Date,
-    public endDate: Date
+    public endDate: Date,
+    public rated: boolean
   ) {
   }
 }

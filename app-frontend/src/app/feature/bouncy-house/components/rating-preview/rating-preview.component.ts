@@ -39,7 +39,7 @@ export class RatingPreviewComponent implements OnInit {
   }
 
   calcAvgRating(){
-    return this.ratings.reduce((total, next)=> total + next.stars, 0) / this.ratings.length
+    return this.ratings.reduce((total, next)=> total + next.stars!, 0) / this.ratings.length
   }
 
   openRatingsDialog() {

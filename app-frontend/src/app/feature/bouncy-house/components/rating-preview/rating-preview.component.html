@@ -5,7 +5,7 @@
   <ng-container *ngSwitchCase="DataState.LOADED_STATE">
     <div class="rating" (click)="openRatingsDialog()">
       <ngb-rating [max]=5 [rate]="calcAvgRating()" [readonly]=true></ngb-rating>
-      <span>{{ratings.length}} {{ratings.length === 1? "Rezension" : "Rezensionen"}}</span>
+      <span>{{ratings!.length}} {{ratings!.length === 1? "Rezension" : "Rezensionen"}}</span>
     </div>
   </ng-container>
   <ng-container *ngSwitchCase="DataState.ERROR_STATE">
