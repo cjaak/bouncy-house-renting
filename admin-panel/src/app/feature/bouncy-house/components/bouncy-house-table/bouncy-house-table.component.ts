@@ -79,6 +79,12 @@ export class BouncyHouseTableComponent implements OnInit {
     const dialogRef = this.dialog.open(BouncyHouseFormComponent, {
       data: {isEdit: true, house: house}
     })
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result){
+        this.updateBouncyHouse(result as BouncyHouse)
+      }
+    })
   }
 
   handleDelete(element: BouncyHouse): void {
@@ -96,6 +102,23 @@ export class BouncyHouseTableComponent implements OnInit {
           return { dataState: DataStateEnum.LOADED_STATE, appData: this.dataSubject.value}
         }),
         startWith({dataState: DataStateEnum.LOADING_STATE, appData: this.dataSubject.value}),
+        catchError((error: string) => {
+          return of({dataState: DataStateEnum.ERROR_STATE, error: error})
+        })
+      )
+  }
+
+  updateBouncyHouse(house: BouncyHouse): void {
+    this.appState$ = this.bouncyHouseService.update$(house)
+      .pipe(
+        map(response => {
+          let newItems = {...response, data: { bouncy_houses: [response.data.bouncy_house, ...this.dataSubject.value.data.bouncy_houses.filter((b: BouncyHouse) => b.id !== house.id)] }}
+          this.dataSubject.next(newItems);
+          this.dataSource = new MatTableDataSource(newItems.data.bouncy_houses);
+          this.applyFilters()
+          return { dataState: DataStateEnum.LOADED_STATE, appData: this.dataSubject.value}
+        }),
+        startWith({dataState: DataStateEnum.LOADED_STATE, appData: this.dataSubject.value}),
         catchError((error: string) => {
           return of({dataState: DataStateEnum.ERROR_STATE, error: error})
         })
@@ -156,7 +179,6 @@ export class BouncyHouseTableComponent implements OnInit {
   }
 
   handleFilterUpdate(filter: Map<string, any>) {
-    console.log(filter);
     this.filterMap = filter
     this.applyFilters(this.dataSubject.value.data.bouncy_houses)
   }
