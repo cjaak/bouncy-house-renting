@@ -12,7 +12,12 @@ export class RatingService {
 
   private readonly apiUrl = "http://localhost:8080"
 
-   RatingsByUser$ = (userId: number) =><Observable<CustomResponse>>this.http.get<CustomResponse>(`${this.apiUrl}/rating/user/${userId}`).pipe(
+  RatingsByUser$ = (userId: number) =><Observable<CustomResponse>>this.http.get<CustomResponse>(`${this.apiUrl}/rating/user/${userId}`).pipe(
+    tap(console.log),
+    catchError(this.handleError)
+  )
+
+  RatingsByBouncyHouse$ = (bouncyHouseId: number) =><Observable<CustomResponse>>this.http.get<CustomResponse>(`${this.apiUrl}/rating/bouncy-house/${bouncyHouseId}`).pipe(
     tap(console.log),
     catchError(this.handleError)
   )

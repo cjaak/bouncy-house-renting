@@ -27,15 +27,8 @@ mat-card{
   min-width: 33%;
 }
 
-.rating {
-    color: #FFC107;
-    font-size: 30px;
+app-rating-preview {
     margin-right: auto;
-  span{
-    font-size: 12px;
-    color: gray;
-    text-decoration: underline;
-  }
 }
 
 .footer{

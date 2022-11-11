@@ -9,13 +9,17 @@ import {SharedModule} from "../../shared/shared.module";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {RouterLink} from "@angular/router";
 import {NgbRatingModule} from "@ng-bootstrap/ng-bootstrap";
-
+import { RatingPreviewComponent } from './components/rating-preview/rating-preview.component';
+import { RatingListComponent } from './components/rating-list/rating-list.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 
 @NgModule({
   declarations: [
     BouncyHousePage,
-    BouncyHouseDetailComponent
+    BouncyHouseDetailComponent,
+    RatingPreviewComponent,
+    RatingListComponent
   ],
     imports: [
         CommonModule,
@@ -25,7 +29,8 @@ import {NgbRatingModule} from "@ng-bootstrap/ng-bootstrap";
         SharedModule,
         MatToolbarModule,
         RouterLink,
-        NgbRatingModule
+        NgbRatingModule,
+        MatDialogModule
     ]
 })
 export class BouncyHouseModule { }
