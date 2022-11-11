@@ -15,6 +15,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {BouncyHouseModule} from "./feature/bouncy-house/bouncy-house.module";
 import {MatNativeDateModule} from "@angular/material/core";
 import {RentingModule} from "./feature/renting/renting.module";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import {RentingModule} from "./feature/renting/renting.module";
     RentingModule,
     BouncyHouseModule,
     HttpClientModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

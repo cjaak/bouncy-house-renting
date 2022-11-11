@@ -20,4 +20,5 @@ public class Rented {
     private Long bouncyHouseId;
     private LocalDate startDate;
     private LocalDate endDate;
+    private Boolean rated = false;
 }

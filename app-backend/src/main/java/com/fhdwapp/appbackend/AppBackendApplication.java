@@ -3,9 +3,11 @@ package com.fhdwapp.appbackend;
 import com.fhdwapp.appbackend.enumeration.BouncyHouseSize;
 import com.fhdwapp.appbackend.enumeration.BouncyHouseTheme;
 import com.fhdwapp.appbackend.model.BouncyHouse;
+import com.fhdwapp.appbackend.model.Rating;
 import com.fhdwapp.appbackend.model.Rented;
 import com.fhdwapp.appbackend.model.User;
 import com.fhdwapp.appbackend.repo.BouncyHouseRepo;
+import com.fhdwapp.appbackend.repo.RatingRepo;
 import com.fhdwapp.appbackend.repo.RentedRepo;
 import com.fhdwapp.appbackend.repo.UserRepo;
 import org.springframework.boot.CommandLineRunner;
@@ -27,7 +29,7 @@ public class AppBackendApplication {
     }
 
     @Bean
-    CommandLineRunner run(BouncyHouseRepo bouncyHouseRepo, UserRepo userRepo, RentedRepo rentedRepo) {
+    CommandLineRunner run(BouncyHouseRepo bouncyHouseRepo, UserRepo userRepo, RentedRepo rentedRepo, RatingRepo ratingRepo) {
         return args -> {
             bouncyHouseRepo.save(new BouncyHouse(
                     null,
@@ -124,21 +126,32 @@ public class AppBackendApplication {
                     1L,
                     1L,
                     LocalDate.of(2022, 12, 24),
-                    LocalDate.of(2022, 12, 27)
+                    LocalDate.of(2022, 12, 27),
+                    true
             ));
             rentedRepo.save(new Rented(
                     null,
                     1L,
                     2L,
                     LocalDate.of(2022, 10, 24),
-                    LocalDate.of(2022, 12, 27)
+                    LocalDate.of(2022, 12, 27),
+                    false
             ));
             rentedRepo.save(new Rented(
                     null,
                     1L,
                     3L,
                     LocalDate.of(2022, 11, 1),
-                    LocalDate.of(2022, 12, 1)
+                    LocalDate.of(2022, 12, 1),
+                    false
+            ));
+            ratingRepo.save(new Rating(
+                    null,
+                    1L,
+                    1L,
+                    1L,
+                    3,
+                    "Die Kinder sind zufrieden. Aufbau dauert zu lange."
             ));
         };
     }

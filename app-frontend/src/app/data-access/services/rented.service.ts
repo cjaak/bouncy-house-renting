@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {catchError, Observable, tap, throwError} from "rxjs";
 import {CustomResponse} from "../../shared/interfaces/custom-response";
+import {Rented} from "../../shared/models/rented.model";
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,18 @@ export class RentedService {
 
   private readonly apiUrl = "http://localhost:8080"
 
-   RentedByUser$ = (userId: number) =><Observable<CustomResponse>>this.http.get<CustomResponse>(`${this.apiUrl}/rented/user/${userId}`).pipe(
+   rentedByUser$ = (userId: number) =><Observable<CustomResponse>>this.http.get<CustomResponse>(`${this.apiUrl}/rented/user/${userId}`).pipe(
+    tap(console.log),
+    catchError(this.handleError)
+  )
+
+  rentedByBouncyHouse$ = (bouncyHouseId: number) =><Observable<CustomResponse>>this.http.get<CustomResponse>(`${this.apiUrl}/rented/bouncy-house/${bouncyHouseId}`).pipe(
+    tap(console.log),
+    catchError(this.handleError)
+  )
+
+  save$ = (rented: Rented) => <Observable<CustomResponse>>
+  this.http.post<CustomResponse>(`${this.apiUrl}/rented/save`, rented).pipe(
     tap(console.log),
     catchError(this.handleError)
   )

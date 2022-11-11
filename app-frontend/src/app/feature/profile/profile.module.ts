@@ -6,6 +6,10 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import { ProfileBarComponent } from './components/profile-bar/profile-bar.component';
 import {MatCardModule} from "@angular/material/card";
 import { RentedListComponent } from './components/rented-list/rented-list.component';
+import { RatingListComponent } from './components/rating-list/rating-list.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatButtonModule} from "@angular/material/button";
+import {RouterLink} from "@angular/router";
 
 
 
@@ -13,13 +17,17 @@ import { RentedListComponent } from './components/rented-list/rented-list.compon
   declarations: [
     ProfilePage,
     ProfileBarComponent,
-    RentedListComponent
+    RentedListComponent,
+    RatingListComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
     MatToolbarModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule,
+    MatButtonModule,
+    RouterLink
   ]
 })
 export class ProfileModule { }

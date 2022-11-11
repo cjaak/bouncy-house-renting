@@ -6,20 +6,20 @@ import { Injectable } from '@angular/core';
 export class AuthService {
   constructor() {}
 
-  setSessionUserId(userId: string) {
-    sessionStorage.setItem('userId', userId);
+  setSessionUserId(userId: number) {
+    sessionStorage.setItem('userId?', String(userId));
   }
 
   deleteSessionUserId() {
-    sessionStorage.removeItem('userId');
+    sessionStorage.removeItem('userId?');
   }
 
   getSessionUserId() {
-    return sessionStorage.getItem('userId');
+    return Number(sessionStorage.getItem('userId?'));
   }
 
   isLoggedIn(): boolean {
-    return !!sessionStorage.getItem('userId');
+    return !!sessionStorage.getItem('userId?');
 
   }
 }
@@ -30,8 +30,8 @@ export class MockAuthService extends AuthService {
     return true;
   }
 
-  override getSessionUserId(): string | null {
-    return 'userId';
+  override getSessionUserId(): number {
+    return 0;
   }
 }
 

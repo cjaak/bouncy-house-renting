@@ -3,7 +3,7 @@
     LOADING...
   </ng-container>
   <ng-container *ngSwitchCase="DataState.LOADED_STATE">
-    <mat-card>
+    <mat-card (click)="navigateDetailPage()">
       <figure>
         <img [src]="bouncyHouse.imageUrl" [alt]="bouncyHouse.name">
       </figure>

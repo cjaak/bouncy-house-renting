@@ -58,6 +58,7 @@ export class BouncyHouseFormComponent implements OnInit {
       return
     }
     if(this.isEdit){
+      this.dialogRef.close({id: this.editHouse!.id, ...this.bouncyHouseForm.value})
     }else{
       this.dialogRef.close({id: undefined, ...this.bouncyHouseForm.value})
     }

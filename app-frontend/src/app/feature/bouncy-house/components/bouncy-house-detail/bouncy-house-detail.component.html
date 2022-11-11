@@ -26,8 +26,11 @@
     <h3>Beschreibung</h3>
     {{bouncyHouse.description}}
   </mat-card-content>
-  <mat-toolbar class="call-to-action">
-    <strong>{{bouncyHouse.pricePerDay | currency:  'EUR'}}</strong>
-    <button mat-raised-button color="primary" [routerLink]="['/renting/', bouncyHouse.id]">Mieten</button>
+  <mat-toolbar class="footer">
+    <app-rating-preview [bouncyHouseId]="bouncyHouse.id!"></app-rating-preview>
+    <div class="call-to-action">
+       <strong>{{bouncyHouse.pricePerDay | currency:  'EUR'}}</strong>
+       <button mat-raised-button color="primary" [routerLink]="['/renting/', bouncyHouse.id]">Mieten</button>
+    </div>
   </mat-toolbar>
 </mat-card>

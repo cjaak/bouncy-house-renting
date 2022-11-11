@@ -1,11 +1,10 @@
-host{
-  --item-height: 250px
+:host{
+  --item-height: 300px
 }
 
 mat-card{
   margin: 5px;
   height: var(--item-height);
-  width: 50%;
   overflow: hidden;
   border-radius: 10px;
 		-webkit-box-shadow: 0px 0px 23px -7px rgba(0, 0, 0, 0.28);
@@ -15,7 +14,7 @@ mat-card{
 
 figure{
   width: 100%;
-  height: calc(var(--item-height) - 100px);
+  height: calc(var(--item-height) - 150px);
   padding: 5px;
   margin: 0;
 }

@@ -1,9 +1,9 @@
 .scrolling-wrapper {
-  overflow-x: scroll;
-  overflow-y: hidden;
+  overflow: auto;
   white-space: nowrap;
 
-  .card {
+  app-rented-card {
     display: inline-block;
+    width: 50%;
   }
 }
