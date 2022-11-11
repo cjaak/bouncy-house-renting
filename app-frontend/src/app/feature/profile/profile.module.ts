@@ -9,6 +9,7 @@ import { RentedListComponent } from './components/rented-list/rented-list.compon
 import { RatingListComponent } from './components/rating-list/rating-list.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatButtonModule} from "@angular/material/button";
+import {RouterLink} from "@angular/router";
 
 
 
@@ -25,7 +26,8 @@ import {MatButtonModule} from "@angular/material/button";
     MatToolbarModule,
     MatCardModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    RouterLink
   ]
 })
 export class ProfileModule { }
