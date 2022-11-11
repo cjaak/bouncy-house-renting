@@ -52,7 +52,7 @@ export class RentingFormComponent implements OnInit {
           this.selectedRangeValue = new DateRange<Date>(m, null);
       } else {
           const start = this.selectedRangeValue.start;
-          const end = m;
+          const end = m
           for (let i = 0; i < this.listOfDates.length; i++) {
             if (start < this.listOfDates[i][0] && end > this.listOfDates[i][1] || end < this.listOfDates[i][0] && start> this.listOfDates[i][1]){
               this.selectedRangeValue = new DateRange<Date>(m, null);
@@ -77,6 +77,7 @@ export class RentingFormComponent implements OnInit {
 
     if(d < this.minDate) return false
     for (let i = 0; i < this.listOfDates.length; i++) {
+      //let end = new Date(this.listOfDates[i][1].getTime() + (900 * 60 * 60 * 24));
       if (d >= this.listOfDates[i][0] && d <= this.listOfDates[i][1])
         return false;
     }
@@ -125,8 +126,9 @@ export class RentingFormComponent implements OnInit {
   checkout() {
     if(this.dateRangeIsSet()){
       let userId = this.auth.getSessionUserId()
-      let rented = new Rented(undefined, userId, this.bouncyHouseId, this.selectedRangeValue!.start, this.selectedRangeValue!.end, false)
-      console.log(rented)
+      let end = new Date(this.selectedRangeValue!.end!.getTime()+ (1000 * 60 * 60 * 24))
+      let start = new Date(this.selectedRangeValue!.start!.getTime()+ (1000 * 60 * 60 * 24))
+      let rented = new Rented(undefined, userId!, this.bouncyHouseId, start, end)
       this.appState$ = this.rentedService.save$(rented).pipe(
         tap(console.log),
         map(response => {
