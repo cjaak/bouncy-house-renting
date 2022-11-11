@@ -11,6 +11,7 @@ import {CustomResponse} from "../../../../shared/interfaces/custom-response";
 import {DataStateEnum} from "../../../../shared/enums/data-state.enum";
 import {RatingService} from "../../../../data-access/services/rating.service";
 import {Location} from "@angular/common";
+import {FormControl} from "@angular/forms";
 
 @Component({
   selector: 'app-renting-detail',
@@ -27,8 +28,9 @@ export class RentingDetailComponent implements OnInit {
 
 
   @Input() selectedRangeValue: DateRange<Date> | undefined
-  @Output() selectedRangeValueChange = new EventEmitter<DateRange<Date>>();
 
+
+  comment = new FormControl("");
 
   days: number =0
 
@@ -88,7 +90,7 @@ export class RentingDetailComponent implements OnInit {
       userId: userId,
       bouncyHouseId: this.bouncyHouse.id!,
       stars: this.stars,
-      comment: ""
+      comment: this.comment.value?? ""
     }
     console.log(rating)
     this.appState$ = this.ratingService.save$(rating)
