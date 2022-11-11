@@ -1,5 +1,5 @@
-host{
-  --item-height: 250px
+:host{
+  --item-height: 300px
 }
 
 mat-card{
@@ -14,7 +14,7 @@ mat-card{
 
 figure{
   width: 100%;
-  height: calc(var(--item-height) - 100px);
+  height: calc(var(--item-height) - 150px);
   padding: 5px;
   margin: 0;
 }
