@@ -1,21 +1,40 @@
-<ng-container *ngIf="(appState$ | async) as appState" [ngSwitch]="appState.dataState">
+<ng-container
+  *ngIf="appState$ | async as appState"
+  [ngSwitch]="appState.dataState"
+>
   <ng-container *ngSwitchCase="DataState.LOADING_STATE">
     LOADING...
   </ng-container>
   <ng-container *ngSwitchCase="DataState.LOADED_STATE">
-    <mat-toolbar color="primary">Miete {{bouncyHouse.name}}</mat-toolbar>
-    <button mat-button id="back" (click)="back()"><mat-icon>arrow_back_ios_new</mat-icon></button>
-    <button mat-button id="cart" [routerLink]="['/cart']"><mat-icon>shopping_cart</mat-icon></button>
-    <mat-calendar [dateFilter]="myFilter" [selected]="selectedRangeValue" (selectedChange)="selectedChange($event)"></mat-calendar>
+    <mat-toolbar color="primary">Miete {{ bouncyHouse.name }}</mat-toolbar>
+    <button mat-button id="back" (click)="back()">
+      <mat-icon>arrow_back_ios_new</mat-icon>
+    </button>
+    <button mat-button id="cart" [routerLink]="['/cart']">
+      <mat-icon>shopping_cart</mat-icon>
+    </button>
+    <mat-calendar
+      [dateFilter]="myFilter"
+      [selected]="selectedRangeValue"
+      (selectedChange)="selectedChange($event)"
+    ></mat-calendar>
     <div class="price">
-      <p>Preis pro Tag: {{bouncyHouse.pricePerDay! | currency: 'EUR'}}</p>
+      <p>Preis pro Tag: {{ bouncyHouse.pricePerDay! | currency: "EUR" }}</p>
     </div>
     <mat-toolbar class="call-to-action">
-    <strong>Insgesamt: {{bouncyHouse.pricePerDay! * days | currency: 'EUR'}}</strong>
-    <button mat-raised-button color="primary" (click)="checkout()" [disabled]="!dateRangeIsSet()"> Direkt Mieten</button>
-  </mat-toolbar>
+      <strong
+        >Insgesamt:
+        {{ bouncyHouse.pricePerDay! * days | currency: "EUR" }}</strong
+      >
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="checkout()"
+        [disabled]="!dateRangeIsSet()"
+      >
+        Direkt Mieten
+      </button>
+    </mat-toolbar>
   </ng-container>
-  <ng-container *ngSwitchCase="DataState.ERROR_STATE">
-    ERROR
-  </ng-container>
+  <ng-container *ngSwitchCase="DataState.ERROR_STATE"> ERROR </ng-container>
 </ng-container>

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
   constructor() {}
@@ -20,7 +20,6 @@ export class AuthService {
 
   isLoggedIn(): boolean {
     return !!sessionStorage.getItem('userId?');
-
   }
 }
 
@@ -34,4 +33,3 @@ export class MockAuthService extends AuthService {
     return 0;
   }
 }
-

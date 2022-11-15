@@ -1,15 +1,20 @@
 <mat-toolbar>
-  <button mat-button id="back" (click)="back()"><mat-icon>arrow_back_ios_new</mat-icon></button>
-  <span>Übersicht Nr. {{rented.id}}</span>
+  <button mat-button id="back" (click)="back()">
+    <mat-icon>arrow_back_ios_new</mat-icon>
+  </button>
+  <span>Übersicht Nr. {{ rented.id }}</span>
 </mat-toolbar>
 <mat-calendar [selected]="selectedRangeValue"></mat-calendar>
 <div class="price">
   <strong>
-    Bezahlt: {{bouncyHouse.pricePerDay! * days | currency: 'EUR'}}
+    Bezahlt: {{ bouncyHouse.pricePerDay! * days | currency: "EUR" }}
   </strong>
 </div>
 
-<ng-container *ngIf="(appState$ | async) as appState" [ngSwitch]="appState.dataState">
+<ng-container
+  *ngIf="appState$ | async as appState"
+  [ngSwitch]="appState.dataState"
+>
   <ng-container *ngSwitchCase="DataState.LOADING_STATE">
     LOADING...
   </ng-container>
@@ -17,33 +22,29 @@
     <!--  already rated-->
     <mat-expansion-panel hideToggle *ngIf="rented.rated">
       <mat-expansion-panel-header>
-        <mat-panel-title>
-          Bewertung
-        </mat-panel-title>
+        <mat-panel-title> Bewertung </mat-panel-title>
         <mat-panel-description>
           Du hast diese Bestellung bereits bewertet
         </mat-panel-description>
       </mat-expansion-panel-header>
-     <app-rating-card [rating]="appState.appData!.data!.rating"></app-rating-card>
+      <app-rating-card
+        [rating]="appState.appData!.data!.rating"
+      ></app-rating-card>
     </mat-expansion-panel>
     <!--  not yet able to rate-->
     <mat-expansion-panel hideToggle *ngIf="!rented.rated! && start > today">
       <mat-expansion-panel-header>
-        <mat-panel-title>
-          Bewertung
-        </mat-panel-title>
+        <mat-panel-title> Bewertung </mat-panel-title>
         <mat-panel-description>
           Du kannst diese Bestellung noch nicht bewerten
         </mat-panel-description>
       </mat-expansion-panel-header>
-      <p>Versuche es nochmal in {{daysTillStart}} Tagen</p>
+      <p>Versuche es nochmal in {{ daysTillStart }} Tagen</p>
     </mat-expansion-panel>
     <!--  rating form-->
     <mat-expansion-panel hideToggle *ngIf="!rented.rated! && start <= today">
       <mat-expansion-panel-header>
-        <mat-panel-title>
-          Bewertung
-        </mat-panel-title>
+        <mat-panel-title> Bewertung </mat-panel-title>
         <mat-panel-description>
           Hilf anderen, indem du das Produkt bewertest
         </mat-panel-description>
@@ -51,26 +52,24 @@
 
       <ngb-rating [max]="5" [(rate)]="stars" [readonly]="false"></ngb-rating>
 
-      <br>
+      <br />
 
       <mat-form-field appearance="fill">
         <mat-label>Hinterlasse einen Kommentar</mat-label>
-      <textarea matInput [formControl]="comment"></textarea>
+        <textarea matInput [formControl]="comment"></textarea>
       </mat-form-field>
 
       <mat-action-row>
-        <button mat-button color="primary" [disabled]="!isStarsSet()" (click)="save()">Speichern</button>
+        <button
+          mat-button
+          color="primary"
+          [disabled]="!isStarsSet()"
+          (click)="save()"
+        >
+          Speichern
+        </button>
       </mat-action-row>
     </mat-expansion-panel>
   </ng-container>
-  <ng-container *ngSwitchCase="DataState.ERROR_STATE">
-    ERROR
-  </ng-container>
- </ng-container>
-
-
-
-
-
-
-
+  <ng-container *ngSwitchCase="DataState.ERROR_STATE"> ERROR </ng-container>
+</ng-container>

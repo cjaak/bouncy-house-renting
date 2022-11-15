@@ -4,40 +4,51 @@
       <ng-template matStepLabel>Fill out your name</ng-template>
       <mat-form-field>
         <mat-label>E-Mail</mat-label>
-        <input matInput placeholder="email" formControlName="email" required>
+        <input matInput placeholder="email" formControlName="email" required />
         <mat-error>invalid email</mat-error>
       </mat-form-field>
       <mat-form-field>
         <mat-label>Passwort</mat-label>
-        <input matInput placeholder="password" formControlName="password" type="password" required>
-         <mat-error
-        *ngIf="
+        <input
+          matInput
+          placeholder="password"
+          formControlName="password"
+          type="password"
+          required
+        />
+        <mat-error
+          *ngIf="
           credentialFormGroup.controls['password'].hasError('hasLowercaseLetters')
         "
-        > Kleinbuchstabe Pflicht</mat-error
-      >
-      <mat-error
-        *ngIf="
+        >
+          Kleinbuchstabe Pflicht</mat-error
+        >
+        <mat-error
+          *ngIf="
           credentialFormGroup.controls['password'].hasError('hasUppercaseLetters')
         "
         >
           Großbuchstabe Pflicht
-      </mat-error
-      >
-      <mat-error
-        *ngIf="credentialFormGroup.controls['password'].hasError('hasNumbers')"
+        </mat-error>
+        <mat-error
+          *ngIf="credentialFormGroup.controls['password'].hasError('hasNumbers')"
         >
-        Nummer Pflicht
-      </mat-error
-      >
-      <mat-error
-        *ngIf="credentialFormGroup.controls['password'].hasError('minlength')"
-        >Mindestlänge 8</mat-error
-      >
+          Nummer Pflicht
+        </mat-error>
+        <mat-error
+          *ngIf="credentialFormGroup.controls['password'].hasError('minlength')"
+          >Mindestlänge 8</mat-error
+        >
       </mat-form-field>
       <mat-form-field>
         <mat-label>Passwort wiederholen</mat-label>
-        <input matInput placeholder="repeat password" formControlName="repeatPassword" type="password"  required>
+        <input
+          matInput
+          placeholder="repeat password"
+          formControlName="repeatPassword"
+          type="password"
+          required
+        />
         <mat-error>Passwörter stimmen nicht überein</mat-error>
       </mat-form-field>
       <div>
@@ -50,15 +61,19 @@
       <ng-template matStepLabel>Fill out your address</ng-template>
       <mat-form-field>
         <mat-label>Vorname</mat-label>
-        <input matInput formControlName="firstName" required>
+        <input matInput formControlName="firstName" required />
       </mat-form-field>
       <mat-form-field>
         <mat-label>Nachname</mat-label>
-        <input matInput formControlName="lastName" required>
+        <input matInput formControlName="lastName" required />
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Geburtstag</mat-label>
-        <input matInput [matDatepicker]="picker" formControlName="dateOfBirth">
+        <input
+          matInput
+          [matDatepicker]="picker"
+          formControlName="dateOfBirth"
+        />
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
@@ -74,19 +89,19 @@
       <ng-template matStepLabel>Fill out your address</ng-template>
       <mat-form-field>
         <mat-label>Straße</mat-label>
-        <input matInput formControlName="street">
+        <input matInput formControlName="street" />
       </mat-form-field>
       <mat-form-field>
         <mat-label>Hausnummer</mat-label>
-        <input matInput formControlName="houseNumber" required>
+        <input matInput formControlName="houseNumber" required />
       </mat-form-field>
       <mat-form-field>
         <mat-label>PLZ</mat-label>
-        <input matInput formControlName="zipCode" required>
+        <input matInput formControlName="zipCode" required />
       </mat-form-field>
       <mat-form-field>
         <mat-label>Stadt</mat-label>
-        <input matInput formControlName="city" required>
+        <input matInput formControlName="city" required />
       </mat-form-field>
       <div>
         <button mat-button matStepperPrevious>Back</button>
@@ -98,7 +113,9 @@
     <ng-template matStepLabel>Done</ng-template>
     <div>
       <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)=register() [disabled]="!allFormsAreValid()">Erstelle Account</button>
+      <button mat-button (click)="register()" [disabled]="!allFormsAreValid()">
+        Erstelle Account
+      </button>
     </div>
   </mat-step>
 </mat-vertical-stepper>

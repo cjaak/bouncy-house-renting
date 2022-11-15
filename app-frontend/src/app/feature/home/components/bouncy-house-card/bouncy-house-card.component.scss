@@ -1,44 +1,44 @@
-:host{
-  --item-height: 250px
+:host {
+  --item-height: 250px;
 }
 
-mat-card{
+mat-card {
   margin: 5px;
   height: var(--item-height);
   overflow: hidden;
   border-radius: 10px;
-		-webkit-box-shadow: 0px 0px 23px -7px rgba(0, 0, 0, 0.28);
-		-moz-box-shadow: 0px 0px 23px -7px rgba(0, 0, 0, 0.28);
-		box-shadow: 0px 0px 23px -7px rgba(0, 0, 0, 0.28);
+  -webkit-box-shadow: 0px 0px 23px -7px rgba(0, 0, 0, 0.28);
+  -moz-box-shadow: 0px 0px 23px -7px rgba(0, 0, 0, 0.28);
+  box-shadow: 0px 0px 23px -7px rgba(0, 0, 0, 0.28);
 }
 
-figure{
+figure {
   width: 100%;
   height: calc(var(--item-height) - 100px);
   padding: 5px;
   margin: 0;
 }
 
-img{
+img {
   width: 100%;
   object-fit: cover;
 }
 
-.content{
+.content {
   padding: 5px;
 
-  .title{
+  .title {
     font-size: 18px;
   }
 
-  .price{
+  .price {
     position: absolute;
     bottom: 10px;
     right: 10px;
     font-size: 20px;
   }
 
-  .features{
+  .features {
     color: gray;
   }
 }

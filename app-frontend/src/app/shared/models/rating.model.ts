@@ -1,4 +1,4 @@
-export class Rating{
+export class Rating {
   constructor(
     public id?: number,
     public userId?: number,
@@ -6,6 +6,5 @@ export class Rating{
     public rentedId?: number,
     public stars?: number,
     public comment?: string
-  ) {
-  }
+  ) {}
 }
