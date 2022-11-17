@@ -10,6 +10,8 @@ import { BouncyHouseDetailComponent } from './components/bouncy-house-detail/bou
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
 import {MatDialogModule} from "@angular/material/dialog";
+import { RentedAllPage } from './pages/rented-all/rented-all.page';
+import { RentedNewPage } from './pages/rented-new/rented-new.page';
 
 
 
@@ -17,7 +19,9 @@ import {MatDialogModule} from "@angular/material/dialog";
   declarations: [
     RentedActivePage,
     RentedTableComponent,
-    BouncyHouseDetailComponent
+    BouncyHouseDetailComponent,
+    RentedAllPage,
+    RentedNewPage
   ],
   imports: [
     CommonModule,
