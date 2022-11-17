@@ -65,7 +65,7 @@ export class RentingDetailComponent implements OnInit {
       this.daysTillStart = this.calcDays(this.start, this.today);
     });
 
-    this.appState$ = this.ratingService.RatingByRented$(this.rented!.id!).pipe(
+    this.appState$ = this.ratingService.ratingByRented$(this.rented!.id!).pipe(
       map((response) => {
         return { dataState: DataStateEnum.LOADED_STATE, appData: response };
       }),
@@ -81,10 +81,16 @@ export class RentingDetailComponent implements OnInit {
     return Math.ceil(diff / (1000 * 3600 * 24)) + 1;
   }
 
+  /**
+   * Returns whether the number of stars in this rating has been set
+   */
   isStarsSet() {
     return this.stars > 0;
   }
 
+  /**
+   * Creates a @type Rating object and sends it to  be saved.
+   */
   save() {
     if (!this.isStarsSet()) {
       return;
@@ -111,6 +117,9 @@ export class RentingDetailComponent implements OnInit {
     );
   }
 
+  /**
+   * Returns the user to the last route they visited
+   */
   back() {
     this.location.back();
   }

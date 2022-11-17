@@ -29,6 +29,7 @@ export class ProfilePage implements OnInit {
 
   ngOnInit(): void {
     let userId = this.auth.getSessionUserId();
+    //loads user data
     this.appState$ = this.userService.get$(userId).pipe(
       map((response) => {
         this.user = response.data.user;
@@ -41,11 +42,17 @@ export class ProfilePage implements OnInit {
     );
   }
 
+  /**
+   * logs current user out and reroutes to main page
+   */
   logout() {
     this.route.navigate(['../auth/login']);
     this.auth.deleteSessionUserId();
   }
 
+  /**
+   * opens personal rating window
+   */
   openMyRatings() {
     const dialogRef = this.dialog.open(RatingListComponent, {
       width: '100%',

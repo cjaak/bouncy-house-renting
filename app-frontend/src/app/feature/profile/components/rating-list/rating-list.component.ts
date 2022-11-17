@@ -22,7 +22,8 @@ export class RatingListComponent implements OnInit {
 
   ngOnInit(): void {
     let userId = this.auth.getSessionUserId();
-    this.appState$ = this.ratingService.RatingsByUser$(userId!).pipe(
+    // gets all ratings by user
+    this.appState$ = this.ratingService.ratingsByUser$(userId!).pipe(
       map((response) => {
         return { dataState: DataStateEnum.LOADED_STATE, appData: response };
       }),

@@ -14,6 +14,9 @@ export class BouncyHouseDetailComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  /**
+   * Returns the user to the last route they visited
+   */
   back() {
     this.location.back();
   }

@@ -52,16 +52,25 @@ export class FilterBarComponent implements OnInit {
     this.filterService.searchFilterSubject.next(filterValue);
   }
 
+  /**
+   * opens and closes sort menu
+   */
   extendSortMenu() {
     this.isFilterExtended = false;
     this.isSortExtended = !this.isSortExtended;
   }
 
+  /**
+   * opens and closes filter menu
+   */
   extendFilterMenu() {
     this.isSortExtended = false;
     this.isFilterExtended = !this.isFilterExtended;
   }
 
+  /**
+   * switches sorting asc and desc depending on previous value
+   */
   handleSortDirection() {
     switch (this.activeSort.direction) {
       case 'asc':
@@ -77,11 +86,19 @@ export class FilterBarComponent implements OnInit {
     this.filterService.SortSubject.next(this.activeSort);
   }
 
+  /**
+   * Sets the sort value from the form
+   * @param event
+   */
   handleSortValueChange(event: MatSelectChange) {
     this.activeSort.active = event.value;
     this.filterService.SortSubject.next(this.activeSort);
   }
 
+  /**
+   * Sets the filter values
+   */
+  //---------------------------------------------------------
   selectChangeTheme(event: MatSelectChange) {
     this.activeFilter.set('themes', event.value);
     this.filterService.filterSubject.next(this.activeFilter);
@@ -108,4 +125,5 @@ export class FilterBarComponent implements OnInit {
     this.activeFilter.set('maxPrice', filterValue);
     this.filterService.filterSubject.next(this.activeFilter);
   }
+  //---------------------------------------------------------
 }

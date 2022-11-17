@@ -32,6 +32,7 @@ export class BouncyHouseListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    // loads all bouncy houses
     this.appState$ = this.bouncyHouseService.bouncyHouses$.pipe(
       map((response) => {
         return {
@@ -48,12 +49,21 @@ export class BouncyHouseListComponent implements OnInit {
       })
     );
 
+    /**
+     * subscribes to the search filter value
+     */
     this.filterService.searchFilterSubject.subscribe(
       (value) => (this.searchFilterValue = value)
     );
+    /**
+     * subscribes to the sort value
+     */
     this.filterService.SortSubject.subscribe(
       (value) => (this.sortValue = value)
     );
+    /**
+     * subscribes to the filter value
+     */
     this.filterService.filterSubject.subscribe((value) => {
       this.filterValue = value;
     });

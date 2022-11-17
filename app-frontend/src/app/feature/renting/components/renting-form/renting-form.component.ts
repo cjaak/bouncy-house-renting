@@ -95,6 +95,7 @@ export class RentingFormComponent implements OnInit {
   };
 
   ngOnInit(): void {
+    //gets the corresponding bouncy house
     this.appState$ = this.bouncyHouseService.get$(this.bouncyHouseId).pipe(
       map((response) => {
         this.bouncyHouse = response.data.bouncy_house;
@@ -106,6 +107,7 @@ export class RentingFormComponent implements OnInit {
       })
     );
 
+    // creates a list of all date ranges from rents for this bouncy house
     this.rentedList.forEach((element: any) => {
       const el = [new Date(element.startDate), new Date(element.endDate)];
       el[0].setHours(0, 0, 0, 0);
@@ -121,10 +123,16 @@ export class RentingFormComponent implements OnInit {
     });
   }
 
+  /**
+   * Checks if both end and start date are set
+   */
   dateRangeIsSet(): boolean {
     return !!(this.selectedRangeValue?.start && this.selectedRangeValue.end);
   }
 
+  /**
+   * Creates rented object from the form and sends it to the corresponding service
+   */
   checkout() {
     if (this.dateRangeIsSet()) {
       let userId = this.auth.getSessionUserId();
@@ -156,6 +164,9 @@ export class RentingFormComponent implements OnInit {
     }
   }
 
+  /**
+   * Returns the user to the last route they visited
+   */
   back() {
     this.location.back();
   }

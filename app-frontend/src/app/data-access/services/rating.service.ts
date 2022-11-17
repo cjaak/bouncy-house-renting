@@ -13,14 +13,22 @@ export class RatingService {
 
   private readonly apiUrl = 'http://localhost:8080';
 
-  RatingsByUser$ = (userId: number) =>
+  /**
+   * Stores ratings by user from the api in an observable
+   * @param userId
+   */
+  ratingsByUser$ = (userId: number) =>
     <Observable<CustomResponse>>(
       this.http
         .get<CustomResponse>(`${this.apiUrl}/rating/user/${userId}`)
         .pipe(tap(console.log), catchError(this.handleError))
     );
 
-  RatingsByBouncyHouse$ = (bouncyHouseId: number) =>
+  /**
+   *
+   * @param bouncyHouseId
+   */
+  ratingsByBouncyHouse$ = (bouncyHouseId: number) =>
     <Observable<CustomResponse>>(
       this.http
         .get<CustomResponse>(
@@ -29,13 +37,21 @@ export class RatingService {
         .pipe(tap(console.log), catchError(this.handleError))
     );
 
-  RatingByRented$ = (rentedId: number) =>
+  /**
+   *
+   * @param rentedId
+   */
+  ratingByRented$ = (rentedId: number) =>
     <Observable<CustomResponse>>(
       this.http
         .get<CustomResponse>(`${this.apiUrl}/rating/rented/${rentedId}`)
         .pipe(tap(console.log), catchError(this.handleError))
     );
 
+  /**
+   *
+   * @param rating
+   */
   save$ = (rating: Rating) =>
     <Observable<CustomResponse>>(
       this.http
@@ -43,6 +59,11 @@ export class RatingService {
         .pipe(tap(console.log), catchError(this.handleError))
     );
 
+  /**
+   *
+   * @param error
+   * @private
+   */
   private handleError(error: HttpErrorResponse): Observable<never> {
     console.log(error);
     return throwError(

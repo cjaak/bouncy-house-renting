@@ -69,6 +69,10 @@ export class RegisterPage implements OnInit {
     });
   }
 
+  /**
+   *  Checks if all the fields in the register form comply to their specified validators
+   *  @returns boolean
+   */
   allFormsAreValid(): boolean {
     return (
       this.credentialFormGroup.valid &&
@@ -79,6 +83,9 @@ export class RegisterPage implements OnInit {
 
   ngOnInit(): void {}
 
+  /**
+   *  Sends the login formData to the responding service and informs whether the registering was successful or not
+   */
   register() {
     let user: User = {
       id: undefined,

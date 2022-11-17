@@ -34,6 +34,9 @@ export class LoginPage implements OnInit {
 
   ngOnInit(): void {}
 
+  /**
+   * Sends the login formData to the responding service and informs whether the login was successful or not
+   */
   login() {
     if (this.loginForm.invalid) {
       // The provided data are invalid

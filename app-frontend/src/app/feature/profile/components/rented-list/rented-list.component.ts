@@ -19,6 +19,7 @@ export class RentedListComponent implements OnInit {
   constructor(private rentedService: RentedService) {}
 
   ngOnInit(): void {
+    // gets all rented entries by user
     this.appState$ = this.rentedService.rentedByUser$(this.userId).pipe(
       map((response) => {
         return {

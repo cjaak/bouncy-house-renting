@@ -28,7 +28,7 @@ export class RatingPreviewComponent implements OnInit {
 
   ngOnInit(): void {
     this.appState$ = this.ratingService
-      .RatingsByBouncyHouse$(this.bouncyHouseId)
+      .ratingsByBouncyHouse$(this.bouncyHouseId)
       .pipe(
         map((response) => {
           this.ratings = response.data.ratings;
@@ -41,6 +41,9 @@ export class RatingPreviewComponent implements OnInit {
       );
   }
 
+  /**
+   * Calculates the average number of stars each rating for this bouncy house has
+   */
   calcAvgRating() {
     return (
       this.ratings.reduce((total, next) => total + next.stars!, 0) /
@@ -48,6 +51,9 @@ export class RatingPreviewComponent implements OnInit {
     );
   }
 
+  /**
+   * Opens window that displays dialogs for this bouncy house
+   */
   openRatingsDialog() {
     const dialogRef = this.dialog.open(RatingListComponent, {
       data: this.ratings,
