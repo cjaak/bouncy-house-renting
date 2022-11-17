@@ -36,6 +36,14 @@ export class RentedService {
     catchError(this.handleError)
    )
 
+  /**
+   * Fetches all rented data by bouncy house and stores in an observable
+   */
+  rentedByBounceHouse$ = (bouncyHouseId: number) => <Observable<CustomResponse>>this.http.get<CustomResponse>(`${this.apiUrl}/rented/bouncy-house/${bouncyHouseId}`).pipe(
+    tap(console.log),
+    catchError(this.handleError)
+   )
+
 
   private handleError(error: HttpErrorResponse): Observable<never> {
     console.log(error);

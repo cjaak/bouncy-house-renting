@@ -81,6 +81,12 @@
         <td mat-cell *matCellDef="let element"> <app-delete-button (delete)="handleDelete(element)"></app-delete-button> </td>
       </ng-container>
 
+      <!-- Rented Button Column -->
+      <ng-container matColumnDef="rented">
+        <th mat-header-cell *matHeaderCellDef> </th>
+        <td mat-cell *matCellDef="let element"> <button [routerLink]="['/rented/bouncy-house/', element.id]" mat-raised-button><mat-icon>read_more</mat-icon></button> </td>
+      </ng-container>
+
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

@@ -12,6 +12,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatDialogModule} from "@angular/material/dialog";
 import { RentedAllPage } from './pages/rented-all/rented-all.page';
 import { RentedNewPage } from './pages/rented-new/rented-new.page';
+import { RentedBouncyHousePage } from './pages/rented-bouncy-house/rented-bouncy-house.page';
 
 
 
@@ -21,7 +22,8 @@ import { RentedNewPage } from './pages/rented-new/rented-new.page';
     RentedTableComponent,
     BouncyHouseDetailComponent,
     RentedAllPage,
-    RentedNewPage
+    RentedNewPage,
+    RentedBouncyHousePage
   ],
   imports: [
     CommonModule,

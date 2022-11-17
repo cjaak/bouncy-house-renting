@@ -5,6 +5,7 @@ import {UserPage} from "./feature/user/pages/user/user.page";
 import {RentedActivePage} from "./feature/rented/pages/rented-active/rented-active.page";
 import {RentedAllPage} from "./feature/rented/pages/rented-all/rented-all.page";
 import {RentedNewPage} from "./feature/rented/pages/rented-new/rented-new.page";
+import {RentedBouncyHousePage} from "./feature/rented/pages/rented-bouncy-house/rented-bouncy-house.page";
 
 
 const routes: Routes = [
@@ -28,6 +29,10 @@ const routes: Routes = [
   {
     path: 'rented/new',
     component: RentedNewPage
+  },
+  {
+    path: 'rented/bouncy-house/:id',
+    component: RentedBouncyHousePage
   }
   ];
 

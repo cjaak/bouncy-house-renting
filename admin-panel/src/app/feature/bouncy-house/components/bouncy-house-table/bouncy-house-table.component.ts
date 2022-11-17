@@ -42,7 +42,7 @@ export class BouncyHouseTableComponent implements OnInit {
 
 
 
-  displayedColumns: string[] = ['id',"imageUrl", 'name', 'pricePerDay', 'size', 'theme', 'weightLimit', "constructionTimeInMinutes", "withPowerConnection", 'delete'];
+  displayedColumns: string[] = ['id',"imageUrl", 'name', 'pricePerDay', 'size', 'theme', 'weightLimit', "constructionTimeInMinutes", "withPowerConnection", 'delete', 'rented'];
 
   ngOnInit(): void {
     this.appState$ = this.bouncyHouseService.bouncyHouses$
