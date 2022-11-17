@@ -7,6 +7,7 @@ import {CustomResponse} from "../../../../shared/interfaces/custom-response";
 import {MatSort} from "@angular/material/sort";
 import {MatDialog} from "@angular/material/dialog";
 import {BouncyHouseDetailComponent} from "../bouncy-house-detail/bouncy-house-detail.component";
+import {UserDetailComponent} from "../user-detail/user-detail.component";
 
 
 @Component({
@@ -34,6 +35,12 @@ export class RentedTableComponent implements OnInit {
   showBouncyHouseDetail(id: number) {
     const dialogRef = this.dialog.open(BouncyHouseDetailComponent, {
       data: id
+    })
+  }
+
+  showUserDetail(userId: number) {
+    const dialogRef = this.dialog.open(UserDetailComponent, {
+      data: userId
     })
   }
 }
