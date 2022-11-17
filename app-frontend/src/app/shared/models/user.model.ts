@@ -1,7 +1,7 @@
 /*
-* User Model
-* */
-export class User{
+ * User Model
+ * */
+export class User {
   public constructor(
     public id: number,
     public email: string,
@@ -13,5 +13,5 @@ export class User{
     public houseNumber?: string,
     public zipCode?: number,
     public city?: string
-    ) {}
+  ) {}
 }

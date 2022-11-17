@@ -2,19 +2,28 @@
   <mat-toolbar class="filterToolbar">
     <mat-form-field appearance="outline" id="search">
       <mat-label>Suche</mat-label>
-      <input matInput (keyup)="handleSearchFilter($event)" #input>
+      <input matInput (keyup)="handleSearchFilter($event)" #input />
     </mat-form-field>
-    <button mat-button (click)="extendFilterMenu()"><mat-icon>filter_alt</mat-icon></button>
-    <button mat-button (click)="extendSortMenu()"><mat-icon>sort</mat-icon></button>
+    <button mat-button (click)="extendFilterMenu()">
+      <mat-icon>filter_alt</mat-icon>
+    </button>
+    <button mat-button (click)="extendSortMenu()">
+      <mat-icon>sort</mat-icon>
+    </button>
   </mat-toolbar>
 </header>
 <main>
   <ng-container [formGroup]="form">
     <ng-container *ngIf="isSortExtended">
-      <button mat-raised-button (click)="handleSortDirection()"><mat-icon>{{sortArrows[activeArrow]}}</mat-icon></button>
+      <button mat-raised-button (click)="handleSortDirection()">
+        <mat-icon>{{ sortArrows[activeArrow] }}</mat-icon>
+      </button>
       <mat-form-field appearance="outline">
         <mat-label>Sortieren nach</mat-label>
-        <mat-select formControlName="sort" (selectionChange)="handleSortValueChange($event)">
+        <mat-select
+          formControlName="sort"
+          (selectionChange)="handleSortValueChange($event)"
+        >
           <mat-option value="name">Name</mat-option>
           <mat-option value="pricePerDay">Preis</mat-option>
           <mat-option value="size">Größe</mat-option>
@@ -24,27 +33,53 @@
     <ng-container *ngIf="isFilterExtended" class="filter">
       <mat-form-field appearance="outline" [style.width.%]="100">
         <mat-label>Thema</mat-label>
-        <mat-select formControlName="themes" multiple (selectionChange)="selectChangeTheme($event)">
-          <mat-option *ngFor="let theme of themes" [value]="theme">{{theme}}</mat-option>
+        <mat-select
+          formControlName="themes"
+          multiple
+          (selectionChange)="selectChangeTheme($event)"
+        >
+          <mat-option *ngFor="let theme of themes" [value]="theme">{{
+            theme
+          }}</mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field appearance="outline" [style.width.%]="100">
         <mat-label>Größe</mat-label>
-        <mat-select formControlName="sizes" multiple (selectionChange)="selectChangeSize($event)">
-          <mat-option *ngFor="let size of sizes" [value]="size">{{size}}</mat-option>
+        <mat-select
+          formControlName="sizes"
+          multiple
+          (selectionChange)="selectChangeSize($event)"
+        >
+          <mat-option *ngFor="let size of sizes" [value]="size">{{
+            size
+          }}</mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field appearance="outline" [style.width.%]="100">
         <mat-label>min. Preis</mat-label>
-        <input type="number" matInput formControlName="minPrice" (keyup)="inputChangeMin($event)">
+        <input
+          type="number"
+          matInput
+          formControlName="minPrice"
+          (keyup)="inputChangeMin($event)"
+        />
       </mat-form-field>
-        <mat-form-field appearance="outline" [style.width.%]="100">
+      <mat-form-field appearance="outline" [style.width.%]="100">
         <mat-label>max. Preis</mat-label>
-        <input type="number" matInput formControlName="maxPrice" (keyup)="inputChangeMax($event)" >
+        <input
+          type="number"
+          matInput
+          formControlName="maxPrice"
+          (keyup)="inputChangeMax($event)"
+        />
       </mat-form-field>
       <mat-form-field appearance="outline" [style.width.%]="100">
         <mat-label>Strom</mat-label>
-        <mat-select formControlName="withPowerConnection" multiple (selectionChange)="selectChangePower($event)">
+        <mat-select
+          formControlName="withPowerConnection"
+          multiple
+          (selectionChange)="selectChangePower($event)"
+        >
           <mat-option [value]="true">mit Stromanschluss</mat-option>
           <mat-option [value]="false">ohne Stromanschluss</mat-option>
         </mat-select>
@@ -54,4 +89,3 @@
 
   <ng-content></ng-content>
 </main>
-
