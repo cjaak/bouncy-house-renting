@@ -1,10 +1,10 @@
 /*
-* Bouncy House Model
-* */
-import {BouncyHouseSizeEnum} from "../enums/size.enum";
-import {BouncyHouseThemeEnum} from "../enums/theme.enum";
+ * Bouncy House Model
+ * */
+import { BouncyHouseSizeEnum } from '../enums/size.enum';
+import { BouncyHouseThemeEnum } from '../enums/theme.enum';
 
-export class BouncyHouse{
+export class BouncyHouse {
   constructor(
     public id?: number,
     public name?: string,
@@ -17,7 +17,5 @@ export class BouncyHouse{
     public withPowerConnection?: boolean,
     public imageUrl?: string,
     public isVisible?: boolean
-  ) {
-  }
+  ) {}
 }
-

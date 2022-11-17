@@ -1,4 +1,7 @@
 <ng-container *ngIf="ratings.length < 1">
   <p>Es gibt noch keine Bewertungen für diese Hüpfburg</p>
 </ng-container>
-<app-rating-card *ngFor="let rating of ratings" [rating]="rating"></app-rating-card>
+<app-rating-card
+  *ngFor="let rating of ratings"
+  [rating]="rating"
+></app-rating-card>

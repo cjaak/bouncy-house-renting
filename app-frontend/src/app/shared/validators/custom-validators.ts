@@ -65,4 +65,3 @@ export class CustomValidators {
     return pattern.test(ctrl.value) ? null : { validLicensePlate: true };
   }
 }
-

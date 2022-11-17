@@ -1,25 +1,29 @@
-<ng-container *ngIf="(appState$ | async) as appState" [ngSwitch]="appState.dataState">
+<ng-container
+  *ngIf="appState$ | async as appState"
+  [ngSwitch]="appState.dataState"
+>
   <ng-container *ngSwitchCase="DataState.LOADING_STATE">
     LOADING...
   </ng-container>
   <ng-container *ngSwitchCase="DataState.LOADED_STATE">
     <mat-card (click)="navigateDetailPage()">
       <figure>
-        <img [src]="bouncyHouse.imageUrl" [alt]="bouncyHouse.name">
+        <img [src]="bouncyHouse.imageUrl" [alt]="bouncyHouse.name" />
       </figure>
       <a>
         <div class="content">
-          <strong class="title">{{bouncyHouse.name}}</strong>
+          <strong class="title">{{ bouncyHouse.name }}</strong>
           <mat-list role="list">
-            <mat-list-item role="listitem">von {{rented.startDate | date: 'shortDate'}}</mat-list-item>
-            <mat-list-item role="listitem">bis {{rented.endDate | date: 'shortDate'}}</mat-list-item>
+            <mat-list-item role="listitem"
+              >von {{ rented.startDate | date: "shortDate" }}</mat-list-item
+            >
+            <mat-list-item role="listitem"
+              >bis {{ rented.endDate | date: "shortDate" }}</mat-list-item
+            >
           </mat-list>
         </div>
       </a>
     </mat-card>
   </ng-container>
-  <ng-container *ngSwitchCase="DataState.ERROR_STATE">
-    ERROR
-  </ng-container>
+  <ng-container *ngSwitchCase="DataState.ERROR_STATE"> ERROR </ng-container>
 </ng-container>
-

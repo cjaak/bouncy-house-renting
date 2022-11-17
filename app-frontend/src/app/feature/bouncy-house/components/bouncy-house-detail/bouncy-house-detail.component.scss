@@ -1,37 +1,36 @@
-mat-card{
+mat-card {
   width: 100%;
   height: 100%;
   overflow: hidden;
   padding-bottom: 85px;
 }
 
-
-#cart{
+#cart {
   position: absolute;
   top: 0;
   right: 0;
 }
 
-#back{
+#back {
   position: absolute;
   top: 0;
   left: 0;
 }
 
-.features{
+.features {
   display: flex;
   flex-flow: wrap;
 }
 
-.item{
+.item {
   min-width: 33%;
 }
 
 app-rating-preview {
-    margin-right: auto;
+  margin-right: auto;
 }
 
-.footer{
+.footer {
   position: absolute;
   bottom: 0;
   z-index: 1000;
@@ -39,24 +38,22 @@ app-rating-preview {
   display: flex;
   flex-direction: column;
   height: 90px;
-
-
 }
 
-.call-to-action{
+.call-to-action {
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: normal;
 
-    button{
-      margin-right: 15px;
-      height: 32px;
-    }
+  button {
+    margin-right: 15px;
+    height: 32px;
   }
+}
 
-mat-card-content{
+mat-card-content {
   width: 100%;
   height: 200px;
   overflow-x: hidden;

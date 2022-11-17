@@ -1,4 +1,3 @@
-
 export class Rented {
   constructor(
     public id?: undefined,
