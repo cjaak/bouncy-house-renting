@@ -33,6 +33,18 @@ public class BouncyHouseResource {
         );
     }
 
+    @GetMapping("/visible")
+    public ResponseEntity<Response> getVisibleBouncyHouses() {
+        return ResponseEntity.ok(Response.builder()
+                .timeStamp(now())
+                .data(of("bouncy_houses", bouncyHouseService.getAllVisible()))
+                .message("bouncy houses (visible) retrieved")
+                .status(OK)
+                .statusCode(OK.value())
+                .build()
+        );
+    }
+
     @PostMapping("/save")
     public ResponseEntity<Response> saveBouncyHouse(@RequestBody @Valid BouncyHouse house) {
         return ResponseEntity.ok(Response.builder()
