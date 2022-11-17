@@ -7,6 +7,20 @@ export class AuthService {
   constructor() {}
 
   /**
+   * dummy login for admin
+   * NOTE: not safe
+   * @param username
+   * @param password
+   */
+  login(username: string, password: string): boolean {
+    if (username === 'admin' && password === '12345678') {
+      this.setSessionUserId(1);
+      return true;
+    }
+    return false;
+  }
+
+  /**
    * Sets userId of the authenticated user in the session storage
    * @param userId
    */

@@ -2,8 +2,7 @@
   <h1>Anmelden</h1>
   <form [formGroup]="loginForm">
     <mat-form-field appearance="outline">
-      <input matInput type="text" formControlName="email" placeholder="email" />
-      <mat-error></mat-error>
+      <input matInput type="text" formControlName="username" placeholder="username" />
     </mat-form-field>
     <mat-form-field appearance="outline">
       <input
@@ -15,7 +14,4 @@
     </mat-form-field>
   </form>
   <button color="accent" mat-raised-button (click)="login()">Anmelden</button>
-  <a mat-raised-button color="primary" routerLink="../register">
-    <span> Account errstellen </span>
-  </a>
 </body>
