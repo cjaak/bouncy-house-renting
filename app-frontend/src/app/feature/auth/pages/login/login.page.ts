@@ -8,7 +8,6 @@ import {
 import { Router } from '@angular/router';
 import { SnackService } from '../../../../shared/services/snack.service';
 import { UserService } from '../../../../data-access/services/user.service';
-import { AuthService } from '../../../../data-access/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +16,7 @@ import { AuthService } from '../../../../data-access/services/auth.service';
 })
 export class LoginPage implements OnInit {
   loginForm = new FormGroup({
-    username: new FormControl(),
+    email: new FormControl(),
     password: new FormControl(),
   });
 
@@ -25,10 +24,10 @@ export class LoginPage implements OnInit {
     private fb: FormBuilder,
     private route: Router,
     private snackService: SnackService,
-    private auth: AuthService
+    private userService: UserService
   ) {
     this.loginForm = this.fb.group({
-      username: ['', [Validators.required]],
+      email: ['', [Validators.required]],
       password: ['', [Validators.required]],
     });
   }
@@ -46,12 +45,15 @@ export class LoginPage implements OnInit {
     }
     let formValue = this.loginForm.value;
 
-    let success = this.auth.login(formValue.username, formValue.password);
-    if (success) {
-      this.route.navigate(['/bouncy-house']);
-    } else {
-      // Login was unsuccessful => inform the user
-      this.snackService.invalidDataError('invalid Data');
-    }
+    this.userService
+      .login(formValue.email, formValue.password)
+      .subscribe((success) => {
+        if (success) {
+          this.route.navigate(['../home']);
+        } else {
+          // Login was unsuccessful => inform the user
+          this.snackService.invalidDataError('invalid Data');
+        }
+      });
   }
 }
