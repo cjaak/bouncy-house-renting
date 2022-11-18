@@ -7,12 +7,14 @@ import { RouterLink } from '@angular/router';
 import { BouncyHouseListComponent } from './components/bouncy-house-list/bouncy-house-list.component';
 import { FavouriteBarComponent } from './components/favourite-bar/favourite-bar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { EmptyFavouritesComponent } from './components/empty-favourites/empty-favourites.component';
 
 @NgModule({
   declarations: [
     FavouritePage,
     BouncyHouseListComponent,
     FavouriteBarComponent,
+    EmptyFavouritesComponent,
   ],
   imports: [
     CommonModule,

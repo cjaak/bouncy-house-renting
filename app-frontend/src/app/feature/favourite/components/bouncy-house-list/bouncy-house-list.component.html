@@ -6,6 +6,9 @@
     LOADING...
   </ng-container>
   <ng-container *ngSwitchCase="DataState.LOADED_STATE">
+    <div class="empty" *ngIf="appState.appData!.data.bouncy_houses!.length <= 0">
+      <app-empty-favourites></app-empty-favourites>
+    </div>
     <div class="flex-container">
       <app-bouncy-house-card
         *ngFor="
