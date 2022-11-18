@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import static java.lang.Boolean.*;
 
@@ -47,8 +48,9 @@ public class FavouriteServiceImpl implements FavouriteService {
     }
 
     @Override
-    public Boolean findFavouriteByBouncyHouseAndUserId(Long bouncyHouseId, Long userId) {
+    public Optional<Favourite> findFavouriteByBouncyHouseAndUserId(Long bouncyHouseId, Long userId) {
         log.info("Find favourites by bouncyHouseId and userId: {}, {}", bouncyHouseId, userId);
-        return favouriteRepo.findByBouncyHouseIdAndUserId(bouncyHouseId, userId).isPresent();
+        Optional<Favourite> favourite = favouriteRepo.findByBouncyHouseIdAndUserId(bouncyHouseId, userId);
+        return favourite;
     }
 }

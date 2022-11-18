@@ -34,7 +34,8 @@ export class FavouriteToggleComponent implements OnInit {
       .getByBouncyHouseAndUser$(this.bouncyHouseId, this.userId)
       .pipe(
         map((response) => {
-          this.setIcon(response.data.favourite);
+          this.favourite = response.data.favourite;
+          this.setIcon(!!response.data.favourite);
           return { dataState: DataStateEnum.LOADED_STATE, appData: response };
         }),
         startWith({ dataState: DataStateEnum.LOADING_STATE }),

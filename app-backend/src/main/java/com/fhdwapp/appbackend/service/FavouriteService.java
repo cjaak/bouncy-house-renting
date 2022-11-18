@@ -12,5 +12,5 @@ public interface FavouriteService {
 
     Collection<Favourite> getAllByUserId(Long userId);
 
-    Boolean findFavouriteByBouncyHouseAndUserId(Long BouncyHouseId ,Long userId);
+    Optional<Favourite> findFavouriteByBouncyHouseAndUserId(Long BouncyHouseId ,Long userId);
 }
