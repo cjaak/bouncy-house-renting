@@ -26,6 +26,18 @@ export class BouncyHouseService {
   );
 
   /**
+   * Stores bouncy houses from the api in an observable
+   */
+  bouncyHousesFavourite$ = (userId: number) =>
+    <Observable<CustomResponse>>(
+      this.http
+        .get<CustomResponse>(
+          `${this.apiUrl}/bouncy-house/favourite/user/${userId}`
+        )
+        .pipe(tap(console.log), catchError(this.handleError))
+    );
+
+  /**
    * Stores a specific bouncy house by id from the api in an observable
    * @param id id of the bouncyHouse
    */

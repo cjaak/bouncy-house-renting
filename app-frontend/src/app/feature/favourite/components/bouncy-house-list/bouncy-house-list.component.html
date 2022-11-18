@@ -1,0 +1,20 @@
+<ng-container
+  *ngIf="appState$ | async as appState"
+  [ngSwitch]="appState.dataState"
+>
+  <ng-container *ngSwitchCase="DataState.LOADING_STATE">
+    LOADING...
+  </ng-container>
+  <ng-container *ngSwitchCase="DataState.LOADED_STATE">
+    <div class="flex-container">
+      <app-bouncy-house-card
+        *ngFor="
+          let house of appState.appData!.data!.bouncy_houses
+        "
+        [current]="house"
+        class="item"
+      ></app-bouncy-house-card>
+    </div>
+  </ng-container>
+  <ng-container *ngSwitchCase="DataState.ERROR_STATE"> ERROR </ng-container>
+</ng-container>

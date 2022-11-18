@@ -43,7 +43,7 @@ public class BouncyHouseServiceImpl implements BouncyHouseService {
 
     @Override
     public Collection<BouncyHouse> getAllByFavouriteByUserId(Long userId) {
-        List<BouncyHouse> bouncyHouses = Collections.<BouncyHouse>emptyList();
+        List<BouncyHouse> bouncyHouses = new ArrayList<BouncyHouse>();
         Collection<Favourite> favourites = favouriteRepo.findAllByUserId(userId);
         for (Favourite favourite: favourites) {
             Optional<BouncyHouse> house = bouncyHouseRepo.findById(favourite.getBouncyHouseId());
