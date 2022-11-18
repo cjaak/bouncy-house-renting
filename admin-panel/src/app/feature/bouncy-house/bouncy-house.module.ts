@@ -17,6 +17,8 @@ import {MatSortModule} from '@angular/material/sort';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { BouncyHouseFilterComponent } from './components/bouncy-house-filter/bouncy-house-filter.component';
 import {MatSliderModule} from '@angular/material/slider';
+import {MatIconModule} from "@angular/material/icon";
+import {RouterLink} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import {MatSliderModule} from '@angular/material/slider';
     MatToolbarModule,
     MatCheckboxModule,
     MatSortModule,
-    MatSliderModule
+    MatSliderModule,
+    MatIconModule,
+    RouterLink
   ]
 })
 export class BouncyHouseModule { }

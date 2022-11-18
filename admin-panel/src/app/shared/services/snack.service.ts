@@ -20,4 +20,15 @@ export class SnackService {
       .pipe(tap(_ => this.router.navigate(["/bouncy-house"])))
       .subscribe()
   }
+
+  invalidDataError(message: string) {
+    this.snackBar.open(message, "OK", {
+      duration: 5000
+    });
+
+    return this.snackBar._openedSnackBarRef
+      ?.onAction()
+      .pipe(tap(_ => this.router.navigate([""])))
+      .subscribe()
+  }
 }
