@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { catchError, map, Observable, of, startWith } from 'rxjs';
 import { AppState } from '../../interfaces/app-state';
 import { CustomResponse } from '../../interfaces/custom-response';
@@ -17,6 +17,7 @@ export class FavouriteToggleComponent implements OnInit {
   readonly DataState = DataStateEnum;
 
   @Input() bouncyHouseId!: number;
+  @Output() removedFavourite = new EventEmitter();
 
   icons = ['favorite_outline', 'favorite'];
   icon!: string;
@@ -70,6 +71,7 @@ export class FavouriteToggleComponent implements OnInit {
         map((response) => {
           this.favourite = null;
           this.setIcon(false);
+          this.removedFavourite.emit();
           return { dataState: DataStateEnum.LOADED_STATE, appData: response };
         }),
         startWith({ dataState: DataStateEnum.LOADING_STATE }),

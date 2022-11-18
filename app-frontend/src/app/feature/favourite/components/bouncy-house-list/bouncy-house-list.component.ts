@@ -28,6 +28,10 @@ export class BouncyHouseListComponent implements OnInit {
 
   ngOnInit(): void {
     // loads all favourite bouncy houses
+    this.fetchList();
+  }
+
+  fetchList() {
     let userId = this.auth.getSessionUserId();
     this.appState$ = this.bouncyHouseService
       .bouncyHousesFavourite$(userId)
