@@ -1,6 +1,9 @@
 :host {
   --item-height: 250px;
 }
+a{
+  text-decoration: none;
+}
 
 mat-card {
   margin: 5px;
@@ -41,4 +44,10 @@ img {
   .features {
     color: gray;
   }
+}
+
+.favorite{
+  position: absolute;
+  top: 5px;
+  right: 5px;
 }

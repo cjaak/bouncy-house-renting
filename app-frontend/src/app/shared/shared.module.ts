@@ -15,6 +15,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { SortPipe } from './pipes/sort.pipe';
 import { RatingCardComponent } from './components/rating-card/rating-card.component';
 import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
+import { FavouriteToggleComponent } from './components/favourite-toggle/favourite-toggle.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
     FilterPipe,
     SortPipe,
     RatingCardComponent,
+    FavouriteToggleComponent,
   ],
   exports: [
     NavbarComponent,
@@ -35,6 +37,7 @@ import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
     SortPipe,
     FilterPipe,
     RatingCardComponent,
+    FavouriteToggleComponent,
   ],
   imports: [
     CommonModule,

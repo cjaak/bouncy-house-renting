@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { BouncyHouse } from '../../../../shared/models/bouncy-house.model';
+import { BouncyHouse } from '../../models/bouncy-house.model';
 
 @Component({
   selector: 'app-bouncy-house-card',

@@ -7,7 +7,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { BouncyHouseListComponent } from './components/bouncy-house-list/bouncy-house-list.component';
-import { BouncyHouseCardComponent } from './components/bouncy-house-card/bouncy-house-card.component';
+import { BouncyHouseCardComponent } from '../../shared/components/bouncy-house-card/bouncy-house-card.component';
 import { MatCardModule } from '@angular/material/card';
 import { RouterLink, RouterLinkWithHref } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';

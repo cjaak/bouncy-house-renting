@@ -7,6 +7,8 @@ import java.util.Collection;
 public interface BouncyHouseService {
     BouncyHouse create(BouncyHouse house);
     Collection<BouncyHouse> getAll();
+
+    Collection<BouncyHouse> getAllByFavouriteByUserId(Long id);
     BouncyHouse get(Long id);
     BouncyHouse update(BouncyHouse house);
     Boolean delete(Long id);
