@@ -40,6 +40,12 @@ public class BouncyHouseServiceImpl implements BouncyHouseService {
     }
 
     @Override
+    public Collection<BouncyHouse> getAllVisible() {
+        log.info("Fetching all visible bouncy houses");
+        return bouncyHouseRepo.findAllByIsVisibleTrue();
+    }
+
+    @Override
     public BouncyHouse get(Long id) {
         log.info("Fetching bouncy house by id: {}", id);
         return bouncyHouseRepo.findById(id).get();
