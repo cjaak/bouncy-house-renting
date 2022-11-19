@@ -12,7 +12,34 @@ export class RentedService {
 
   constructor(private http: HttpClient) { }
 
+  /**
+   * Fetches all rented data for currently rented bouncy houses and stores in an observable
+   */
   rentedActive$ = <Observable<CustomResponse>>this.http.get<CustomResponse>(`${this.apiUrl}/rented/in-use`).pipe(
+    tap(console.log),
+    catchError(this.handleError)
+   )
+
+  /**
+   * Fetches all new rented data and stores in an observable
+   */
+  rentedNew$ = <Observable<CustomResponse>>this.http.get<CustomResponse>(`${this.apiUrl}/rented/new`).pipe(
+    tap(console.log),
+    catchError(this.handleError)
+   )
+
+  /**
+   * Fetches all rented data and stores in an observable
+   */
+  rented$ = <Observable<CustomResponse>>this.http.get<CustomResponse>(`${this.apiUrl}/rented`).pipe(
+    tap(console.log),
+    catchError(this.handleError)
+   )
+
+  /**
+   * Fetches all rented data by bouncy house and stores in an observable
+   */
+  rentedByBounceHouse$ = (bouncyHouseId: number) => <Observable<CustomResponse>>this.http.get<CustomResponse>(`${this.apiUrl}/rented/bouncy-house/${bouncyHouseId}`).pipe(
     tap(console.log),
     catchError(this.handleError)
    )

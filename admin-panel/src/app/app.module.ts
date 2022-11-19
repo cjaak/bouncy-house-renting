@@ -9,6 +9,7 @@ import {BouncyHouseModule} from "./feature/bouncy-house/bouncy-house.module";
 import {SharedModule} from "./shared/shared.module";
 import {HttpClientModule} from "@angular/common/http";
 import {RentedModule} from "./feature/rented/rented.module";
+import {AuthModule} from "./feature/auth/auth.module";
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import {RentedModule} from "./feature/rented/rented.module";
     BouncyHouseModule,
     SharedModule,
     RentedModule,
+    AuthModule,
     HttpClientModule
   ],
   providers: [],

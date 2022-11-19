@@ -50,6 +50,10 @@ public class BouncyHouseServiceImpl implements BouncyHouseService {
             house.ifPresent(bouncyHouses::add);
         }
         return bouncyHouses;
+
+    public Collection<BouncyHouse> getAllVisible() {
+        log.info("Fetching all visible bouncy houses");
+        return bouncyHouseRepo.findAllByIsVisibleTrue();
     }
 
     @Override

@@ -21,7 +21,7 @@ export class BouncyHouseService {
    */
   bouncyHouses$ = <Observable<CustomResponse>>(
     this.http
-      .get<CustomResponse>(`${this.apiUrl}/bouncy-house`)
+      .get<CustomResponse>(`${this.apiUrl}/bouncy-house/visible`)
       .pipe(tap(console.log), catchError(this.handleError))
   );
 

@@ -36,12 +36,13 @@ export class BouncyHouseTableComponent implements OnInit {
     this._sort = ms;
     this.dataSource.sort = this._sort;
   }
+  @ViewChild(MatSort) sort!: MatSort;
 
   constructor(private bouncyHouseService: BouncyHouseService, private dialog: MatDialog, private snackService: SnackService) { }
 
-  @ViewChild(MatSort) sort!: MatSort;
 
-  displayedColumns: string[] = ['id',"imageUrl", 'name', 'pricePerDay', 'size', 'theme', 'weightLimit', "constructionTimeInMinutes", "withPowerConnection", 'delete'];
+
+  displayedColumns: string[] = ['id',"imageUrl", 'name', 'pricePerDay', 'size', 'theme', 'weightLimit', "constructionTimeInMinutes", "withPowerConnection", 'delete', 'rented'];
 
   ngOnInit(): void {
     this.appState$ = this.bouncyHouseService.bouncyHouses$

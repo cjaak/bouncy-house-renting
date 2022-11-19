@@ -1,0 +1,18 @@
+<body>
+  <h1>Anmelden</h1>
+  <form [formGroup]="loginForm">
+    <mat-form-field appearance="outline">
+      <input matInput type="text" formControlName="username" placeholder="username" />
+      <mat-error></mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <input
+        matInput
+        type="password"
+        formControlName="password"
+        placeholder="password"
+      />
+    </mat-form-field>
+  </form>
+  <button color="accent" mat-raised-button (click)="login()">Anmelden</button>
+</body>

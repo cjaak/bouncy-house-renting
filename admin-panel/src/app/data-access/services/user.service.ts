@@ -18,6 +18,11 @@ export class UserService {
     catchError(this.handleError)
   )
 
+  get$ = (userId: number) => <Observable<CustomResponse>>this.http.get<CustomResponse>(`${this.apiUrl}/user/${userId}`).pipe(
+    tap(console.log),
+    catchError(this.handleError)
+  )
+
 
   private handleError(error: HttpErrorResponse): Observable<never> {
     console.log(error);

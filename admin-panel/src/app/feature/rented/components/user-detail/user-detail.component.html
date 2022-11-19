@@ -1,0 +1,20 @@
+  <ng-container *ngIf="(appState$ | async) as appState" [ngSwitch]="appState.dataState">
+    <ng-container *ngSwitchCase="DataState.LOADING_STATE">
+      LOADING...
+    </ng-container>
+    <ng-container *ngSwitchCase="DataState.LOADED_STATE">
+      <mat-list>
+        <div mat-subheader>Mieter</div>
+        <mat-list-item>{{user.firstName}} {{user.lastName}}</mat-list-item>
+        <mat-list-item>geb. {{user.dateOfBirth}}</mat-list-item>
+        <div mat-subheader>Adresse</div>
+        <mat-list-item>{{user.street}} {{user.houseNumber}}</mat-list-item>
+        <mat-list-item>{{user.zipCode}} {{user.city}}</mat-list-item>
+        <div mat-subheader>Kontakt</div>
+        <mat-list-item>{{user.email}}</mat-list-item>
+      </mat-list>
+    </ng-container>
+    <ng-container *ngSwitchCase="DataState.ERROR_STATE">
+      ERROR
+    </ng-container>
+  </ng-container>
