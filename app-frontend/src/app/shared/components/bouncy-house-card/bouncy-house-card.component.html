@@ -1,8 +1,9 @@
-<mat-card [routerLink]="['/bouncy-house/' + current.id]">
-  <figure>
+<mat-card>
+  <app-favourite-toggle [bouncyHouseId]="current.id!" class="favorite" (removedFavourite)="handleRemove()"></app-favourite-toggle>
+  <figure [routerLink]="['/bouncy-house/' + current.id]">
     <img [src]="current.imageUrl" [alt]="current.name" />
   </figure>
-  <a>
+  <a [routerLink]="['/bouncy-house/' + current.id]">
     <div class="content">
       <strong class="title">{{ current.name }}</strong>
       <div class="features">

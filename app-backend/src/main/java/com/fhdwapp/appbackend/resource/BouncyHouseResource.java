@@ -33,6 +33,18 @@ public class BouncyHouseResource {
         );
     }
 
+    @GetMapping("/favourite/user/{id}")
+    public ResponseEntity<Response> getBouncyHousesByFavouriteByUserId(@PathVariable("id") Long id) {
+        return ResponseEntity.ok(Response.builder()
+                .timeStamp(now())
+                .data(of("bouncy_houses", bouncyHouseService.getAllByFavouriteByUserId(id)))
+                .message("bouncy houses retrieved")
+                 .status(OK)
+                .statusCode(OK.value())
+                .build()
+        );
+    }
+                
     @GetMapping("/visible")
     public ResponseEntity<Response> getVisibleBouncyHouses() {
         return ResponseEntity.ok(Response.builder()

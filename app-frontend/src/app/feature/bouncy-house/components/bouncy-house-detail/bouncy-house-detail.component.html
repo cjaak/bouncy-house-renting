@@ -3,8 +3,8 @@
     <button mat-button id="back" (click)="back()">
       <mat-icon>arrow_back_ios_new</mat-icon>
     </button>
-    <button mat-button id="cart" [routerLink]="['/cart']">
-      <mat-icon>shopping_cart</mat-icon>
+    <button mat-button id="favourite">
+      <app-favourite-toggle [bouncyHouseId]="bouncyHouse!.id!"></app-favourite-toggle>
     </button>
     <img mat-card-image [src]="bouncyHouse.imageUrl" alt="bouncy house" />
   </figure>

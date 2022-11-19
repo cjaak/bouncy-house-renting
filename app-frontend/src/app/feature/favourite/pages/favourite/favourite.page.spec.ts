@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CartPage } from './cart.page';
+import { FavouritePage } from './favourite.page';
 
 describe('CartPage', () => {
-  let component: CartPage;
-  let fixture: ComponentFixture<CartPage>;
+  let component: FavouritePage;
+  let fixture: ComponentFixture<FavouritePage>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [CartPage],
+      declarations: [FavouritePage],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(CartPage);
+    fixture = TestBed.createComponent(FavouritePage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

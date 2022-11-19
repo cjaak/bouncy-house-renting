@@ -9,7 +9,7 @@ import { environment } from '../environments/environment';
 import { SharedModule } from './shared/shared.module';
 import { HomeModule } from './feature/home/home.module';
 import { ProfileModule } from './feature/profile/profile.module';
-import { CartModule } from './feature/cart/cart.module';
+import { FavouriteModule } from './feature/favourite/favourite.module';
 import { AuthModule } from './feature/auth/auth.module';
 import { HttpClientModule } from '@angular/common/http';
 import { BouncyHouseModule } from './feature/bouncy-house/bouncy-house.module';
@@ -32,7 +32,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SharedModule,
     HomeModule,
     ProfileModule,
-    CartModule,
+    FavouriteModule,
     AuthModule,
     RentingModule,
     BouncyHouseModule,

@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { BouncyHouse } from '../../../../shared/models/bouncy-house.model';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { BouncyHouse } from '../../models/bouncy-house.model';
 
 @Component({
   selector: 'app-bouncy-house-card',
@@ -14,6 +14,11 @@ export class BouncyHouseCardComponent implements OnInit {
   constructor() {}
 
   @Input() current!: BouncyHouse;
+  @Output() removedFavourite = new EventEmitter();
 
   ngOnInit(): void {}
+
+  handleRemove() {
+    this.removedFavourite.emit();
+  }
 }

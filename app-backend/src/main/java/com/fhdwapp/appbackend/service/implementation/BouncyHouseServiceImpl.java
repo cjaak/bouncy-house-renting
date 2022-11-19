@@ -1,8 +1,10 @@
 package com.fhdwapp.appbackend.service.implementation;
 
 import com.fhdwapp.appbackend.model.BouncyHouse;
+import com.fhdwapp.appbackend.model.Favourite;
 import com.fhdwapp.appbackend.model.Rented;
 import com.fhdwapp.appbackend.repo.BouncyHouseRepo;
+import com.fhdwapp.appbackend.repo.FavouriteRepo;
 import com.fhdwapp.appbackend.repo.RentedRepo;
 import com.fhdwapp.appbackend.service.BouncyHouseService;
 import lombok.RequiredArgsConstructor;
@@ -12,9 +14,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.time.LocalDate;
-import java.util.Collection;
-import java.util.Date;
-import java.util.Optional;
+import java.util.*;
 
 import static java.lang.Boolean.*;
 
@@ -26,6 +26,8 @@ public class BouncyHouseServiceImpl implements BouncyHouseService {
 
     private final BouncyHouseRepo bouncyHouseRepo;
     private final RentedRepo rentedRepo;
+
+    private final FavouriteRepo favouriteRepo;
 
     @Override
     public BouncyHouse create(BouncyHouse house) {
@@ -40,6 +42,15 @@ public class BouncyHouseServiceImpl implements BouncyHouseService {
     }
 
     @Override
+    public Collection<BouncyHouse> getAllByFavouriteByUserId(Long userId) {
+        List<BouncyHouse> bouncyHouses = new ArrayList<BouncyHouse>();
+        Collection<Favourite> favourites = favouriteRepo.findAllByUserId(userId);
+        for (Favourite favourite: favourites) {
+            Optional<BouncyHouse> house = bouncyHouseRepo.findById(favourite.getBouncyHouseId());
+            house.ifPresent(bouncyHouses::add);
+        }
+        return bouncyHouses;
+
     public Collection<BouncyHouse> getAllVisible() {
         log.info("Fetching all visible bouncy houses");
         return bouncyHouseRepo.findAllByIsVisibleTrue();
