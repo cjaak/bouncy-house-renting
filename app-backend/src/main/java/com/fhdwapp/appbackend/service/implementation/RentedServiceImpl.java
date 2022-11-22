@@ -71,4 +71,11 @@ public class RentedServiceImpl implements RentedService {
         return rentedRepo.findAllByStartDateLessThanEqualAndEndDateGreaterThanEqual(now, now);
     }
 
+    @Override
+    public Collection<Rented> getAllNew() {
+        log.info("Fetching new rented objects");
+        LocalDate now = LocalDate.now();
+        return rentedRepo.findAllByStartDateGreaterThan(now);
+    }
+
 }

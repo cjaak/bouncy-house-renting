@@ -16,5 +16,7 @@ public interface RentedService {
 
     Collection<Rented> getAllInUse();
 
+    Collection<Rented> getAllNew();
+
 
 }
