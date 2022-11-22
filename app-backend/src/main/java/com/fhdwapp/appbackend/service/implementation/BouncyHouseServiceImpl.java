@@ -51,7 +51,7 @@ public class BouncyHouseServiceImpl implements BouncyHouseService {
         }
         return bouncyHouses;
     }
-
+    
     @Override
     public Collection<BouncyHouse> getAllVisible() {
         log.info("Fetching all visible bouncy houses");
