@@ -1,3 +1,4 @@
+<ng-container *ngIf="userId">
 <ng-container
   *ngIf="appState$ | async as appState"
   [ngSwitch]="appState.dataState"
@@ -9,6 +10,7 @@
     <mat-icon (click)="toggleFavourite()" fontSet="material-icons-outlined" class="icon">{{icon}}</mat-icon>
   </ng-container>
   <ng-container *ngSwitchCase="DataState.ERROR_STATE"> ERROR </ng-container>
+</ng-container>
 </ng-container>
 
 

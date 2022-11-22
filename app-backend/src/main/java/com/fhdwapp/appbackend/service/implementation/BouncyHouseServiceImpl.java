@@ -45,12 +45,14 @@ public class BouncyHouseServiceImpl implements BouncyHouseService {
     public Collection<BouncyHouse> getAllByFavouriteByUserId(Long userId) {
         List<BouncyHouse> bouncyHouses = new ArrayList<BouncyHouse>();
         Collection<Favourite> favourites = favouriteRepo.findAllByUserId(userId);
-        for (Favourite favourite: favourites) {
+        for (Favourite favourite : favourites) {
             Optional<BouncyHouse> house = bouncyHouseRepo.findById(favourite.getBouncyHouseId());
             house.ifPresent(bouncyHouses::add);
         }
         return bouncyHouses;
+    }
 
+    @Override
     public Collection<BouncyHouse> getAllVisible() {
         log.info("Fetching all visible bouncy houses");
         return bouncyHouseRepo.findAllByIsVisibleTrue();
