@@ -7,16 +7,32 @@ import { BouncyHousePage } from './feature/bouncy-house/pages/bouncy-house/bounc
 import { AuthPage } from './feature/auth/pages/auth/auth.page';
 import { RentingPage } from './feature/renting/pages/renting/renting.page';
 import { RentingDetailComponent } from './feature/renting/components/renting-detail/renting-detail.component';
+import { AuthGuard } from './shared/gurads/auth.guard';
 
 const routes: Routes = [
-  { path: 'profile', component: ProfilePage },
+  { path: 'profile', component: ProfilePage, canActivate: [AuthGuard] },
   { path: 'home', component: HomePage },
-  { path: 'favourite', component: FavouritePage },
-  { path: 'bouncy-house/:id', component: BouncyHousePage, pathMatch: 'full' },
-  { path: 'renting/:id', component: RentingPage, pathMatch: 'full' },
-  { path: 'rented', component: RentingDetailComponent, pathMatch: 'full' },
+  { path: 'favourite', component: FavouritePage, canActivate: [AuthGuard] },
+  {
+    path: 'bouncy-house/:id',
+    component: BouncyHousePage,
+    pathMatch: 'full',
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'renting/:id',
+    component: RentingPage,
+    pathMatch: 'full',
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'rented',
+    component: RentingDetailComponent,
+    pathMatch: 'full',
+    canActivate: [AuthGuard],
+  },
   { path: 'auth', component: AuthPage },
-  { path: '', redirectTo: 'auth', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 
 @NgModule({
