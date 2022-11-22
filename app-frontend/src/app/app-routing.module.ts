@@ -17,7 +17,6 @@ const routes: Routes = [
     path: 'bouncy-house/:id',
     component: BouncyHousePage,
     pathMatch: 'full',
-    canActivate: [AuthGuard],
   },
   {
     path: 'renting/:id',
