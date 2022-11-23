@@ -1,3 +1,4 @@
+@import "src/theme.scss";
 .icon{
-  color: blueviolet;
+  color: mat-color($my-accent);
 }

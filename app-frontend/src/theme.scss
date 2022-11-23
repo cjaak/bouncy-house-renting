@@ -1,0 +1,63 @@
+@use '@angular/material' as mat;
+
+@import "../node_modules/@angular/material/theming";
+@include mat.core();
+
+
+/* For use in src/lib/core/theming/_palette.scss */
+$md-customgreen: (
+    50 : #f2f8e5,
+    100 : #deedbe,
+    200 : #c8e193,
+    300 : #b1d467,
+    400 : #a1cb47,
+    500 : #90c226,
+    600 : #88bc22,
+    700 : #7db41c,
+    800 : #73ac17,
+    900 : #619f0d,
+    A100 : #e8ffce,
+    A200 : #d0ff9b,
+    A400 : #b9ff68,
+    A700 : #adff4e,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+
+
+$purple: mat.$deep-purple-palette;
+$green: $md-customgreen;
+$red: mat.$red-palette;
+
+$my-primary: mat.define-palette($purple);
+$my-accent: mat.define-palette($green);
+$my-warn: mat.define-palette($red);
+
+$my-theme: mat.define-light-theme((
+ color: (
+   primary: $my-primary,
+   accent: $my-accent,
+   warn: $my-warn,
+ ),
+  typography: mat.define-typography-config(),
+  density: 0,
+));
+
+@include mat.core-theme($my-theme);
+@include mat.all-component-themes($my-theme);
+@include mat.typography-hierarchy($my-theme);

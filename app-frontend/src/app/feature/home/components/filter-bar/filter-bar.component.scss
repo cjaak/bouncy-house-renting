@@ -1,3 +1,5 @@
+@import "src/theme.scss";
+
 .filterToolbar {
   position: fixed;
   top: 0;
@@ -20,6 +22,10 @@
       display: block;
     }
   }
+
+  .is-active{
+    color: mat-color($my-primary);
+  }
 }
 
 #search {
@@ -31,7 +37,7 @@
 main {
   padding-top: 85px;
   padding-bottom: 85px;
-  background-color: blueviolet;
+  //background-color: blueviolet;
 
   mat-form-field {
     font-size: 11px;

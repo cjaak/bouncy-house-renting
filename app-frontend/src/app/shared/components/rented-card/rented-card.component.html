@@ -13,14 +13,15 @@
       <a>
         <div class="content">
           <strong class="title">{{ bouncyHouse.name }}</strong>
-          <mat-list role="list">
-            <mat-list-item role="listitem"
-              >von {{ rented.startDate | date: "shortDate" }}</mat-list-item
+          <br>
+          <br>
+            <span role="listitem"
+              >{{ rented.startDate | date: "longDate" }}</span
             >
-            <mat-list-item role="listitem"
-              >bis {{ rented.endDate | date: "shortDate" }}</mat-list-item
+          <div class="devider">bis</div>
+            <span role="listitem"
+              >{{ rented.endDate | date: "longDate" }}</span
             >
-          </mat-list>
         </div>
       </a>
     </mat-card>
