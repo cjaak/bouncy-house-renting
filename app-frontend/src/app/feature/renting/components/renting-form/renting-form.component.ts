@@ -31,6 +31,8 @@ export class RentingFormComponent implements OnInit {
 
   days: number = 0;
 
+  isLoggedIn = this.auth.isLoggedIn();
+
   appState$!: Observable<AppState<CustomResponse>>;
   readonly DataState = DataStateEnum;
 

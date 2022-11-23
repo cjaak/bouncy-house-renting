@@ -29,10 +29,19 @@
       <button
         mat-raised-button
         color="primary"
+        [routerLink]="['/auth']"
+        *ngIf="!isLoggedIn"
+      >
+        Anmelden
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        *ngIf="isLoggedIn"
         (click)="checkout()"
         [disabled]="!dateRangeIsSet()"
       >
-        Direkt Mieten
+        Mieten
       </button>
     </mat-toolbar>
   </ng-container>

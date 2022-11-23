@@ -22,7 +22,6 @@ const routes: Routes = [
     path: 'renting/:id',
     component: RentingPage,
     pathMatch: 'full',
-    canActivate: [AuthGuard],
   },
   {
     path: 'rented',

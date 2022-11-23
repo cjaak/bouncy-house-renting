@@ -8,6 +8,7 @@ import {
 import { Router } from '@angular/router';
 import { SnackService } from '../../../../shared/services/snack.service';
 import { UserService } from '../../../../data-access/services/user.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -24,7 +25,8 @@ export class LoginPage implements OnInit {
     private fb: FormBuilder,
     private route: Router,
     private snackService: SnackService,
-    private userService: UserService
+    private userService: UserService,
+    private location: Location
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required]],
@@ -49,7 +51,8 @@ export class LoginPage implements OnInit {
       .login(formValue.email, formValue.password)
       .subscribe((success) => {
         if (success) {
-          this.route.navigate(['../home']);
+          // Navigate last opened route
+          this.location.historyGo(-2);
         } else {
           // Login was unsuccessful => inform the user
           this.snackService.invalidDataError('invalid Data');
