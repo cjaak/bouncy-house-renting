@@ -25,7 +25,7 @@ export class AuthGuard implements CanActivate {
     | UrlTree {
     let isLoggedIn = this.auth.isLoggedIn();
     if (!isLoggedIn) {
-      this.snack.authError('Du musst die erst einloggen');
+      this.snack.authError('Du musst dich erst einloggen');
     }
     return isLoggedIn;
   }
