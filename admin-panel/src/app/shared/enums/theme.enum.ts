@@ -1,8 +1,8 @@
 export enum BouncyHouseThemeEnum{
-    Animal="Animal",
+    Tier="Tier",
     Cowboy="Cowboy",
-    Knight="Knight",
-    Princess="Princess",
-    Train="Train",
-    Unicorn="Unicorn"
+    Ritter="Ritter",
+    Prinzessin="Prinzessin",
+    Zug="Zug",
+    Einhorn="Einhorn"
 }
