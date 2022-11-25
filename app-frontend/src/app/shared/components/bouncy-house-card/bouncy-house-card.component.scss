@@ -1,3 +1,4 @@
+@import "src/theme.scss";
 :host {
   --item-height: 250px;
 }
@@ -32,6 +33,7 @@ img {
 
   .title {
     font-size: 18px;
+    color: mat-color($my-primary);
   }
 
   .price {

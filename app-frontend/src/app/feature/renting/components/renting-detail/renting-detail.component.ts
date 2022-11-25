@@ -27,6 +27,8 @@ export class RentingDetailComponent implements OnInit {
 
   @Input() selectedRangeValue: DateRange<Date> | undefined;
 
+  selectedMonth!: Date;
+
   comment = new FormControl('');
 
   days: number = 0;
@@ -74,6 +76,8 @@ export class RentingDetailComponent implements OnInit {
         return of({ dataState: DataStateEnum.ERROR_STATE, error: error });
       })
     );
+
+    this.selectedMonth = this.selectedRangeValue!.start!;
   }
 
   private calcDays(a: Date, b: Date): number {

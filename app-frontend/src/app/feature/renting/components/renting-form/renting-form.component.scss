@@ -1,3 +1,9 @@
+@import "src/theme.scss";
+
+:host ::ng-deep.mat-calendar-body-selected {
+    background-color: mat-color($my-accent);
+}
+
 mat-toolbar {
   display: flex;
   justify-content: center;

@@ -1,11 +1,11 @@
 <mat-vertical-stepper [linear]="false" #stepper animationDuration="1000">
   <mat-step [stepControl]="credentialFormGroup">
     <form [formGroup]="credentialFormGroup">
-      <ng-template matStepLabel>Fill out your name</ng-template>
+      <ng-template matStepLabel>Login Daten</ng-template>
       <mat-form-field>
         <mat-label>E-Mail</mat-label>
         <input matInput placeholder="email" formControlName="email" required />
-        <mat-error>invalid email</mat-error>
+        <mat-error>invalide E-Mail</mat-error>
       </mat-form-field>
       <mat-form-field>
         <mat-label>Passwort</mat-label>
@@ -52,13 +52,14 @@
         <mat-error>Passwörter stimmen nicht überein</mat-error>
       </mat-form-field>
       <div>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button (click)="back()">Zurück</button>
+        <button mat-button matStepperNext>Weiter</button>
       </div>
     </form>
   </mat-step>
   <mat-step [stepControl]="personalFormGroup">
     <form [formGroup]="personalFormGroup">
-      <ng-template matStepLabel>Fill out your address</ng-template>
+      <ng-template matStepLabel>Persönliche Daten</ng-template>
       <mat-form-field>
         <mat-label>Vorname</mat-label>
         <input matInput formControlName="firstName" required />
@@ -79,14 +80,14 @@
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button matStepperPrevious>Zurück</button>
+        <button mat-button matStepperNext>Weiter</button>
       </div>
     </form>
   </mat-step>
   <mat-step [stepControl]="addressFormGroup">
     <form [formGroup]="addressFormGroup">
-      <ng-template matStepLabel>Fill out your address</ng-template>
+      <ng-template matStepLabel>Adresse</ng-template>
       <mat-form-field>
         <mat-label>Straße</mat-label>
         <input matInput formControlName="street" />
@@ -104,15 +105,15 @@
         <input matInput formControlName="city" required />
       </mat-form-field>
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button matStepperPrevious>Zurück</button>
+        <button mat-button matStepperNext>Weiter</button>
       </div>
     </form>
   </mat-step>
   <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
+    <ng-template matStepLabel>Fertig</ng-template>
     <div>
-      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button matStepperPrevious>Zurück</button>
       <button mat-button (click)="register()" [disabled]="!allFormsAreValid()">
         Erstelle Account
       </button>

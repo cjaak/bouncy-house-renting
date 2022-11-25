@@ -1,3 +1,9 @@
+@import "src/theme.scss";
+
+:host ::ng-deep.mat-calendar-body-selected {
+    background-color: mat-color($my-accent);
+}
+
 ngb-rating {
   color: #ffc107;
   font-size: 40px;

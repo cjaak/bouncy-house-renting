@@ -2,14 +2,12 @@ package com.fhdwapp.appbackend.service.implementation;
 
 import com.fhdwapp.appbackend.model.BouncyHouse;
 import com.fhdwapp.appbackend.model.Favourite;
-import com.fhdwapp.appbackend.model.Rented;
 import com.fhdwapp.appbackend.repo.BouncyHouseRepo;
 import com.fhdwapp.appbackend.repo.FavouriteRepo;
 import com.fhdwapp.appbackend.repo.RentedRepo;
 import com.fhdwapp.appbackend.service.BouncyHouseService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -51,11 +49,11 @@ public class BouncyHouseServiceImpl implements BouncyHouseService {
         }
         return bouncyHouses;
     }
-
+    
     @Override
     public Collection<BouncyHouse> getAllVisible() {
         log.info("Fetching all visible bouncy houses");
-        return bouncyHouseRepo.findAllByIsVisibleTrue();
+        return bouncyHouseRepo.findAllByVisibleTrue();
     }
 
 

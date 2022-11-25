@@ -1,3 +1,9 @@
+@import "src/theme.scss";
+
+h2{
+  color: mat-color($my-primary)
+}
+
 .scrolling-wrapper {
   overflow: auto;
   white-space: nowrap;

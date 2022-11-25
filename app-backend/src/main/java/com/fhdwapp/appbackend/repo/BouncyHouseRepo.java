@@ -10,6 +10,6 @@ public interface BouncyHouseRepo extends JpaRepository<BouncyHouse, Long> {
 
     void deleteById(Long id);
 
-    Collection<BouncyHouse> findAllByIsVisibleTrue();
+    Collection<BouncyHouse> findAllByVisibleTrue();
 
 }

@@ -1,10 +1,10 @@
-<mat-toolbar>
+<mat-toolbar color="primary">
   <button mat-button id="back" (click)="back()">
     <mat-icon>arrow_back_ios_new</mat-icon>
   </button>
-  <span>Übersicht Nr. {{ rented.id }}</span>
+  <span>Übersicht Bestellnr. {{ rented.id }}</span>
 </mat-toolbar>
-<mat-calendar [selected]="selectedRangeValue"></mat-calendar>
+<mat-calendar [selected]="selectedRangeValue" [startAt]="selectedMonth">></mat-calendar>
 <div class="price">
   <strong>
     Bezahlt: {{ bouncyHouse.pricePerDay! * days | currency: "EUR" }}

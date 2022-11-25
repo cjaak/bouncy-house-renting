@@ -33,6 +33,7 @@ export class BouncyHouseFormComponent implements OnInit {
       this.isEdit = true
       this.editHouse = data.house
       this.title = "Edit " + this.editHouse!.name
+      console.log(this.editHouse);
     }
 
     this.bouncyHouseForm = new FormGroup({
@@ -45,7 +46,7 @@ export class BouncyHouseFormComponent implements OnInit {
     withPowerConnection: new FormControl(this.isEdit? this.editHouse!.withPowerConnection : ''),
     imageUrl: new FormControl(this.isEdit? this.editHouse!.imageUrl: '', [Validators.required]),
     description: new FormControl(this.isEdit? this.editHouse!.description: '', [Validators.required]),
-    isVisible: new FormControl(this.isEdit? this.editHouse!.isVisible: '')
+    isVisible: new FormControl(this.isEdit? this.editHouse!.visible: '')
   });
   }
 
@@ -58,6 +59,7 @@ export class BouncyHouseFormComponent implements OnInit {
       return
     }
     if(this.isEdit){
+      console.log(this.bouncyHouseForm.value)
       this.dialogRef.close({id: this.editHouse!.id, ...this.bouncyHouseForm.value})
     }else{
       this.dialogRef.close({id: undefined, ...this.bouncyHouseForm.value})

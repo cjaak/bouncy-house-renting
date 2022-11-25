@@ -1,13 +1,13 @@
 <header>
-  <mat-toolbar class="filterToolbar">
-    <mat-form-field appearance="outline" id="search">
+  <mat-toolbar class="filterToolbar" color="primary">
+    <mat-form-field appearance="outline" id="search" class="filter-form">
       <mat-label>Suche</mat-label>
       <input matInput (keyup)="handleSearchFilter($event)" #input />
     </mat-form-field>
-    <button mat-button (click)="extendFilterMenu()">
+    <button mat-button (click)="extendFilterMenu()" [ngClass]="{'is-active': isFilterExtended}">
       <mat-icon>filter_alt</mat-icon>
     </button>
-    <button mat-button (click)="extendSortMenu()">
+    <button mat-button (click)="extendSortMenu()" [ngClass]="{'is-active': isSortExtended}">
       <mat-icon>sort</mat-icon>
     </button>
   </mat-toolbar>
@@ -18,7 +18,7 @@
       <button mat-raised-button (click)="handleSortDirection()">
         <mat-icon>{{ sortArrows[activeArrow] }}</mat-icon>
       </button>
-      <mat-form-field appearance="outline">
+      <mat-form-field appearance="outline" class="filter-form">
         <mat-label>Sortieren nach</mat-label>
         <mat-select
           formControlName="sort"
@@ -31,7 +31,7 @@
       </mat-form-field>
     </ng-container>
     <ng-container *ngIf="isFilterExtended" class="filter">
-      <mat-form-field appearance="outline" [style.width.%]="100">
+      <mat-form-field appearance="outline" [style.width.%]="100" class="filter-form">
         <mat-label>Thema</mat-label>
         <mat-select
           formControlName="themes"
@@ -43,7 +43,7 @@
           }}</mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-form-field appearance="outline" [style.width.%]="100">
+      <mat-form-field appearance="outline" [style.width.%]="100" class="filter-form">
         <mat-label>Größe</mat-label>
         <mat-select
           formControlName="sizes"
@@ -55,7 +55,7 @@
           }}</mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-form-field appearance="outline" [style.width.%]="100">
+      <mat-form-field appearance="outline" [style.width.%]="100" class="filter-form">
         <mat-label>min. Preis</mat-label>
         <input
           type="number"
@@ -64,7 +64,7 @@
           (keyup)="inputChangeMin($event)"
         />
       </mat-form-field>
-      <mat-form-field appearance="outline" [style.width.%]="100">
+      <mat-form-field appearance="outline" [style.width.%]="100" class="filter-form">
         <mat-label>max. Preis</mat-label>
         <input
           type="number"
@@ -73,7 +73,7 @@
           (keyup)="inputChangeMax($event)"
         />
       </mat-form-field>
-      <mat-form-field appearance="outline" [style.width.%]="100">
+      <mat-form-field appearance="outline" [style.width.%]="100" class="filter-form">
         <mat-label>Strom</mat-label>
         <mat-select
           formControlName="withPowerConnection"

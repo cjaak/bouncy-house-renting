@@ -1,3 +1,5 @@
+@import "src/theme.scss";
+
 :host {
   --item-height: 300px;
 }
@@ -10,7 +12,20 @@ mat-card {
   -webkit-box-shadow: 0px 0px 23px -7px rgba(0, 0, 0, 0.28);
   -moz-box-shadow: 0px 0px 23px -7px rgba(0, 0, 0, 0.28);
   box-shadow: 0px 0px 23px -7px rgba(0, 0, 0, 0.28);
+
+  .content{
+    width: 100%;
+    text-align: center;
+    .title{
+      color: mat-color($my-primary);
+      text-align: left;
+      font-size: 14pt;
+    }
+  }
+
 }
+
+
 
 figure {
   width: 100%;
