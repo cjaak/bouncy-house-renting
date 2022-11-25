@@ -36,7 +36,7 @@
 main {
   padding-top: 85px;
   padding-bottom: 85px;
-  //background-color: #ccc;
+  background-color: #ccc;
 
   mat-form-field {
     font-size: 11px;
@@ -57,4 +57,42 @@ main {
   :host ::ng-deep .mat-form-field-appearance-outline {
     background: white !important;
   }
+}
+
+//input outline color
+:host::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: white!important;
+    // opacity: 1!important;
+}
+
+//mat-input focused color
+:host ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: white!important;
+}
+
+// mat-input error outline color
+:host ::ng-deep .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick{
+    color: white!important;
+    opacity: 0.8!important;
+}
+
+// mat-input carent color
+::ng-deep .mat-input-element {
+    caret-color: white!important;
+}
+
+// mat-input error carent color
+:host ::ng-deep .mat-form-field-invalid .mat-input-element, .mat-warn .mat-input-element {
+    caret-color: white!important;
+}
+
+
+// mat-label focused style
+:host ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+    color: white!important;
+}
+
+// mat-label error style
+:host ::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+    color: white!important;
 }

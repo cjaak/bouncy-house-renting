@@ -107,4 +107,8 @@ export class RegisterPage implements OnInit {
       }
     });
   }
+
+  back() {
+    this.location.back();
+  }
 }

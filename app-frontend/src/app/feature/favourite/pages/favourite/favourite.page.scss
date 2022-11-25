@@ -1,9 +1,15 @@
+body{
+  background-color: #ccc;
+}
+
 main {
   padding-top: 50%;
   padding-bottom: 85px;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #ccc;
 }
 
 .empty-cart {
