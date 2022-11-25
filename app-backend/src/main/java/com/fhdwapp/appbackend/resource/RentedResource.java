@@ -94,6 +94,18 @@ public class RentedResource {
         );
     }
 
+    @GetMapping("/new")
+    public ResponseEntity<Response> getRentedEntriesNew() {
+        return ResponseEntity.ok(Response.builder()
+                .timeStamp(now())
+                .data(of("rented", rentedService.getAllNew()))
+                .message("rented entries new retrieved")
+                .status(OK)
+                .statusCode(OK.value())
+                .build()
+        );
+    }
+
 
 
 }

@@ -2,12 +2,12 @@ package com.fhdwapp.appbackend.enumeration;
 
 public enum BouncyHouseTheme {
 
-    Animal("Animal"),
+    Tier("Tier"),
     Cowboy("Cowboy"),
-    Knight("Knight"),
-    Princess("Princess"),
-    Train("Train"),
-    Unicorn("Unicorn");
+    Ritter("Ritter"),
+    Prinzessin("Prinzessin"),
+    Zug("Zug"),
+    Einhorn("Einhorn");
 
 
     private final String bouncyHouseTheme;

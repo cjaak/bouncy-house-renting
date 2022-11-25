@@ -15,5 +15,7 @@ public interface RentedRepo extends JpaRepository<Rented, Long> {
     Optional<Rented> findTopByBouncyHouseIdAndEndDateAfter(Long bouncyHouseId, LocalDate endDate);
     Collection<Rented> findAllByStartDateAfterAndEndDateBefore(LocalDate startDate, LocalDate endDate);
 
+    Collection<Rented> findAllByStartDateGreaterThan(LocalDate startDate);
+
     Collection<Rented> findAllByStartDateLessThanEqualAndEndDateGreaterThanEqual(LocalDate endDate, LocalDate startDate);
 }
