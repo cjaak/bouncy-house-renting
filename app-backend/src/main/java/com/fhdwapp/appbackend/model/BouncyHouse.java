@@ -32,6 +32,6 @@ public class BouncyHouse implements Serializable {
     private double pricePerDay;
     private boolean withPowerConnection;
     private String imageUrl;
-    private boolean isVisible;
+    private boolean visible;
 
 }
