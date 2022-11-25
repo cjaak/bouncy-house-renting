@@ -11,6 +11,7 @@ import { UserService } from '../../../../data-access/services/user.service';
 import { Router } from '@angular/router';
 import { SnackService } from '../../../../shared/services/snack.service';
 import { CustomValidators } from '../../../../shared/validators/custom-validators';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-register',
@@ -26,7 +27,8 @@ export class RegisterPage implements OnInit {
     private _formBuilder: FormBuilder,
     private route: Router,
     private userService: UserService,
-    private snackService: SnackService
+    private snackService: SnackService,
+    private location: Location
   ) {
     this.credentialFormGroup = new FormGroup({
       email: new FormControl(
@@ -95,8 +97,8 @@ export class RegisterPage implements OnInit {
     };
     this.userService.register(user).subscribe((success) => {
       if (success) {
-        // Navigate to home screen
-        this.route.navigate(['../home']);
+        // Open previous opened route
+        this.location.historyGo(-2);
       } else {
         // Register was unsuccessful => inform the user
         this.snackService.authError(

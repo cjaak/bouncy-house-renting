@@ -46,7 +46,7 @@ export class ProfilePage implements OnInit {
    * logs current user out and reroutes to main page
    */
   logout() {
-    this.route.navigate(['../auth/login']);
+    this.route.navigate(['/home']);
     this.auth.deleteSessionUserId();
   }
 

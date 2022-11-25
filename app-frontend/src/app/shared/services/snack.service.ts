@@ -16,7 +16,7 @@ export class SnackService {
 
     return this.snackBar
       ._openedSnackBarRef!.onAction()
-      .pipe(tap((_) => this.router.navigate([''])))
+      .pipe(tap((_) => this.router.navigate(['/auth'])))
       .subscribe();
   }
 
