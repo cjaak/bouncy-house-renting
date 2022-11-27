@@ -1,0 +1,1615 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>demo-app documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">demo-app documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  FilterBarComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/feature/home/components/filter-bar/filter-bar.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-filter-bar</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./filter-bar.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./filter-bar.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#activeArrow" >activeArrow</a>
+                            </li>
+                            <li>
+                                <a href="#activeFilter" >activeFilter</a>
+                            </li>
+                            <li>
+                                <a href="#activeSort" >activeSort</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#form" >form</a>
+                            </li>
+                            <li>
+                                <a href="#isFilterExtended" >isFilterExtended</a>
+                            </li>
+                            <li>
+                                <a href="#isSortExtended" >isSortExtended</a>
+                            </li>
+                            <li>
+                                <a href="#sizes" >sizes</a>
+                            </li>
+                            <li>
+                                <a href="#sortArrows" >sortArrows</a>
+                            </li>
+                            <li>
+                                <a href="#themes" >themes</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#extendFilterMenu" >extendFilterMenu</a>
+                            </li>
+                            <li>
+                                <a href="#extendSortMenu" >extendSortMenu</a>
+                            </li>
+                            <li>
+                                <a href="#handleSearchFilter" >handleSearchFilter</a>
+                            </li>
+                            <li>
+                                <a href="#handleSortDirection" >handleSortDirection</a>
+                            </li>
+                            <li>
+                                <a href="#handleSortValueChange" >handleSortValueChange</a>
+                            </li>
+                            <li>
+                                <a href="#inputChangeMax" >inputChangeMax</a>
+                            </li>
+                            <li>
+                                <a href="#inputChangeMin" >inputChangeMin</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#selectChangePower" >selectChangePower</a>
+                            </li>
+                            <li>
+                                <a href="#selectChangeSize" >selectChangeSize</a>
+                            </li>
+                            <li>
+                                <a href="#selectChangeTheme" >selectChangeTheme</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(filterService: <a href="../injectables/FilterService.html" target="_self">FilterService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/feature/home/components/filter-bar/filter-bar.component.ts:29</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>filterService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FilterService.html" target="_self" >FilterService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="extendFilterMenu"></a>
+                    <span class="name">
+                        <span ><b>extendFilterMenu</b></span>
+                        <a href="#extendFilterMenu"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>extendFilterMenu()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">src/app/feature/home/components/filter-bar/filter-bar.component.ts:66</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>opens and closes filter menu</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="extendSortMenu"></a>
+                    <span class="name">
+                        <span ><b>extendSortMenu</b></span>
+                        <a href="#extendSortMenu"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>extendSortMenu()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">src/app/feature/home/components/filter-bar/filter-bar.component.ts:58</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>opens and closes sort menu</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleSearchFilter"></a>
+                    <span class="name">
+                        <span ><b>handleSearchFilter</b></span>
+                        <a href="#handleSearchFilter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>handleSearchFilter(event: KeyboardEvent)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="50"
+                            class="link-to-prism">src/app/feature/home/components/filter-bar/filter-bar.component.ts:50</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                            <code>KeyboardEvent</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleSortDirection"></a>
+                    <span class="name">
+                        <span ><b>handleSortDirection</b></span>
+                        <a href="#handleSortDirection"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>handleSortDirection()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="74"
+                            class="link-to-prism">src/app/feature/home/components/filter-bar/filter-bar.component.ts:74</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>switches sorting asc and desc depending on previous value</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleSortValueChange"></a>
+                    <span class="name">
+                        <span ><b>handleSortValueChange</b></span>
+                        <a href="#handleSortValueChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>handleSortValueChange(event: MatSelectChange)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="93"
+                            class="link-to-prism">src/app/feature/home/components/filter-bar/filter-bar.component.ts:93</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Sets the sort value from the form</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                            <code>MatSelectChange</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="inputChangeMax"></a>
+                    <span class="name">
+                        <span ><b>inputChangeMax</b></span>
+                        <a href="#inputChangeMax"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>inputChangeMax(event: KeyboardEvent)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="123"
+                            class="link-to-prism">src/app/feature/home/components/filter-bar/filter-bar.component.ts:123</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                            <code>KeyboardEvent</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="inputChangeMin"></a>
+                    <span class="name">
+                        <span ><b>inputChangeMin</b></span>
+                        <a href="#inputChangeMin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>inputChangeMin(event: KeyboardEvent)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="117"
+                            class="link-to-prism">src/app/feature/home/components/filter-bar/filter-bar.component.ts:117</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                            <code>KeyboardEvent</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">src/app/feature/home/components/filter-bar/filter-bar.component.ts:42</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectChangePower"></a>
+                    <span class="name">
+                        <span ><b>selectChangePower</b></span>
+                        <a href="#selectChangePower"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>selectChangePower(event: MatSelectChange)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="112"
+                            class="link-to-prism">src/app/feature/home/components/filter-bar/filter-bar.component.ts:112</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                            <code>MatSelectChange</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectChangeSize"></a>
+                    <span class="name">
+                        <span ><b>selectChangeSize</b></span>
+                        <a href="#selectChangeSize"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>selectChangeSize(event: MatSelectChange)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="107"
+                            class="link-to-prism">src/app/feature/home/components/filter-bar/filter-bar.component.ts:107</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                            <code>MatSelectChange</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectChangeTheme"></a>
+                    <span class="name">
+                        <span ><b>selectChangeTheme</b></span>
+                        <a href="#selectChangeTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>selectChangeTheme(event: MatSelectChange)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="102"
+                            class="link-to-prism">src/app/feature/home/components/filter-bar/filter-bar.component.ts:102</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Sets the filter values</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                            <code>MatSelectChange</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="activeArrow"></a>
+                    <span class="name">
+                        <span ><b>activeArrow</b></span>
+                        <a href="#activeArrow"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/feature/home/components/filter-bar/filter-bar.component.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="activeFilter"></a>
+                    <span class="name">
+                        <span ><b>activeFilter</b></span>
+                        <a href="#activeFilter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Map&lt;string, any&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/feature/home/components/filter-bar/filter-bar.component.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="activeSort"></a>
+                    <span class="name">
+                        <span ><b>activeSort</b></span>
+                        <a href="#activeSort"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Sort</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{ direction: &#x27;asc&#x27;, active: &#x27;&#x27; }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/feature/home/components/filter-bar/filter-bar.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="form"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>form</b></span>
+                        <a href="#form"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/feature/home/components/filter-bar/filter-bar.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isFilterExtended"></a>
+                    <span class="name">
+                        <span ><b>isFilterExtended</b></span>
+                        <a href="#isFilterExtended"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/feature/home/components/filter-bar/filter-bar.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isSortExtended"></a>
+                    <span class="name">
+                        <span ><b>isSortExtended</b></span>
+                        <a href="#isSortExtended"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/feature/home/components/filter-bar/filter-bar.component.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sizes"></a>
+                    <span class="name">
+                        <span ><b>sizes</b></span>
+                        <a href="#sizes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>Object.values(BouncyHouseSizeEnum)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/feature/home/components/filter-bar/filter-bar.component.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sortArrows"></a>
+                    <span class="name">
+                        <span ><b>sortArrows</b></span>
+                        <a href="#sortArrows"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[&#x27;arrow_upward&#x27;, &#x27;arrow_downward&#x27;]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/feature/home/components/filter-bar/filter-bar.component.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="themes"></a>
+                    <span class="name">
+                        <span ><b>themes</b></span>
+                        <a href="#themes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>Object.values(BouncyHouseThemeEnum)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/feature/home/components/filter-bar/filter-bar.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, EventEmitter, OnInit, Output } from &#x27;@angular/core&#x27;;
+import { FilterService } from &#x27;../../services/filter.service&#x27;;
+import { Sort } from &#x27;@angular/material/sort&#x27;;
+import { FormControl, FormGroup } from &#x27;@angular/forms&#x27;;
+import { MatSelectChange } from &#x27;@angular/material/select&#x27;;
+import { BouncyHouseSizeEnum } from &#x27;../../../../shared/enums/size.enum&#x27;;
+import { BouncyHouseThemeEnum } from &#x27;../../../../shared/enums/theme.enum&#x27;;
+
+@Component({
+  selector: &#x27;app-filter-bar&#x27;,
+  templateUrl: &#x27;./filter-bar.component.html&#x27;,
+  styleUrls: [&#x27;./filter-bar.component.scss&#x27;],
+})
+export class FilterBarComponent implements OnInit {
+  isSortExtended &#x3D; false;
+  isFilterExtended &#x3D; false;
+
+  activeSort: Sort &#x3D; { direction: &#x27;asc&#x27;, active: &#x27;&#x27; };
+
+  activeArrow: number &#x3D; 0;
+
+  sortArrows &#x3D; [&#x27;arrow_upward&#x27;, &#x27;arrow_downward&#x27;];
+
+  sizes &#x3D; Object.values(BouncyHouseSizeEnum);
+  themes &#x3D; Object.values(BouncyHouseThemeEnum);
+
+  activeFilter &#x3D; new Map&lt;string, any&gt;();
+
+  public form: FormGroup;
+
+  constructor(private filterService: FilterService) {
+    this.form &#x3D; new FormGroup({
+      sort: new FormControl(&#x27;&#x27;),
+      themes: new FormControl(this.themes),
+      sizes: new FormControl(this.sizes),
+      minPrice: new FormControl(0),
+      maxPrice: new FormControl(1000),
+      withPowerConnection: new FormControl([true, false]),
+    });
+  }
+
+  ngOnInit(): void {
+    for (const field in this.form.controls) {
+      this.activeFilter.set(field, this.form.value[field]);
+    }
+
+    this.filterService.filterSubject.next(this.activeFilter);
+  }
+
+  handleSearchFilter(event: KeyboardEvent) {
+    let filterValue &#x3D; (event.target as HTMLInputElement).value;
+    this.filterService.searchFilterSubject.next(filterValue);
+  }
+
+  /**
+   * opens and closes sort menu
+   */
+  extendSortMenu() {
+    this.isFilterExtended &#x3D; false;
+    this.isSortExtended &#x3D; !this.isSortExtended;
+  }
+
+  /**
+   * opens and closes filter menu
+   */
+  extendFilterMenu() {
+    this.isSortExtended &#x3D; false;
+    this.isFilterExtended &#x3D; !this.isFilterExtended;
+  }
+
+  /**
+   * switches sorting asc and desc depending on previous value
+   */
+  handleSortDirection() {
+    switch (this.activeSort.direction) {
+      case &#x27;asc&#x27;:
+        this.activeArrow &#x3D; 1;
+        this.activeSort.direction &#x3D; &#x27;desc&#x27;;
+        break;
+      case &#x27;desc&#x27;:
+        this.activeArrow &#x3D; 0;
+        this.activeSort.direction &#x3D; &#x27;asc&#x27;;
+        break;
+    }
+
+    this.filterService.SortSubject.next(this.activeSort);
+  }
+
+  /**
+   * Sets the sort value from the form
+   * @param event
+   */
+  handleSortValueChange(event: MatSelectChange) {
+    this.activeSort.active &#x3D; event.value;
+    this.filterService.SortSubject.next(this.activeSort);
+  }
+
+  /**
+   * Sets the filter values
+   */
+  //---------------------------------------------------------
+  selectChangeTheme(event: MatSelectChange) {
+    this.activeFilter.set(&#x27;themes&#x27;, event.value);
+    this.filterService.filterSubject.next(this.activeFilter);
+  }
+
+  selectChangeSize(event: MatSelectChange) {
+    this.activeFilter.set(&#x27;sizes&#x27;, event.value);
+    this.filterService.filterSubject.next(this.activeFilter);
+  }
+
+  selectChangePower(event: MatSelectChange) {
+    this.activeFilter.set(&#x27;withPowerConnection&#x27;, event.value);
+    this.filterService.filterSubject.next(this.activeFilter);
+  }
+
+  inputChangeMin(event: KeyboardEvent) {
+    let filterValue &#x3D; (event.target as HTMLInputElement).value;
+    this.activeFilter.set(&#x27;minPrice&#x27;, filterValue);
+    this.filterService.filterSubject.next(this.activeFilter);
+  }
+
+  inputChangeMax(event: KeyboardEvent) {
+    let filterValue &#x3D; (event.target as HTMLInputElement).value;
+    this.activeFilter.set(&#x27;maxPrice&#x27;, filterValue);
+    this.filterService.filterSubject.next(this.activeFilter);
+  }
+  //---------------------------------------------------------
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;header&gt;
+  &lt;mat-toolbar class&#x3D;&quot;filterToolbar&quot; color&#x3D;&quot;primary&quot;&gt;
+    &lt;mat-form-field appearance&#x3D;&quot;outline&quot; id&#x3D;&quot;search&quot; class&#x3D;&quot;filter-form&quot;&gt;
+      &lt;mat-label&gt;Suche&lt;/mat-label&gt;
+      &lt;input matInput (keyup)&#x3D;&quot;handleSearchFilter($event)&quot; #input /&gt;
+    &lt;/mat-form-field&gt;
+    &lt;button mat-button (click)&#x3D;&quot;extendFilterMenu()&quot; [ngClass]&#x3D;&quot;{&#x27;is-active&#x27;: isFilterExtended}&quot;&gt;
+      &lt;mat-icon&gt;filter_alt&lt;/mat-icon&gt;
+    &lt;/button&gt;
+    &lt;button mat-button (click)&#x3D;&quot;extendSortMenu()&quot; [ngClass]&#x3D;&quot;{&#x27;is-active&#x27;: isSortExtended}&quot;&gt;
+      &lt;mat-icon&gt;sort&lt;/mat-icon&gt;
+    &lt;/button&gt;
+  &lt;/mat-toolbar&gt;
+&lt;/header&gt;
+&lt;main&gt;
+  &lt;ng-container [formGroup]&#x3D;&quot;form&quot;&gt;
+    &lt;ng-container *ngIf&#x3D;&quot;isSortExtended&quot;&gt;
+      &lt;button mat-raised-button (click)&#x3D;&quot;handleSortDirection()&quot;&gt;
+        &lt;mat-icon&gt;{{ sortArrows[activeArrow] }}&lt;/mat-icon&gt;
+      &lt;/button&gt;
+      &lt;mat-form-field appearance&#x3D;&quot;outline&quot; class&#x3D;&quot;filter-form&quot;&gt;
+        &lt;mat-label&gt;Sortieren nach&lt;/mat-label&gt;
+        &lt;mat-select
+          formControlName&#x3D;&quot;sort&quot;
+          (selectionChange)&#x3D;&quot;handleSortValueChange($event)&quot;
+        &gt;
+          &lt;mat-option value&#x3D;&quot;name&quot;&gt;Name&lt;/mat-option&gt;
+          &lt;mat-option value&#x3D;&quot;pricePerDay&quot;&gt;Preis&lt;/mat-option&gt;
+          &lt;mat-option value&#x3D;&quot;size&quot;&gt;Größe&lt;/mat-option&gt;
+        &lt;/mat-select&gt;
+      &lt;/mat-form-field&gt;
+    &lt;/ng-container&gt;
+    &lt;ng-container *ngIf&#x3D;&quot;isFilterExtended&quot; class&#x3D;&quot;filter&quot;&gt;
+      &lt;mat-form-field appearance&#x3D;&quot;outline&quot; [style.width.%]&#x3D;&quot;100&quot; class&#x3D;&quot;filter-form&quot;&gt;
+        &lt;mat-label&gt;Thema&lt;/mat-label&gt;
+        &lt;mat-select
+          formControlName&#x3D;&quot;themes&quot;
+          multiple
+          (selectionChange)&#x3D;&quot;selectChangeTheme($event)&quot;
+        &gt;
+          &lt;mat-option *ngFor&#x3D;&quot;let theme of themes&quot; [value]&#x3D;&quot;theme&quot;&gt;{{
+            theme
+          }}&lt;/mat-option&gt;
+        &lt;/mat-select&gt;
+      &lt;/mat-form-field&gt;
+      &lt;mat-form-field appearance&#x3D;&quot;outline&quot; [style.width.%]&#x3D;&quot;100&quot; class&#x3D;&quot;filter-form&quot;&gt;
+        &lt;mat-label&gt;Größe&lt;/mat-label&gt;
+        &lt;mat-select
+          formControlName&#x3D;&quot;sizes&quot;
+          multiple
+          (selectionChange)&#x3D;&quot;selectChangeSize($event)&quot;
+        &gt;
+          &lt;mat-option *ngFor&#x3D;&quot;let size of sizes&quot; [value]&#x3D;&quot;size&quot;&gt;{{
+            size
+          }}&lt;/mat-option&gt;
+        &lt;/mat-select&gt;
+      &lt;/mat-form-field&gt;
+      &lt;mat-form-field appearance&#x3D;&quot;outline&quot; [style.width.%]&#x3D;&quot;100&quot; class&#x3D;&quot;filter-form&quot;&gt;
+        &lt;mat-label&gt;min. Preis&lt;/mat-label&gt;
+        &lt;input
+          type&#x3D;&quot;number&quot;
+          matInput
+          formControlName&#x3D;&quot;minPrice&quot;
+          (keyup)&#x3D;&quot;inputChangeMin($event)&quot;
+        /&gt;
+      &lt;/mat-form-field&gt;
+      &lt;mat-form-field appearance&#x3D;&quot;outline&quot; [style.width.%]&#x3D;&quot;100&quot; class&#x3D;&quot;filter-form&quot;&gt;
+        &lt;mat-label&gt;max. Preis&lt;/mat-label&gt;
+        &lt;input
+          type&#x3D;&quot;number&quot;
+          matInput
+          formControlName&#x3D;&quot;maxPrice&quot;
+          (keyup)&#x3D;&quot;inputChangeMax($event)&quot;
+        /&gt;
+      &lt;/mat-form-field&gt;
+      &lt;mat-form-field appearance&#x3D;&quot;outline&quot; [style.width.%]&#x3D;&quot;100&quot; class&#x3D;&quot;filter-form&quot;&gt;
+        &lt;mat-label&gt;Strom&lt;/mat-label&gt;
+        &lt;mat-select
+          formControlName&#x3D;&quot;withPowerConnection&quot;
+          multiple
+          (selectionChange)&#x3D;&quot;selectChangePower($event)&quot;
+        &gt;
+          &lt;mat-option [value]&#x3D;&quot;true&quot;&gt;mit Stromanschluss&lt;/mat-option&gt;
+          &lt;mat-option [value]&#x3D;&quot;false&quot;&gt;ohne Stromanschluss&lt;/mat-option&gt;
+        &lt;/mat-select&gt;
+      &lt;/mat-form-field&gt;
+    &lt;/ng-container&gt;
+  &lt;/ng-container&gt;
+
+  &lt;ng-content&gt;&lt;/ng-content&gt;
+&lt;/main&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./filter-bar.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">@import &quot;src/theme.scss&quot;;
+
+.filterToolbar {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-around;
+  padding: 2em;
+
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc; /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow: 3px 3px 5px 6px #ccc; /* Firefox 3.5 - 3.6 */
+  box-shadow: 2px 2px 4px 5px #ccc; /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+
+  button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    span {
+      display: block;
+    }
+  }
+
+  .is-active{
+    color: mat-color($my-accent);
+  }
+}
+
+#search {
+  margin-top: 15px;
+  font-size: 12px;
+  width: 250px;
+}
+
+main {
+  padding-top: 85px;
+  padding-bottom: 85px;
+  background-color: #ccc;
+
+  mat-form-field {
+    font-size: 11px;
+    box-sizing: border-box;
+    margin: 5px 0;
+  }
+
+  button {
+    margin: 5px 50px 5px 10px;
+  }
+
+  .filter {
+    mat-form-field {
+      width: 100%;
+    }
+  }
+
+  :host ::ng-deep .mat-form-field-appearance-outline {
+    background: white !important;
+  }
+}
+
+//input outline color
+:host::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: white!important;
+    // opacity: 1!important;
+}
+
+//mat-input focused color
+:host ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: white!important;
+}
+
+// mat-input error outline color
+:host ::ng-deep .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick{
+    color: white!important;
+    opacity: 0.8!important;
+}
+
+// mat-input carent color
+::ng-deep .mat-input-element {
+    caret-color: white!important;
+}
+
+// mat-input error carent color
+:host ::ng-deep .mat-form-field-invalid .mat-input-element, .mat-warn .mat-input-element {
+    caret-color: white!important;
+}
+
+
+// mat-label focused style
+:host ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+    color: white!important;
+}
+
+// mat-label error style
+:host ::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+    color: white!important;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><header>  <mat-toolbar class="filterToolbar" color="primary">    <mat-form-field appearance="outline" id="search" class="filter-form">      <mat-label>Suche</mat-label>      <input matInput (keyup)="handleSearchFilter($event)" #input />    </mat-form-field>    <button mat-button (click)="extendFilterMenu()" [ngClass]="{\'is-active\': isFilterExtended}">      <mat-icon>filter_alt</mat-icon>    </button>    <button mat-button (click)="extendSortMenu()" [ngClass]="{\'is-active\': isSortExtended}">      <mat-icon>sort</mat-icon>    </button>  </mat-toolbar></header><main>  <ng-container [formGroup]="form">    <ng-container *ngIf="isSortExtended">      <button mat-raised-button (click)="handleSortDirection()">        <mat-icon>{{ sortArrows[activeArrow] }}</mat-icon>      </button>      <mat-form-field appearance="outline" class="filter-form">        <mat-label>Sortieren nach</mat-label>        <mat-select          formControlName="sort"          (selectionChange)="handleSortValueChange($event)"        >          <mat-option value="name">Name</mat-option>          <mat-option value="pricePerDay">Preis</mat-option>          <mat-option value="size">Größe</mat-option>        </mat-select>      </mat-form-field>    </ng-container>    <ng-container *ngIf="isFilterExtended" class="filter">      <mat-form-field appearance="outline" [style.width.%]="100" class="filter-form">        <mat-label>Thema</mat-label>        <mat-select          formControlName="themes"          multiple          (selectionChange)="selectChangeTheme($event)"        >          <mat-option *ngFor="let theme of themes" [value]="theme">{{            theme          }}</mat-option>        </mat-select>      </mat-form-field>      <mat-form-field appearance="outline" [style.width.%]="100" class="filter-form">        <mat-label>Größe</mat-label>        <mat-select          formControlName="sizes"          multiple          (selectionChange)="selectChangeSize($event)"        >          <mat-option *ngFor="let size of sizes" [value]="size">{{            size          }}</mat-option>        </mat-select>      </mat-form-field>      <mat-form-field appearance="outline" [style.width.%]="100" class="filter-form">        <mat-label>min. Preis</mat-label>        <input          type="number"          matInput          formControlName="minPrice"          (keyup)="inputChangeMin($event)"        />      </mat-form-field>      <mat-form-field appearance="outline" [style.width.%]="100" class="filter-form">        <mat-label>max. Preis</mat-label>        <input          type="number"          matInput          formControlName="maxPrice"          (keyup)="inputChangeMax($event)"        />      </mat-form-field>      <mat-form-field appearance="outline" [style.width.%]="100" class="filter-form">        <mat-label>Strom</mat-label>        <mat-select          formControlName="withPowerConnection"          multiple          (selectionChange)="selectChangePower($event)"        >          <mat-option [value]="true">mit Stromanschluss</mat-option>          <mat-option [value]="false">ohne Stromanschluss</mat-option>        </mat-select>      </mat-form-field>    </ng-container>  </ng-container>  <ng-content></ng-content></main></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthPage', 'selector': 'app-auth'},{'name': 'BouncyHouseCardComponent', 'selector': 'app-bouncy-house-card'},{'name': 'BouncyHouseDetailComponent', 'selector': 'app-bouncy-house-detail'},{'name': 'BouncyHouseListComponent', 'selector': 'app-bouncy-house-list'},{'name': 'BouncyHouseListComponent', 'selector': 'app-bouncy-house-list'},{'name': 'BouncyHousePage', 'selector': 'app-bouncy-house'},{'name': 'EmptyFavouritesComponent', 'selector': 'app-empty-favourites'},{'name': 'FavouriteBarComponent', 'selector': 'app-favourite-bar'},{'name': 'FavouritePage', 'selector': 'app-favourite'},{'name': 'FavouriteToggleComponent', 'selector': 'app-favourite-toggle'},{'name': 'FilterBarComponent', 'selector': 'app-filter-bar'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'IconWithTextComponent', 'selector': 'app-icon-with-text'},{'name': 'LoginPage', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'ProfileBarComponent', 'selector': 'app-profile-bar'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'RatingCardComponent', 'selector': 'app-rating-card'},{'name': 'RatingListComponent', 'selector': 'app-rating-list'},{'name': 'RatingListComponent', 'selector': 'app-rating-list'},{'name': 'RatingPreviewComponent', 'selector': 'app-rating-preview'},{'name': 'RegisterPage', 'selector': 'app-register'},{'name': 'RentedCardComponent', 'selector': 'app-rented-card'},{'name': 'RentedListComponent', 'selector': 'app-rented-list'},{'name': 'RentingDetailComponent', 'selector': 'app-renting-detail'},{'name': 'RentingFormComponent', 'selector': 'app-renting-form'},{'name': 'RentingPage', 'selector': 'app-renting'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'FilterBarComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'FilterBarComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -45,7 +45,7 @@ public class BouncyHouseResource {
         );
     }
                 
-    @GetMapping("/visible")
+    @GetMapping("/visible")   
     public ResponseEntity<Response> getVisibleBouncyHouses() {
         return ResponseEntity.ok(Response.builder()
                 .timeStamp(now())
