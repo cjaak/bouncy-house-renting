@@ -4,6 +4,9 @@ import lombok.*;
 
 import javax.persistence.*;
 
+/**
+ * Model, to represent a rating related to an rented entry
+ */
 @Entity
 @Getter
 @Setter

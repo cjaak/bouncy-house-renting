@@ -1,5 +1,8 @@
 package com.fhdwapp.appbackend.enumeration;
 
+/**
+ * Enum, that consists of the available themes a bouncy house can have
+ */
 public enum BouncyHouseTheme {
 
     Tier("Tier"),

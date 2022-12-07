@@ -6,6 +6,9 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
 
+/**
+ * Model, that represents a user
+ */
 @Entity
 @Getter
 @Setter

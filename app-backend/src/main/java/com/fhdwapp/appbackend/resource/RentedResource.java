@@ -15,12 +15,20 @@ import static java.util.Map.of;
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.OK;
 
+/**
+ * The type Rented resource.
+ */
 @RestController
 @RequestMapping("/rented")
 @RequiredArgsConstructor
 public class RentedResource {
     private final RentedServiceImpl rentedService;
 
+    /**
+     * Gets rented entries.
+     *
+     * @return the rented entries
+     */
     @GetMapping("")
     public ResponseEntity<Response> getRentedEntries() {
         return ResponseEntity.ok(Response.builder()
@@ -33,6 +41,12 @@ public class RentedResource {
         );
     }
 
+    /**
+     * Gets rented entry.
+     *
+     * @param id the id
+     * @return the rented entry
+     */
     @GetMapping("/{id}")
     public ResponseEntity<Response> getRentedEntry(@PathVariable("id") Long id) {
         return ResponseEntity.ok(Response.builder()
@@ -46,6 +60,12 @@ public class RentedResource {
     }
 
 
+    /**
+     * Gets rented entries by user.
+     *
+     * @param id the id
+     * @return the rented entries by user
+     */
     @GetMapping("/user/{id}")
     public ResponseEntity<Response> getRentedEntriesByUser(@PathVariable("id") Long id) {
         return ResponseEntity.ok(Response.builder()
@@ -58,6 +78,12 @@ public class RentedResource {
         );
     }
 
+    /**
+     * Gets rented entries by bouncy house.
+     *
+     * @param id the id
+     * @return the rented entries by bouncy house
+     */
     @GetMapping("/bouncy-house/{id}")
     public ResponseEntity<Response> getRentedEntriesByBouncyHouse(@PathVariable("id") Long id) {
         return ResponseEntity.ok(Response.builder()
@@ -70,6 +96,12 @@ public class RentedResource {
         );
     }
 
+    /**
+     * Save rented entry response entity.
+     *
+     * @param rented the rented
+     * @return the response entity
+     */
     @PostMapping("/save")
     public ResponseEntity<Response> saveRentedEntry(@RequestBody @Valid Rented rented) {
         return ResponseEntity.ok(Response.builder()
@@ -82,6 +114,11 @@ public class RentedResource {
         );
     }
 
+    /**
+     * Gets rented entries in use.
+     *
+     * @return the rented entries in use
+     */
     @GetMapping("/in-use")
     public ResponseEntity<Response> getRentedEntriesInUse() {
         return ResponseEntity.ok(Response.builder()
@@ -94,6 +131,11 @@ public class RentedResource {
         );
     }
 
+    /**
+     * Gets rented entries new.
+     *
+     * @return the rented entries new
+     */
     @GetMapping("/new")
     public ResponseEntity<Response> getRentedEntriesNew() {
         return ResponseEntity.ok(Response.builder()

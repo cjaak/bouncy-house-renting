@@ -14,6 +14,9 @@ import java.util.Optional;
 
 import static java.lang.Boolean.*;
 
+/**
+ * The type Favourite service.
+ */
 @RequiredArgsConstructor
 @Service
 @Transactional

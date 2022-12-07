@@ -15,6 +15,9 @@ import java.util.Optional;
 
 import static java.lang.Boolean.*;
 
+/**
+ * The type User service.
+ */
 @RequiredArgsConstructor
 @Service
 @Transactional

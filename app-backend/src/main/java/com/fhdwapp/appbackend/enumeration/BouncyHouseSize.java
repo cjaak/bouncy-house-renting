@@ -1,5 +1,8 @@
 package com.fhdwapp.appbackend.enumeration;
 
+/**
+ * Enum that consists of the sizes a bouncy house ca have
+ */
 public enum BouncyHouseSize {
     S("S"),
     M("M"),

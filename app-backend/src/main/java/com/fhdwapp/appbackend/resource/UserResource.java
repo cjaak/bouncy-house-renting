@@ -16,12 +16,20 @@ import static java.util.Map.of;
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.OK;
 
+/**
+ * The type User resource.
+ */
 @RestController
 @RequestMapping("/user")
 @RequiredArgsConstructor
 public class UserResource {
     private final UserServiceImpl userService;
 
+    /**
+     * Gets users.
+     *
+     * @return the users
+     */
     @GetMapping("")
     public ResponseEntity<Response> getUsers() {
         return ResponseEntity.ok(Response.builder()
@@ -34,6 +42,12 @@ public class UserResource {
         );
     }
 
+    /**
+     * Save user response entity.
+     *
+     * @param user the user
+     * @return the response entity
+     */
     @PostMapping("/save")
     public ResponseEntity<Response> saveUser(@RequestBody @Valid User user) {
         return ResponseEntity.ok(Response.builder()
@@ -46,6 +60,13 @@ public class UserResource {
         );
     }
 
+    /**
+     * Update user response entity.
+     *
+     * @param id   the id
+     * @param user the user
+     * @return the response entity
+     */
     @PostMapping("/{id}}")
     public ResponseEntity<Response> updateUser(@PathVariable("id") Long id, @RequestBody @Valid User user) {
         return ResponseEntity.ok(Response.builder()
@@ -59,6 +80,12 @@ public class UserResource {
     }
 
 
+    /**
+     * Gets user.
+     *
+     * @param id the id
+     * @return the user
+     */
     @GetMapping("/{id}")
     public ResponseEntity<Response> getUser(@PathVariable("id") Long id) {
         return ResponseEntity.ok(Response.builder()
@@ -72,6 +99,12 @@ public class UserResource {
     }
 
 
+    /**
+     * Login response entity.
+     *
+     * @param json the json
+     * @return the response entity
+     */
     @GetMapping("/login")
     public ResponseEntity<Response> login(@RequestBody Map<String, String> json) {
         String email = json.get("email");
@@ -86,6 +119,12 @@ public class UserResource {
         );
     }
 
+    /**
+     * Login user response entity.
+     *
+     * @param json the json
+     * @return the response entity
+     */
     @PostMapping("/login")
     public ResponseEntity<Response> loginUser(@RequestBody Map<String, String> json) {
         String email = json.get("email");
@@ -100,6 +139,12 @@ public class UserResource {
         );
     }
 
+    /**
+     * Delete user response entity.
+     *
+     * @param id the id
+     * @return the response entity
+     */
     @DeleteMapping("/{id}")
     public ResponseEntity<Response> deleteUser(@PathVariable("id") Long id) {
         return ResponseEntity.ok(Response.builder()

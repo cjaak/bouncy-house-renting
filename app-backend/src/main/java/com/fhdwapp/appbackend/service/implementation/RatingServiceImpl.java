@@ -13,6 +13,9 @@ import javax.transaction.Transactional;
 import java.util.Collection;
 import java.util.Optional;
 
+/**
+ * The type Rating service.
+ */
 @RequiredArgsConstructor
 @Service
 @Transactional

@@ -16,6 +16,9 @@ import java.util.*;
 
 import static java.lang.Boolean.*;
 
+/**
+ * The type Bouncy house service.
+ */
 @RequiredArgsConstructor
 @Service
 @Transactional

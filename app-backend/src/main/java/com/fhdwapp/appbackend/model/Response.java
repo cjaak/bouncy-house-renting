@@ -10,6 +10,9 @@ import java.util.Map;
 
 import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 
+/**
+ * This is the model that gets filled with data to send as a response via the rest controller
+ */
 @Data
 @SuperBuilder
 @JsonInclude(NON_NULL)

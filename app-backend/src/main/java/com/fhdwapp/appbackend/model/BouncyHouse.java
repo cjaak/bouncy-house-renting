@@ -9,7 +9,9 @@ import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
 
-
+/**
+ * Model, to represent a bouncy house
+ */
 @Entity
 @Getter
 @Setter

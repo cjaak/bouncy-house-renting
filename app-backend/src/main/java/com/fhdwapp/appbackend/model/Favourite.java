@@ -4,6 +4,9 @@ import lombok.*;
 
 import javax.persistence.*;
 
+/**
+ * Model to represent the favourite relationship between a bouncy house and an user
+ */
 @Entity
 @Getter
 @Setter

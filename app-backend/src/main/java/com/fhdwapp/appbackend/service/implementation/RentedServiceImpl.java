@@ -13,6 +13,9 @@ import java.util.Collection;
 
 import static java.lang.Boolean.TRUE;
 
+/**
+ * The type Rented service.
+ */
 @RequiredArgsConstructor
 @Service
 @Transactional

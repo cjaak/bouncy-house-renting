@@ -15,6 +15,9 @@ import static java.util.Map.of;
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.OK;
 
+/**
+ * The type Favourite resource.
+ */
 @RestController
 @RequestMapping("/favourite")
 @RequiredArgsConstructor
@@ -22,6 +25,12 @@ public class FavouriteResource {
 
     private final FavouriteServiceImpl favouriteService;
 
+    /**
+     * Gets favourites by user.
+     *
+     * @param id the id
+     * @return the favourites by user
+     */
     @GetMapping("/user/{id}")
     public ResponseEntity<Response> getFavouritesByUser(@PathVariable("id") Long id) {
         return ResponseEntity.ok(Response.builder()
@@ -34,6 +43,12 @@ public class FavouriteResource {
         );
     }
 
+    /**
+     * Gets favourite.
+     *
+     * @param id the id
+     * @return the favourite
+     */
     @GetMapping("/{id}")
     public ResponseEntity<Response> getFavourite(@PathVariable("id") Long id) {
         return ResponseEntity.ok(Response.builder()
@@ -46,6 +61,13 @@ public class FavouriteResource {
         );
     }
 
+    /**
+     * Gets favourite by bouncy house and user.
+     *
+     * @param bouncyHouseId the bouncy house id
+     * @param userId        the user id
+     * @return the favourite by bouncy house and user
+     */
     @GetMapping("/bouncyHouse/{bouncyHouseId}/user/{userId}")
     public ResponseEntity<Response> getFavouriteByBouncyHouseAndUser(@PathVariable("bouncyHouseId") Long bouncyHouseId, @PathVariable("userId") Long userId) {
         return ResponseEntity.ok(Response.builder()
@@ -58,6 +80,12 @@ public class FavouriteResource {
         );
     }
 
+    /**
+     * Save favourite response entity.
+     *
+     * @param favourite the favourite
+     * @return the response entity
+     */
     @PostMapping("/save")
     public ResponseEntity<Response> saveFavourite(@RequestBody @Valid Favourite favourite) {
         return ResponseEntity.ok(Response.builder()
@@ -70,6 +98,12 @@ public class FavouriteResource {
         );
     }
 
+    /**
+     * Delete favourite response entity.
+     *
+     * @param id the id
+     * @return the response entity
+     */
     @DeleteMapping("/{id}")
     public ResponseEntity<Response> deleteFavourite(@PathVariable("id") Long id) {
         return ResponseEntity.ok(Response.builder()
