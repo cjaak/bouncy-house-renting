@@ -188,9 +188,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                         <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-UserModule-b1d0315aaa8cfae879afdc495f3f3f7fe4e467aacfe427feaed33d12fddb066d8380a7fb2fd317a196e836fba5f711e4535bd9402e5b4475c4004058f07c49fa"' :
                                             'id="xs-components-links-module-UserModule-b1d0315aaa8cfae879afdc495f3f3f7fe4e467aacfe427feaed33d12fddb066d8380a7fb2fd317a196e836fba5f711e4535bd9402e5b4475c4004058f07c49fa"' }>
                                             <li class="link">
-                                                <a href="components/UserFormComponent.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >UserFormComponent</a>
-                                            </li>
-                                            <li class="link">
                                                 <a href="components/UserPage.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >UserPage</a>
                                             </li>
                                             <li class="link">
