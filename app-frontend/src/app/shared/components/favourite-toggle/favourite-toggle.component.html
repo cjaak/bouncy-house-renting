@@ -9,7 +9,7 @@
   <ng-container *ngSwitchCase="DataState.LOADED_STATE">
     <mat-icon (click)="toggleFavourite()" fontSet="material-icons-outlined" class="icon">{{icon}}</mat-icon>
   </ng-container>
-  <ng-container *ngSwitchCase="DataState.ERROR_STATE"> ERROR </ng-container>
+  <ng-container *ngSwitchCase="DataState.ERROR_STATE"> Ups, etwas ist schiefgegangen. Fehler: {{appState.error}} </ng-container>
 </ng-container>
 </ng-container>
 
